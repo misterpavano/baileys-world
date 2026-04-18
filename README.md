@@ -12,7 +12,7 @@
 
 ## What this is
 
-A single-page investor site (`index.html`) for Bailey's World / Triangle Senior Dog Barn Sanctuary, plus the full modular business plan that backs it (`plan/`). Built in memory of Bailey — Wally's deaf senior dog, adopted in 2020 after a failed Mississippi transport exposed the shelter system's structural weakness. She got the retirement phase she deserved. We're building this so other senior dogs can too.
+A single-page investor site (`index.html`) for Bailey's World / Triangle Senior Dog Barn Sanctuary, plus the full modular business plan that backs it (`plan/`). Built in memory of Bailey — Wally's senior dog, adopted in 2020 after a failed Mississippi transport exposed the shelter system's structural weakness. She got the retirement phase she deserved. We're building this so other senior dogs can too.
 
 The site thesis, model, and financial build are all self-contained in the page itself. The 9 plan appendices in `/plan/` back every claim with sourced research.
 
@@ -97,4 +97,4 @@ Raleigh Metro, North Carolina
 
 The site code (HTML, CSS, JS) in this repo is MIT-licensed — reuse freely for your own animal-welfare nonprofit. The business plan content, imagery, and brand identity are © Bailey's World, Inc.
 
-*Bailey · the reason this exists · she got the retirement phase she deserved.*
+*Bailey — the reason this exists. She got the retirement phase she deserved.*

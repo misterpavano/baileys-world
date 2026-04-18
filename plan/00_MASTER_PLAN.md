@@ -294,7 +294,7 @@ Bailey's World is betting on a convergence that's not theoretical — it's alrea
 - **The capital is available.** $11.83B in annual U.S. animal-welfare giving (+7.2% YoY). $240M+ AUM at Triangle Community Foundation. SPCA Wake's 8-figure revenue proves Triangle-scale animal-welfare fundraising is not hypothetical.
 - **The precedent exists.** SPCA Wake (22 ac), Paws4Ever (20 ac) validate the footprint and the zoning path in the Triangle. Old Friends SDS, Muttville, Frosted Faces validate the model at scale nationally.
 - **The ask is right-sized.** $1.2M–$3.0M sits inside the senior-dog-sanctuary capital campaign modal range (Shep's Place $900K, Home For Good $3M, Pepper's $5M) — materially smaller than Triangle peers' $27.5M–$44.6M asks.
-- **The founder is real.** Wally lived the product. Six years with Bailey, a deaf senior, adopted from a failed Mississippi transport — every founding narrative anchor is personally verifiable and emotionally authentic.
+- **The founder is real.** Wally lived the product. Six years with Bailey, from adoption through her passing at 15 — every founding narrative anchor is personally verifiable and emotionally authentic.
 - **The model is gated.** Three raises, five checks. No capital commits before its risk is retired.
 
 ---
@@ -352,4 +352,4 @@ Raleigh Metro, North Carolina
 
 *Bailey's World is a North Carolina 501(c)(3) nonprofit corporation (IRS determination pending).*
 
-*Named in memory of Bailey — deaf, food-motivated, housetrained, still trainable. (You CAN teach an old dog new tricks.) 2007–2026. She got the retirement phase she deserved. We're building this so other senior dogs can too.*
+*Named in memory of Bailey. (You CAN teach an old dog new tricks.) She got the retirement phase she deserved. We're building this so other senior dogs can too.*
