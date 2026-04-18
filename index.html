@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bailey's World — Triangle Senior Dog Barn Sanctuary</title>
+<meta name="description" content="A senior-dog sanctuary for North Carolina's Research Triangle, built in memory of Bailey. Phase-one capitalization $1.2M–$3.0M." />
+<meta property="og:title" content="Bailey's World — Every dog deserves a retirement." />
+<meta property="og:description" content="A senior-dog sanctuary for North Carolina's Research Triangle, built in memory of Bailey. Phase-one capitalization $1.2M–$3.0M." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="media/bailey.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%238B2635' d='M12 6c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm8 0c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM7 13c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm18 0c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm-9 3c-3.3 0-6 3.1-6 7 0 2.2 1.8 4 4 4h4c2.2 0 4-1.8 4-4 0-3.9-2.7-7-6-7z'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ————————————————————————————————————————————————
+     Bailey's World — Cinematic Editorial
+     Design tokens + base typography
+     ———————————————————————————————————————————————— */
+  :root {
+    --cream:  #FAF4EB;
+    --paper:  #F2EADE;
+    --bone:   #E8DDCB;
+    --sepia:  #3E2518;
+    --ink:    #1B1713;
+    --oxblood:#8B2635;
+    --oxblood-hover:#A03040;
+    --brass:  #C18F3A;
+    --brass-soft:#E3C88A;
+    --sage:   #6B7F5A;
+    --moss:   #475240;
+    --sky:    #DDE3DA;
+
+    --f-display: 'Fraunces', Georgia, serif;
+    --f-quote:   'Instrument Serif', Georgia, serif;
+    --f-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+    --grain-opacity: 0.07;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--f-display);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Grain overlay — applied to every dark section */
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* Editorial small-caps label */
+  .label {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  /* Pull quote */
+  .quote {
+    font-family: var(--f-quote);
+    font-style: italic;
+    line-height: 1.15;
+  }
+
+  /* Display type — variable Fraunces with optical size */
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.025em; line-height: 0.98; }
+  h1 { font-variation-settings: "opsz" 144, "SOFT" 80; }
+  h2 { font-variation-settings: "opsz" 100, "SOFT" 50; }
+  h3 { font-variation-settings: "opsz" 40, "SOFT" 30; }
+
+  .section {
+    position: relative;
+    padding: 8rem 2rem;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .container--narrow { max-width: 860px; }
+
+  /* ————————————————————————————————————————————————
+     Nav
+     ———————————————————————————————————————————————— */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(27, 23, 19, 0.15);
+    transition: background 0.3s ease, padding 0.3s ease;
+  }
+  .nav.scrolled { background: rgba(250, 244, 235, 0.92); padding: 0.85rem 2rem; box-shadow: 0 1px 0 rgba(27, 23, 19, 0.06); }
+  .nav__logo { font-family: var(--f-display); font-weight: 500; font-size: 1.2rem; color: var(--cream); letter-spacing: -0.02em; transition: color 0.3s ease; }
+  .nav.scrolled .nav__logo { color: var(--ink); }
+  .nav__logo em { font-style: italic; color: var(--brass-soft); }
+  .nav.scrolled .nav__logo em { color: var(--oxblood); }
+  .nav__links { display: flex; gap: 2.25rem; align-items: center; }
+  .nav__link { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cream); text-decoration: none; opacity: 0.85; transition: opacity 0.2s, color 0.3s; }
+  .nav.scrolled .nav__link { color: var(--ink); }
+  .nav__link:hover { opacity: 1; }
+  .nav__cta {
+    font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 0.6rem 1.1rem; border: 1px solid var(--cream); color: var(--cream);
+    text-decoration: none; transition: all 0.25s ease;
+  }
+  .nav.scrolled .nav__cta { border-color: var(--oxblood); color: var(--oxblood); }
+  .nav__cta:hover { background: var(--oxblood); color: var(--cream); border-color: var(--oxblood); }
+  @media (max-width: 768px) {
+    .nav__links { display: none; }
+    .nav__cta { display: inline-block; }
+  }
+
+  /* Side progress rail */
+  .rail {
+    position: fixed; right: 2rem; top: 50%; transform: translateY(-50%);
+    z-index: 60;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    pointer-events: auto;
+  }
+  .rail__dot {
+    display: block; width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(27, 23, 19, 0.25);
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .rail__dot.active { background: var(--oxblood); transform: scale(1.6); }
+  .rail__dot.on-dark { background: rgba(250, 244, 235, 0.35); }
+  .rail__dot.on-dark.active { background: var(--brass); }
+  @media (max-width: 900px) { .rail { display: none; } }
+
+  /* ————————————————————————————————————————————————
+     HERO
+     ———————————————————————————————————————————————— */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    color: var(--cream);
+    display: flex; align-items: flex-end;
+    padding: 6rem 2rem 3.5rem;
+    background:
+      linear-gradient(180deg, rgba(27,23,19,0.4) 0%, rgba(27,23,19,0.35) 40%, rgba(27,23,19,0.85) 100%),
+      linear-gradient(135deg, #3a2a1f 0%, #1b1713 100%);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+  .hero__bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1517849845537-4d257902454a?w=2400&auto=format&q=80');
+    background-size: cover;
+    background-position: center 35%;
+    z-index: 0;
+    filter: brightness(0.55) contrast(1.05) saturate(0.92);
+    transform: scale(1.02);
+    transition: transform 6s ease-out;
+  }
+  .hero.loaded .hero__bg { transform: scale(1.08); }
+  .hero__veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(27,23,19,0.55) 0%, rgba(27,23,19,0.2) 45%, rgba(27,23,19,0.9) 100%);
+    z-index: 1;
+  }
+  .hero__content { position: relative; z-index: 3; width: 100%; max-width: 1280px; margin: 0 auto; }
+  .hero__meta {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 3rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  }
+  .hero__eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.8; }
+  .hero__eyebrow::before { content: '◆ '; color: var(--brass); }
+  .hero__title {
+    font-size: clamp(4rem, 12vw, 11rem);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+  }
+  .hero__title em {
+    font-family: var(--f-quote);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--brass-soft);
+  }
+  .hero__subtitle {
+    font-family: var(--f-quote);
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    line-height: 1.25;
+    max-width: 780px;
+    margin-bottom: 2rem;
+    color: var(--bone);
+  }
+  .hero__foot {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 2rem; flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(250, 244, 235, 0.18);
+  }
+  .hero__ask {
+    font-family: var(--f-mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.75;
+    line-height: 1.8;
+  }
+  .hero__ask strong { color: var(--brass-soft); font-weight: 500; }
+  .hero__scroll {
+    font-family: var(--f-mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    opacity: 0.7;
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    text-decoration: none; color: var(--cream);
+    transition: opacity 0.25s;
+  }
+  .hero__scroll:hover { opacity: 1; }
+  .hero__scroll::after {
+    content: ''; display: block; width: 40px; height: 1px;
+    background: currentColor;
+    animation: scrollLine 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleX(0); transform-origin: left; }
+    50% { transform: scaleX(1); transform-origin: left; }
+    50.01% { transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+  }
+
+  /* ————————————————————————————————————————————————
+     Section chrome
+     ———————————————————————————————————————————————— */
+  .section__label {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 3rem;
+    color: var(--oxblood);
+  }
+  .section__label::before {
+    content: ''; flex: 0 0 24px; height: 1px; background: currentColor;
+  }
+  .section--dark .section__label { color: var(--brass); }
+  .section--dark .section__label::after { display: none; }
+
+  .section--paper   { background: var(--paper); }
+  .section--bone    { background: var(--bone); }
+  .section--sepia   { background: var(--sepia); color: var(--cream); }
+  .section--ink     { background: var(--ink); color: var(--cream); }
+  .section--moss    { background: var(--moss); color: var(--cream); }
+  .section--dark    { color: var(--cream); }
+  .section--dark h2, .section--dark h3 { color: var(--cream); }
+
+  .headline {
+    font-size: clamp(2.6rem, 5.5vw, 5.4rem);
+    line-height: 0.95;
+    margin-bottom: 2rem;
+    letter-spacing: -0.03em;
+  }
+  .headline em { font-family: var(--f-quote); font-style: italic; font-weight: 400; color: var(--oxblood); }
+  .section--dark .headline em { color: var(--brass-soft); }
+
+  .lede {
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+    line-height: 1.55;
+    max-width: 640px;
+    color: var(--sepia);
+    margin-bottom: 3rem;
+  }
+  .section--dark .lede { color: var(--bone); }
+
+  /* ————————————————————————————————————————————————
+     Reveal animation (Intersection Observer)
+     ———————————————————————————————————————————————— */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal--delay-1 { transition-delay: 0.08s; }
+  .reveal--delay-2 { transition-delay: 0.16s; }
+  .reveal--delay-3 { transition-delay: 0.24s; }
+  .reveal--delay-4 { transition-delay: 0.32s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  /* ————————————————————————————————————————————————
+     PROLOGUE — Bailey's story, editorial columns
+     ———————————————————————————————————————————————— */
+  .prologue__grid {
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start;
+  }
+  @media (max-width: 900px) { .prologue__grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .prologue__photo {
+    position: relative; aspect-ratio: 3/4; overflow: hidden;
+    background: var(--sepia);
+  }
+  .prologue__photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.9) contrast(1.05);
+    transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .prologue__photo:hover img { transform: scale(1.04); }
+  .prologue__photo::after {
+    content: attr(data-caption);
+    position: absolute; left: 1.25rem; bottom: 1rem;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cream);
+    background: rgba(27,23,19,0.6); backdrop-filter: blur(6px);
+    padding: 0.4rem 0.7rem;
+  }
+  .prologue__body p { margin-bottom: 1.4rem; font-size: 1.12rem; line-height: 1.7; color: var(--sepia); }
+  .prologue__body p:first-of-type::first-letter {
+    font-family: var(--f-display); font-weight: 400; font-size: 5.2rem;
+    float: left; line-height: 0.85; padding: 0.2rem 0.7rem 0 0;
+    color: var(--oxblood); font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .prologue__pullquote {
+    grid-column: 1 / -1;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    line-height: 1.05;
+    text-align: center;
+    padding: 4rem 1rem 1rem;
+    color: var(--oxblood);
+    max-width: 1000px; margin: 0 auto;
+  }
+  .prologue__pullquote::before, .prologue__pullquote::after {
+    content: '“';
+    display: inline-block; font-size: 1.2em; color: var(--brass); opacity: 0.55;
+    vertical-align: -0.1em; padding: 0 0.15em;
+  }
+  .prologue__pullquote::after { content: '”'; }
+
+  /* ————————————————————————————————————————————————
+     CRISIS — number-led dark section
+     ———————————————————————————————————————————————— */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(250, 244, 235, 0.2);
+    border-bottom: 1px solid rgba(250, 244, 235, 0.2);
+  }
+  @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .stats { grid-template-columns: 1fr; } }
+  .stat {
+    padding: 3rem 1.75rem 2.75rem;
+    border-right: 1px solid rgba(250, 244, 235, 0.15);
+    position: relative;
+  }
+  .stat:last-child { border-right: none; }
+  @media (max-width: 900px) {
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid rgba(250, 244, 235, 0.15); }
+  }
+  .stat__num {
+    font-size: clamp(3rem, 6vw, 5.4rem);
+    line-height: 1;
+    color: var(--brass-soft);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    margin-bottom: 0.9rem;
+  }
+  .stat__num .suffix { font-size: 0.5em; color: var(--brass); letter-spacing: 0; vertical-align: 0.3em; padding-left: 0.12em; }
+  .stat__label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); margin-bottom: 0.5rem; }
+  .stat__body { font-size: 0.98rem; line-height: 1.5; color: var(--bone); max-width: 22ch; }
+  .stat__cite { display: block; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250, 244, 235, 0.45); margin-top: 1rem; }
+
+  .crisis__quote {
+    font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+    line-height: 1.3;
+    color: var(--brass-soft);
+    max-width: 760px;
+    margin: 4rem auto 0;
+    text-align: center;
+  }
+
+  /* ————————————————————————————————————————————————
+     SILVER TSUNAMI — demographic layout
+     ———————————————————————————————————————————————— */
+  .demo__grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 5rem; margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .demo__grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .demo__big {
+    font-size: clamp(5rem, 9vw, 9rem);
+    color: var(--oxblood);
+    line-height: 0.92; letter-spacing: -0.04em; font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  .demo__big em { font-family: var(--f-quote); font-style: italic; font-weight: 400; color: var(--brass); }
+  .demo__caption {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sepia); opacity: 0.75; max-width: 28ch;
+  }
+  .demo__table {
+    width: 100%; border-collapse: collapse; margin-top: 2rem;
+  }
+  .demo__table th, .demo__table td {
+    text-align: left; padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(62, 37, 24, 0.15);
+    font-size: 0.95rem;
+  }
+  .demo__table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oxblood); font-weight: 500; }
+  .demo__table td:first-child { font-weight: 500; }
+  .demo__table td:last-child { text-align: right; font-variant-numeric: tabular-nums; color: var(--sepia); }
+
+  /* ————————————————————————————————————————————————
+     MODEL — hub and spoke
+     ———————————————————————————————————————————————— */
+  .model {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem; margin-top: 3rem; align-items: stretch;
+  }
+  @media (max-width: 900px) { .model { grid-template-columns: 1fr; } }
+  .model__col { padding: 2rem 1.5rem; position: relative; }
+  .model__col--in  { background: rgba(107, 127, 90, 0.15); border: 1px solid rgba(107, 127, 90, 0.35); }
+  .model__col--hub { background: var(--oxblood); color: var(--cream); transform: translateY(-12px); box-shadow: 0 30px 60px -20px rgba(139, 38, 53, 0.55); }
+  .model__col--out { background: rgba(193, 143, 58, 0.12); border: 1px solid rgba(193, 143, 58, 0.38); }
+  .model__col h4 {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 1.25rem; color: var(--oxblood);
+  }
+  .model__col--hub h4 { color: var(--brass-soft); }
+  .model__col--out h4 { color: var(--brass); }
+  .model__col h5 {
+    font-family: var(--f-display); font-size: 1.6rem; font-weight: 400; line-height: 1.15;
+    margin-bottom: 1.25rem; letter-spacing: -0.02em;
+  }
+  .model__col ul { list-style: none; }
+  .model__col li {
+    font-size: 0.98rem; padding: 0.75rem 0; border-bottom: 1px dashed rgba(62, 37, 24, 0.2);
+    display: flex; justify-content: space-between; gap: 0.5rem;
+  }
+  .model__col--hub li { border-bottom-color: rgba(250, 244, 235, 0.2); }
+  .model__col li:last-child { border-bottom: none; }
+  .model__col li span { opacity: 0.65; font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.05em; }
+  .model__scale {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    margin-top: 3rem;
+    background: rgba(62, 37, 24, 0.12);
+    border: 1px solid rgba(62, 37, 24, 0.12);
+  }
+  @media (max-width: 700px) { .model__scale { grid-template-columns: repeat(2, 1fr); } }
+  .model__scale-cell {
+    background: var(--paper);
+    padding: 1.75rem 1.25rem;
+  }
+  .model__scale-cell strong {
+    display: block;
+    font-family: var(--f-display); font-weight: 300; font-size: 2.25rem;
+    color: var(--sepia); line-height: 1; margin-bottom: 0.5rem;
+    font-variation-settings: "opsz" 100;
+  }
+  .model__scale-cell span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oxblood); }
+
+  /* ————————————————————————————————————————————————
+     SITE — 4-county scoring
+     ———————————————————————————————————————————————— */
+  .sites { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  @media (max-width: 1000px) { .sites { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px)  { .sites { grid-template-columns: 1fr; } }
+  .site-card {
+    padding: 2rem 1.5rem; background: var(--cream);
+    border: 1px solid rgba(62, 37, 24, 0.12);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .site-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(62, 37, 24, 0.25); }
+  .site-card--lead { background: var(--sepia); color: var(--cream); border-color: var(--sepia); }
+  .site-card--lead::before {
+    content: 'LEAD'; position: absolute; top: -10px; right: 1rem;
+    background: var(--brass); color: var(--ink);
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.2em;
+    padding: 0.3rem 0.55rem;
+  }
+  .site-card__rank {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--oxblood); margin-bottom: 0.6rem;
+  }
+  .site-card--lead .site-card__rank { color: var(--brass-soft); }
+  .site-card__name { font-size: 1.75rem; line-height: 1; margin-bottom: 0.9rem; letter-spacing: -0.025em; font-weight: 400; }
+  .site-card__score {
+    display: flex; align-items: baseline; gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem; border-bottom: 1px solid rgba(62, 37, 24, 0.15);
+  }
+  .site-card--lead .site-card__score { border-bottom-color: rgba(250, 244, 235, 0.18); }
+  .site-card__score-num {
+    font-family: var(--f-display); font-size: 2.6rem; font-weight: 300;
+    color: var(--oxblood); letter-spacing: -0.03em;
+  }
+  .site-card--lead .site-card__score-num { color: var(--brass-soft); }
+  .site-card__score-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.65; }
+  .site-card__meta { font-size: 0.88rem; line-height: 1.55; opacity: 0.88; }
+  .site-card__meta strong { display: block; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; opacity: 1; color: inherit; }
+  .site-card__meta em { color: var(--oxblood); font-style: normal; font-weight: 500; }
+  .site-card--lead .site-card__meta em { color: var(--brass-soft); }
+
+  /* ————————————————————————————————————————————————
+     NUMBERS — scenario toggle
+     ———————————————————————————————————————————————— */
+  .scenarios { margin-top: 3rem; }
+  .scenarios__toggle {
+    display: inline-flex; gap: 0;
+    padding: 4px; background: rgba(62, 37, 24, 0.1);
+    border-radius: 999px; margin-bottom: 3rem;
+  }
+  .scenarios__btn {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.7rem 1.4rem; border: none; background: transparent; color: var(--sepia);
+    cursor: pointer; border-radius: 999px; transition: all 0.25s;
+  }
+  .scenarios__btn.active { background: var(--oxblood); color: var(--cream); }
+  .scenarios__table {
+    width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums;
+  }
+  .scenarios__table th, .scenarios__table td {
+    text-align: right; padding: 1.15rem 0.75rem;
+    border-bottom: 1px solid rgba(62, 37, 24, 0.12);
+    font-size: 1rem;
+  }
+  .scenarios__table th:first-child, .scenarios__table td:first-child { text-align: left; font-weight: 500; }
+  .scenarios__table thead th {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--oxblood); border-bottom: 1px solid var(--oxblood); font-weight: 500;
+  }
+  .scenarios__table tr.total td {
+    font-weight: 500; border-top: 1px solid var(--oxblood); border-bottom: none;
+    padding-top: 1.3rem;
+  }
+  .scenarios__table tr.total td:first-child { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oxblood); }
+  .scenarios__table tr.surplus td { color: var(--sage); font-variant-numeric: tabular-nums; font-weight: 500; }
+
+  /* ————————————————————————————————————————————————
+     CAPITAL STACK — naming ladder
+     ———————————————————————————————————————————————— */
+  .stack { margin-top: 3rem; display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+  @media (max-width: 900px) { .stack { grid-template-columns: 1fr; gap: 3rem; } }
+  .ladder { display: flex; flex-direction: column; gap: 2px; }
+  .ladder__rung {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.3rem 1.5rem;
+    border-left: 3px solid transparent;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    cursor: default;
+  }
+  .ladder__rung:hover { border-left-color: var(--oxblood); background: var(--paper); transform: translateX(4px); }
+  .ladder__amount { font-family: var(--f-display); font-size: 1.7rem; font-weight: 300; color: var(--oxblood); letter-spacing: -0.025em; line-height: 1; font-variation-settings: "opsz" 100; }
+  .ladder__tier { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sepia); opacity: 0.75; margin-top: 0.4rem; }
+  .ladder__buys { font-size: 0.92rem; color: var(--sepia); text-align: right; max-width: 22ch; line-height: 1.4; }
+  .stack__aside { background: var(--sepia); color: var(--cream); padding: 2.5rem 2rem; }
+  .stack__aside-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-bottom: 1rem; }
+  .stack__aside h3 { font-size: 1.9rem; margin-bottom: 1.25rem; letter-spacing: -0.02em; font-weight: 400; line-height: 1.08; }
+  .stack__aside p { font-size: 0.98rem; color: var(--bone); margin-bottom: 1.25rem; line-height: 1.55; }
+  .stack__aside ul { list-style: none; }
+  .stack__aside li { padding: 0.6rem 0; border-bottom: 1px dashed rgba(250, 244, 235, 0.18); display: flex; justify-content: space-between; font-size: 0.92rem; }
+  .stack__aside li:last-child { border-bottom: none; }
+  .stack__aside li span { color: var(--brass-soft); font-family: var(--f-mono); font-size: 0.82rem; }
+
+  /* ————————————————————————————————————————————————
+     GATES — 3-stage timeline
+     ———————————————————————————————————————————————— */
+  .gates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; position: relative; }
+  @media (max-width: 900px) { .gates { grid-template-columns: 1fr; } }
+  .gate {
+    padding: 2.25rem 2rem 2.5rem;
+    position: relative;
+    border-left: 1px solid rgba(250, 244, 235, 0.18);
+  }
+  .gate:first-child { border-left: none; }
+  @media (max-width: 900px) {
+    .gate { border-left: none; border-top: 1px solid rgba(250, 244, 235, 0.18); }
+    .gate:first-child { border-top: none; }
+  }
+  .gate__num {
+    font-family: var(--f-display); font-size: 4.5rem; font-weight: 300; color: var(--brass);
+    line-height: 1; margin-bottom: 1.5rem; letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+  .gate__label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); margin-bottom: 0.4rem; }
+  .gate__name { font-size: 1.5rem; font-weight: 400; margin-bottom: 0.6rem; letter-spacing: -0.02em; color: var(--cream); }
+  .gate__amt { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.15em; color: var(--brass-soft); margin-bottom: 1.5rem; }
+  .gate__body { color: var(--bone); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.75rem; }
+  .gate__checks { list-style: none; }
+  .gate__checks li {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    font-size: 0.85rem; color: var(--bone);
+    padding: 0.5rem 0;
+  }
+  .gate__checks li::before {
+    content: '✓'; color: var(--sage); font-weight: 500; flex: 0 0 16px;
+  }
+
+  /* ————————————————————————————————————————————————
+     TEAM
+     ———————————————————————————————————————————————— */
+  .team { display: grid; grid-template-columns: 1fr 1.25fr; gap: 4rem; align-items: start; }
+  @media (max-width: 900px) { .team { grid-template-columns: 1fr; } }
+  .team__card {
+    background: var(--paper); padding: 2.5rem 2rem;
+    border: 1px solid rgba(62, 37, 24, 0.1);
+  }
+  .team__card-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 0.8rem; }
+  .team__card h3 { font-size: 2rem; font-weight: 400; margin-bottom: 1.25rem; letter-spacing: -0.02em; line-height: 1.05; }
+  .team__card p { font-size: 0.98rem; line-height: 1.6; color: var(--sepia); margin-bottom: 1rem; }
+  .team__card .quote {
+    padding: 1.25rem 0 0 1rem; border-left: 2px solid var(--oxblood);
+    font-size: 1.1rem; color: var(--oxblood); margin-top: 1.5rem;
+  }
+  .roadmap__title { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 1.5rem; }
+  .roadmap { list-style: none; }
+  .roadmap li {
+    display: grid; grid-template-columns: 90px 1fr auto; gap: 1rem;
+    padding: 1rem 0; border-bottom: 1px dashed rgba(62, 37, 24, 0.2);
+    align-items: baseline;
+  }
+  .roadmap li strong { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--oxblood); }
+  .roadmap li span { font-size: 1rem; color: var(--sepia); }
+  .roadmap li em { font-family: var(--f-mono); font-style: normal; font-size: 0.82rem; color: var(--sepia); opacity: 0.7; letter-spacing: 0.05em; }
+
+  /* ————————————————————————————————————————————————
+     ASK — form finale
+     ———————————————————————————————————————————————— */
+  .ask { position: relative; }
+  .ask__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=2400&auto=format&q=80');
+    background-size: cover; background-position: center;
+    filter: brightness(0.35) saturate(0.85);
+    opacity: 0.5;
+  }
+  .ask__veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(27,23,19,0.85) 0%, rgba(27,23,19,0.98) 70%);
+    z-index: 1;
+  }
+  .ask__inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+  .ask__grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start;
+  }
+  @media (max-width: 900px) { .ask__grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .ask__pitch h2 { font-size: clamp(2.8rem, 6vw, 5rem); line-height: 0.95; color: var(--cream); letter-spacing: -0.03em; margin-bottom: 2rem; font-weight: 300; }
+  .ask__pitch h2 em { font-family: var(--f-quote); font-style: italic; font-weight: 400; color: var(--brass-soft); }
+  .ask__pitch p { color: var(--bone); font-size: 1.1rem; line-height: 1.65; margin-bottom: 1.25rem; max-width: 44ch; }
+  .ask__pitch .quote { color: var(--brass-soft); font-size: 1.45rem; margin-top: 2rem; padding-left: 1rem; border-left: 2px solid var(--brass); }
+
+  .form {
+    background: rgba(250, 244, 235, 0.04);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(250, 244, 235, 0.14);
+    padding: 2.5rem 2rem;
+  }
+  .form__label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-bottom: 1.25rem; }
+  .form__title { font-size: 1.8rem; color: var(--cream); margin-bottom: 1.5rem; font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; }
+  .form__field { margin-bottom: 1.25rem; }
+  .form__field label {
+    display: block; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--brass-soft); margin-bottom: 0.5rem;
+  }
+  .form__field input, .form__field textarea, .form__field select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(250, 244, 235, 0.28);
+    padding: 0.75rem 0;
+    color: var(--cream);
+    font-family: var(--f-display); font-size: 1.05rem;
+    transition: border-color 0.25s;
+    border-radius: 0;
+  }
+  .form__field input:focus, .form__field textarea:focus, .form__field select:focus {
+    outline: none; border-bottom-color: var(--brass);
+  }
+  .form__field textarea { resize: vertical; min-height: 70px; font-family: var(--f-display); }
+  .form__tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem; }
+  @media (max-width: 540px) { .form__tiers { grid-template-columns: 1fr; } }
+  .form__tier {
+    display: block; position: relative; cursor: pointer;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(250, 244, 235, 0.22);
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .form__tier input { position: absolute; opacity: 0; }
+  .form__tier strong { display: block; font-family: var(--f-display); font-size: 1rem; color: var(--cream); font-weight: 500; margin-bottom: 0.2rem; }
+  .form__tier span { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brass-soft); }
+  .form__tier:has(input:checked) { border-color: var(--brass); background: rgba(193, 143, 58, 0.12); }
+  .form__submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 1.1rem 1.5rem;
+    background: var(--oxblood); color: var(--cream);
+    border: none;
+    font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.25s, transform 0.15s;
+  }
+  .form__submit:hover { background: var(--oxblood-hover); }
+  .form__submit:active { transform: scale(0.99); }
+  .form__note { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; color: rgba(250, 244, 235, 0.55); margin-top: 1rem; line-height: 1.5; }
+
+  /* ————————————————————————————————————————————————
+     FOOTER
+     ———————————————————————————————————————————————— */
+  footer {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 5rem 2rem 2rem;
+    position: relative;
+  }
+  .foot__top {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(250, 244, 235, 0.12);
+  }
+  @media (max-width: 900px) { .foot__top { grid-template-columns: 1fr; gap: 2rem; } }
+  .foot__brand h3 { font-size: 2.2rem; font-weight: 400; color: var(--cream); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .foot__brand h3 em { font-family: var(--f-quote); font-style: italic; color: var(--brass-soft); }
+  .foot__brand p { max-width: 34ch; font-size: 0.95rem; line-height: 1.55; color: rgba(250, 244, 235, 0.65); }
+  .foot__col h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-bottom: 1rem; font-weight: 500; }
+  .foot__col ul { list-style: none; }
+  .foot__col li { padding: 0.3rem 0; font-size: 0.92rem; }
+  .foot__col a { color: var(--bone); text-decoration: none; transition: color 0.2s; }
+  .foot__col a:hover { color: var(--brass-soft); }
+  .foot__bottom {
+    max-width: 1280px; margin: 2rem auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(250, 244, 235, 0.45);
+  }
+  .foot__bottom a { color: inherit; text-decoration: none; }
+  .foot__bottom a:hover { color: var(--brass-soft); }
+
+  /* Utility */
+  .divider-mark {
+    display: block; width: 40px; height: 1px; background: var(--oxblood);
+    margin: 2rem 0;
+  }
+  .section--dark .divider-mark { background: var(--brass); }
+
+  /* Numerical suffix helpers */
+  sup { font-size: 0.55em; vertical-align: 0.4em; opacity: 0.7; padding-left: 0.15em; }
+
+  /* Custom selection */
+  ::selection { background: var(--oxblood); color: var(--cream); }
+
+</style>
+</head>
+<body>
+
+<!-- ————————————————————————————————————————————————
+     NAV
+     ———————————————————————————————————————————————— -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav__logo">Bailey's <em>World</em></a>
+  <div class="nav__links">
+    <a href="#prologue" class="nav__link">Prologue</a>
+    <a href="#crisis" class="nav__link">The Crisis</a>
+    <a href="#model" class="nav__link">Model</a>
+    <a href="#numbers" class="nav__link">Numbers</a>
+    <a href="#gates" class="nav__link">Gates</a>
+    <a href="#ask" class="nav__link">The Ask</a>
+  </div>
+  <a href="#ask" class="nav__cta">Join the Circle</a>
+</nav>
+
+<!-- Side rail progress indicator -->
+<nav class="rail" aria-label="Section progress" id="rail">
+  <a href="#top" class="rail__dot" data-section="hero" title="Hero"></a>
+  <a href="#prologue" class="rail__dot" data-section="prologue" title="Prologue"></a>
+  <a href="#crisis" class="rail__dot" data-section="crisis" title="The Crisis"></a>
+  <a href="#tsunami" class="rail__dot" data-section="tsunami" title="Silver Tsunami"></a>
+  <a href="#model" class="rail__dot" data-section="model" title="The Model"></a>
+  <a href="#site" class="rail__dot" data-section="site" title="The Site"></a>
+  <a href="#numbers" class="rail__dot" data-section="numbers" title="The Numbers"></a>
+  <a href="#stack" class="rail__dot" data-section="stack" title="Capital Stack"></a>
+  <a href="#gates" class="rail__dot" data-section="gates" title="The Gates"></a>
+  <a href="#team" class="rail__dot" data-section="team" title="The Team"></a>
+  <a href="#ask" class="rail__dot" data-section="ask" title="The Ask"></a>
+</nav>
+
+<!-- ————————————————————————————————————————————————
+     HERO
+     ———————————————————————————————————————————————— -->
+<header class="hero grain" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__veil"></div>
+  <div class="hero__content">
+    <div class="hero__meta">
+      <span class="hero__eyebrow">Triangle Senior Dog Barn Sanctuary · est. 2026</span>
+      <span class="hero__eyebrow">In memory of Bailey · 2007–2026</span>
+    </div>
+    <h1 class="hero__title">Bailey's<br/><em>World.</em></h1>
+    <p class="hero__subtitle">A flagship sanctuary for the Triangle's senior dogs&nbsp;— and the retirement phase every one of them deserves.</p>
+    <div class="hero__foot">
+      <div class="hero__ask">
+        Phase-one capitalization<br/>
+        <strong>$1.2M – $3.0M</strong><br/>
+        Orange · Durham · Chatham<br/>North Carolina's Research Triangle
+      </div>
+      <a href="#prologue" class="hero__scroll">Read the story</a>
+    </div>
+  </div>
+</header>
+
+<!-- ————————————————————————————————————————————————
+     PROLOGUE — Bailey's story
+     ———————————————————————————————————————————————— -->
+<section class="section section--paper" id="prologue">
+  <div class="container">
+    <div class="section__label label reveal"><span>I &nbsp;·&nbsp; Prologue</span></div>
+    <div class="prologue__grid">
+      <figure class="prologue__photo reveal" data-caption="Bailey · the reason this exists">
+        <img src="media/bailey.jpg" alt="Bailey — the deaf senior dog in whose memory Bailey's World is being built" loading="lazy" />
+      </figure>
+      <div class="prologue__body reveal reveal--delay-1">
+        <h2 class="headline" style="font-size: clamp(2rem, 4.5vw, 4.4rem); margin-bottom: 1.75rem;">She was <em>not even in the cards.</em></h2>
+        <p>In 2020, I was on my third attempt to adopt a dog being transported from Mississippi. Three times the transport failed — the shelter didn't have the transportation, the volunteer hours, the foundation to make it happen. That was my first look at the weak bones of the shelter system.</p>
+        <p>The agency pivoted. There was a "Momma Bailey" — seven or eight years old, being surrendered because her owner was elderly and financially stressed. I drove six hours from New York City to Rhode Island to pick her up. On the way home, I was told she was also deaf. I refused to believe it until we got home and confirmed it.</p>
+        <p>From there, the greatest thing that has ever happened to me, happened. I had a dog. The perfect dog. Her deafness became our connection point — we invented our own sign language. We walked Brooklyn for miles, exploring neighborhoods I would never have seen on my own. She lived with me through career changes, breakups, personal growth. She always showed up for me as I was.</p>
+        <p>I had been against adopting a senior dog. You're signing up for a shorter term than most adoptions. But Bailey passed at fifteen. Six years — six of the greatest years. She died happy. She was supposed to die earlier. She got the retirement phase she deserved.</p>
+        <p>Bailey's World is so other senior dogs can get that too.</p>
+        <div class="divider-mark"></div>
+        <p class="label" style="color: var(--oxblood); margin-top: 1.5rem;">— Wally Mostafa, founder &amp; executive director</p>
+      </div>
+      <p class="quote prologue__pullquote reveal reveal--delay-2">You CAN teach an old dog new tricks. You sure can.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     CRISIS
+     ———————————————————————————————————————————————— -->
+<section class="section section--ink section--dark grain" id="crisis">
+  <div class="container">
+    <div class="section__label label reveal"><span>II &nbsp;·&nbsp; The Crisis</span></div>
+    <h2 class="headline reveal">Older dogs are where<br/>the shelter system <em>slows down.</em></h2>
+    <p class="lede reveal reveal--delay-1">North Carolina's animal-welfare infrastructure has reached an inflection point. Senior dogs are the least flexible inventory in a system running above capacity — stayed longer, cost more medically, adopted out at less than half the rate of younger animals. They are the ones the system defers.</p>
+
+    <div class="stats reveal reveal--delay-2">
+      <div class="stat">
+        <div class="stat__label">NC Statewide · 2024</div>
+        <div class="stat__num" data-count="27">0<span class="suffix">%</span></div>
+        <p class="stat__body">Shelter euthanasia rate — up from a 22% low in 2021.</p>
+        <span class="stat__cite">NCDA&amp;CS · WRAL Investigates Nov 2025</span>
+      </div>
+      <div class="stat">
+        <div class="stat__label">APS Durham · 2025</div>
+        <div class="stat__num" data-count="891">0</div>
+        <p class="stat__body">Dogs euthanized — roughly 35% of dog intake.</p>
+        <span class="stat__cite">APS Durham Fast Facts Sheet 2025</span>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Wake County · Oct 2025</div>
+        <div class="stat__num" data-count="1">0<span class="suffix">×</span></div>
+        <p class="stat__body">First state fine. The Animal Center was cited for violations tied to a dog's euthanasia.</p>
+        <span class="stat__cite">WRAL · Nov 2025</span>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Triangle · Today</div>
+        <div class="stat__num" data-count="0">0</div>
+        <p class="stat__body">Senior-dog-specific sanctuaries operating a facility in the Triangle's four counties.</p>
+        <span class="stat__cite">Independent market review · Apr 2026</span>
+      </div>
+    </div>
+
+    <p class="quote crisis__quote reveal reveal--delay-3">The open-admission shelters can't prioritize senior dogs' long-term care. Not from lack of will — from lack of capacity, time, and infrastructure.</p>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     SILVER TSUNAMI
+     ———————————————————————————————————————————————— -->
+<section class="section section--paper" id="tsunami">
+  <div class="container">
+    <div class="section__label label reveal"><span>III &nbsp;·&nbsp; Why Now</span></div>
+    <h2 class="headline reveal">The dogs are <em>aging.</em><br/>The region is <em>growing.</em><br/>The money is <em>there.</em></h2>
+
+    <div class="demo__grid">
+      <div class="reveal reveal--delay-1">
+        <div class="demo__big">~28<em>%</em></div>
+        <p class="demo__caption">of America's 89.7M dogs are 8+ years old — ~25–30M senior dogs, a threefold increase since the 1990s.</p>
+        <div style="margin-top: 2.5rem;">
+          <div class="demo__big">$2.71<em>B</em></div>
+          <p class="demo__caption">Pet palliative care market by 2033 — growing from $1.36B in 2024. CAGR 8.2%.</p>
+        </div>
+      </div>
+      <div class="reveal reveal--delay-2">
+        <table class="demo__table">
+          <thead>
+            <tr><th>Triangle Market</th><th>Today</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4-county population</td><td>~1.81M</td></tr>
+            <tr><td>Dog-owning households</td><td>~304,000</td></tr>
+            <tr><td>Senior dogs in the Triangle</td><td>~122,000</td></tr>
+            <tr><td>Senior-dog at-shelter-risk (SAM)</td><td>1,700–2,200 / yr</td></tr>
+            <tr><td>Bailey's World target (SOM)</td><td><strong>120–220 / yr</strong></td></tr>
+            <tr><td>Triangle Community Foundation AUM</td><td>$240M+</td></tr>
+            <tr><td>US animal-welfare giving (2024)</td><td>$11.83B <span style="color:var(--sage);">(+7.2%)</span></td></tr>
+          </tbody>
+        </table>
+        <p class="demo__caption" style="margin-top: 1.5rem;">Sources: US Census ACS, AVMA 2024 Pet Ownership, Grand View Research, Giving USA 2025, Triangle Community Foundation At-a-Glance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     MODEL
+     ———————————————————————————————————————————————— -->
+<section class="section section--bone" id="model">
+  <div class="container">
+    <div class="section__label label reveal"><span>IV &nbsp;·&nbsp; The Model</span></div>
+    <h2 class="headline reveal">Keep the campus small.<br/>Let the <em>network</em> scale.</h2>
+    <p class="lede reveal reveal--delay-1">On-site space is the most expensive capacity to build and operate. Reserve it for decompression, medical stabilization, and hospice — the seniors least suited to foster. Let a distributed foster network do the volume work, and build community, adopter pipeline, and donor engagement in the same motion.</p>
+
+    <div class="model">
+      <div class="model__col model__col--in reveal reveal--delay-1">
+        <h4>Intake Sources</h4>
+        <h5>Where the seniors come from</h5>
+        <ul>
+          <li>Open-admission shelters <span>Wake · Durham</span></li>
+          <li>Limited-admission partner <span>SPCA Wake</span></li>
+          <li>Owner surrender <span>Senior Safety Net</span></li>
+          <li>Veterinary referrals <span>Triangle network</span></li>
+          <li>Adjacent rural counties <span>60-mi transfer radius</span></li>
+        </ul>
+      </div>
+      <div class="model__col model__col--hub reveal reveal--delay-2">
+        <h4>The Campus</h4>
+        <h5>Barn converted to climate-controlled sanctuary</h5>
+        <ul>
+          <li>Indoor suites <span>12–20</span></li>
+          <li>Max on-site dogs <span>20–25</span></li>
+          <li>Decompression · medical · hospice</li>
+          <li>Phase II: public meet-and-greet</li>
+          <li>Phase III: on-site vet clinic</li>
+        </ul>
+      </div>
+      <div class="model__col model__col--out reveal reveal--delay-3">
+        <h4>Outflow</h4>
+        <h5>What the retirement phase looks like</h5>
+        <ul>
+          <li>Foster homes <span>25–40 active</span></li>
+          <li>Hospice track · "Forever Loved" <span>7–14 homes</span></li>
+          <li>Adoption placements <span>Senior-to-Senior waived</span></li>
+          <li>Legacy Care pledges <span>$15K+ gifts</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="model__scale reveal reveal--delay-4">
+      <div class="model__scale-cell"><strong>120–220</strong><span>Dogs per year · steady state</span></div>
+      <div class="model__scale-cell"><strong>6–10%</strong><span>Of Triangle senior SAM</span></div>
+      <div class="model__scale-cell"><strong>6.5</strong><span>Phase-I FTE staff</span></div>
+      <div class="model__scale-cell"><strong>70–120</strong><span>Active volunteers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     SITE
+     ———————————————————————————————————————————————— -->
+<section class="section section--paper" id="site">
+  <div class="container">
+    <div class="section__label label reveal"><span>V &nbsp;·&nbsp; The Site</span></div>
+    <h2 class="headline reveal">Buy where entitlement risk is <em>manageable.</em></h2>
+    <p class="lede reveal reveal--delay-1">The goal is not cheap acreage. It's a parcel with a clean regulatory path, a believable conversion story, and drive-time to donor density. Chatham carries the best land economics if a pre-UDO close is still possible; Orange carries the safest execution path with existing precedent at Paws4Ever and OCAS.</p>
+
+    <div class="sites">
+      <div class="site-card site-card--lead reveal reveal--delay-1">
+        <div class="site-card__rank">Rank 1 · Value Play</div>
+        <div class="site-card__name">Chatham</div>
+        <div class="site-card__score">
+          <span class="site-card__score-num">4.05</span>
+          <span class="site-card__score-label">weighted score</span>
+        </div>
+        <div class="site-card__meta">
+          <strong>Land economics</strong>
+          <p>~<em>$30K / acre</em> median. Time-sensitive: UDO effective Dec 31, 2025. Verify current status before commitment.</p>
+        </div>
+      </div>
+      <div class="site-card reveal reveal--delay-2">
+        <div class="site-card__rank">Rank 2 · Safest Execution</div>
+        <div class="site-card__name">Orange</div>
+        <div class="site-card__score">
+          <span class="site-card__score-num">3.90</span>
+          <span class="site-card__score-label">weighted score</span>
+        </div>
+        <div class="site-card__meta">
+          <strong>Precedent strength</strong>
+          <p>Paws4Ever (20 ac, Mebane) and OCAS (low-euth peer) validate the path. 150-ft kennel setback; <em>indoor-only housing waives it.</em></p>
+        </div>
+      </div>
+      <div class="site-card reveal reveal--delay-3">
+        <div class="site-card__rank">Rank 3 · Donor Proximity</div>
+        <div class="site-card__name">Durham</div>
+        <div class="site-card__score">
+          <span class="site-card__score-num">3.45</span>
+          <span class="site-card__score-label">weighted score</span>
+        </div>
+        <div class="site-card__meta">
+          <strong>300-ft buffer</strong>
+          <p>Best drive-time from Triangle donor base. 300-ft residential separation for outdoor areas — large-parcel play only.</p>
+        </div>
+      </div>
+      <div class="site-card reveal reveal--delay-4">
+        <div class="site-card__rank">Rank 4 · TAM Only</div>
+        <div class="site-card__name">Wake</div>
+        <div class="site-card__score">
+          <span class="site-card__score-num">2.85</span>
+          <span class="site-card__score-label">weighted score</span>
+        </div>
+        <div class="site-card__meta">
+          <strong>Priced out</strong>
+          <p>Farmland ~<em>$165K / acre</em>. Retained as TAM (adopters, donors, volunteers) — not as site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     NUMBERS
+     ———————————————————————————————————————————————— -->
+<section class="section section--bone" id="numbers">
+  <div class="container">
+    <div class="section__label label reveal"><span>VI &nbsp;·&nbsp; The Numbers</span></div>
+    <h2 class="headline reveal">Five-year pro forma.<br/>Three <em>scenarios.</em></h2>
+    <p class="lede reveal reveal--delay-1">Every CapEx dollar is tied to a gated milestone. 12 months of operating reserve is baked into the phase-one raise, not raised later. Social-enterprise revenue (boarding in Phase II, clinic in Phase III) phases in only after the core sanctuary stabilizes.</p>
+
+    <div class="scenarios reveal reveal--delay-2">
+      <div class="scenarios__toggle" role="tablist" aria-label="Financial scenarios">
+        <button class="scenarios__btn" data-scenario="low" role="tab">Low · $1.2M</button>
+        <button class="scenarios__btn active" data-scenario="mid" role="tab" aria-selected="true">Mid · $2.1M</button>
+        <button class="scenarios__btn" data-scenario="high" role="tab">High · $3.0M</button>
+      </div>
+
+      <table class="scenarios__table" id="scenarios-table">
+        <thead>
+          <tr><th>Line · USD thousands</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+        </thead>
+        <tbody id="scenario-rows">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+      <p class="demo__caption" style="margin-top: 1.5rem;">Mid scenario tracks base case. Operating surplus starts Year 1; Phase II (boarding) launches end of Year 2; Phase III (clinic) launches Year 4. Annual surpluses seed the $3M endowment target by Year 7.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     CAPITAL STACK
+     ———————————————————————————————————————————————— -->
+<section class="section section--paper" id="stack">
+  <div class="container">
+    <div class="section__label label reveal"><span>VII &nbsp;·&nbsp; The Capital Stack</span></div>
+    <h2 class="headline reveal">This is <em>structured mission capital</em> — not venture equity.</h2>
+
+    <div class="stack">
+      <div class="reveal reveal--delay-1">
+        <p class="label" style="color: var(--oxblood); margin-bottom: 1rem;">Naming Rights Ladder</p>
+        <div class="ladder">
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$1M</div><div class="ladder__tier">Founding Patron</div></div>
+            <div class="ladder__buys">Campus naming · perpetual recognition</div>
+          </div>
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$500K</div><div class="ladder__tier">Building Name</div></div>
+            <div class="ladder__buys">Main sanctuary building</div>
+          </div>
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$250K</div><div class="ladder__tier">Hospice Wing</div></div>
+            <div class="ladder__buys">Medical or hospice wing</div>
+          </div>
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$100K</div><div class="ladder__tier">Major Zone</div></div>
+            <div class="ladder__buys">Kitchen, courtyard, grooming, intake</div>
+          </div>
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$25–50K</div><div class="ladder__tier">Senior Suite</div></div>
+            <div class="ladder__buys">Named comfort suite · plaque</div>
+          </div>
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$15–25K</div><div class="ladder__tier">Outdoor Feature</div></div>
+            <div class="ladder__buys">Memorial bench · tree · kennel yard</div>
+          </div>
+          <div class="ladder__rung">
+            <div><div class="ladder__amount">$500+</div><div class="ladder__tier">Donor Wall</div></div>
+            <div class="ladder__buys">Tiered recognition</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="stack__aside reveal reveal--delay-2">
+        <p class="stack__aside-label">The Stack · at $2.1M midpoint</p>
+        <h3>A diversified mix with no single donor over 25% of the raise.</h3>
+        <p>Lead-gift rule-of-thumb: 18–25% of goal from a single donor. SPCA Wake precedent: $5M Susan Ward gift = 18% of a $27.5M campaign. Silent-phase target: 60–70% committed before public launch.</p>
+        <ul>
+          <li>Founding Gifts + Naming Rights <span>35% · $735K</span></li>
+          <li>DAFs + Recoverable Grants <span>28% · $590K</span></li>
+          <li>PRI / Real-Estate Debt <span>18% · $380K</span></li>
+          <li>Sector Capital Grants <span>12% · $250K</span></li>
+          <li>Small-Donor + Events <span>7% · $150K</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     GATES
+     ———————————————————————————————————————————————— -->
+<section class="section section--moss section--dark grain" id="gates">
+  <div class="container">
+    <div class="section__label label reveal"><span>VIII &nbsp;·&nbsp; The Gates</span></div>
+    <h2 class="headline reveal">Raise in stages.<br/>Close only against <em>cleared risk.</em></h2>
+    <p class="lede reveal reveal--delay-1">Three tranches. Five gate-checks between them. No capital commits before its gate is green. Investors back the experience first, without forcing premature land risk.</p>
+
+    <div class="gates">
+      <div class="gate reveal reveal--delay-1">
+        <div class="gate__num">01</div>
+        <div class="gate__label">Stage One</div>
+        <h3 class="gate__name">Pre-development pledges</h3>
+        <div class="gate__amt">$250K – $500K</div>
+        <p class="gate__body">501(c)(3) formation. Fiscal-sponsor bridge. Founder runway. Land-use attorney review. Septic + structural diligence on top candidates.</p>
+        <ul class="gate__checks">
+          <li>NC 501(c)(3) filed</li>
+          <li>Fiscal sponsor engaged</li>
+          <li>Parcel zoning interpretation</li>
+          <li>Septic / well feasibility clean</li>
+          <li>Barn structural assessment clean</li>
+        </ul>
+      </div>
+      <div class="gate reveal reveal--delay-2">
+        <div class="gate__num">02</div>
+        <div class="gate__label">Stage Two</div>
+        <h3 class="gate__name">Land + diligence close</h3>
+        <div class="gate__amt">$600K – $1M additional</div>
+        <p class="gate__body">Parcel closed under clean title. SUP / CUP filed and locked in. Architectural design. First 10 fosters committed. Early hires.</p>
+        <ul class="gate__checks">
+          <li>Land closed</li>
+          <li>SUP / CUP approved</li>
+          <li>Conversion plans stamped</li>
+          <li>60–70% of Stage 3 capital committed</li>
+          <li>First 10 fosters committed</li>
+        </ul>
+      </div>
+      <div class="gate reveal reveal--delay-3">
+        <div class="gate__num">03</div>
+        <div class="gate__label">Stage Three</div>
+        <h3 class="gate__name">Conversion + launch</h3>
+        <div class="gate__amt">$1.2M – $3.0M total</div>
+        <p class="gate__body">Barn conversion (12–24 mo). Medical fit-out. Team completion. Social-media engine live. First cohort of seniors on-site. 12-month operating runway funded.</p>
+        <ul class="gate__checks">
+          <li>Certificate of Occupancy</li>
+          <li>First cohort on-site</li>
+          <li>Social flywheel live (10K+ FB)</li>
+          <li>12-month runway funded</li>
+          <li>Annual Impact Report live</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     TEAM
+     ———————————————————————————————————————————————— -->
+<section class="section section--paper" id="team">
+  <div class="container">
+    <div class="section__label label reveal"><span>IX &nbsp;·&nbsp; The Team</span></div>
+    <h2 class="headline reveal">Founder-led.<br/>Institution-built.</h2>
+
+    <div class="team" style="margin-top: 3rem;">
+      <div class="team__card reveal reveal--delay-1">
+        <p class="team__card-label">Founder &amp; Executive Director</p>
+        <h3>Wally Mostafa</h3>
+        <p>UX leader turned AI builder. Scaled Kinesso/IPG's design team from two to thirty. Currently building AI tools at Hedgehox and a solo AI consultancy (One Block Away LLC). Multi-award-winning designer — Indigo 2022 &amp; 2023, Red Dot 2021.</p>
+        <p>Bailey's adopter from 2020 until her passing at 15. Relocated to the Raleigh Metro and available full-time for the operating role. Accepting below-market comp for the first three years as in-kind founder contribution.</p>
+        <p class="quote">I saw the system's weak foundation the first time a transport from Mississippi failed, three times in a row. I had Bailey instead. This is so other senior dogs can have what she had.</p>
+      </div>
+      <div class="reveal reveal--delay-2">
+        <p class="roadmap__title">Year-One Hiring Roadmap</p>
+        <ul class="roadmap">
+          <li><strong>Day 1</strong><span>Founder + Executive Director (Wally)</span><em>$95–110K</em></li>
+          <li><strong>Mo. 3</strong><span>Foster Coordinator</span><em>$50–58K</em></li>
+          <li><strong>Mo. 3</strong><span>Communications / Content Lead</span><em>$55–70K</em></li>
+          <li><strong>Mo. 6</strong><span>Vet Tech Manager (RVT)</span><em>$55–65K</em></li>
+          <li><strong>Mo. 6</strong><span>Animal Care Lead</span><em>$40–48K</em></li>
+          <li><strong>Mo. 9</strong><span>Operations / Volunteer Coordinator</span><em>$48–55K</em></li>
+          <li><strong>Mo. 12</strong><span>Development Director</span><em>$70–90K</em></li>
+          <li><strong>Phase I</strong><span>Contract DVM · 20 hr/wk via Roo</span><em>$110–125K</em></li>
+        </ul>
+        <p class="demo__caption" style="margin-top: 1.25rem;">Plus NC State College of Veterinary Medicine externship partnership (#3 ranked nationally), target board of 5–7 directors, advisory board with Dr. Maria Correa (CVM), Triangle Community Foundation philanthropy leadership, Grey Muzzle board alum, pet-palliative specialist, and estate-planning counsel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     ASK — the finale
+     ———————————————————————————————————————————————— -->
+<section class="section ask grain" id="ask">
+  <div class="ask__bg"></div>
+  <div class="ask__veil"></div>
+  <div class="ask__inner">
+    <div class="section__label label reveal" style="color: var(--brass); --d:0;"><span>X &nbsp;·&nbsp; The Ask</span></div>
+    <div class="ask__grid">
+      <div class="ask__pitch reveal reveal--delay-1">
+        <h2>Back the<br/><em>first flagship.</em></h2>
+        <p>A visible, visitable senior-dog sanctuary is the fastest way to turn concept into regional infrastructure.</p>
+        <p>Phase-one capitalization target: <strong style="color:var(--brass-soft);">$1.2M – $3.0M</strong>. Lead-gift sweet spot: <strong style="color:var(--brass-soft);">$240K – $750K</strong> (18–25% of goal). Founders' Circle positions: 12 at $100K+.</p>
+        <p>Twenty-four months after close: land secured, conversion complete, first seniors on-site, social-media flywheel live, expansion case ready.</p>
+        <p class="quote">This is so other senior dogs can get what Bailey got.</p>
+      </div>
+
+      <form class="form reveal reveal--delay-2" id="founders-form"
+            action="mailto:wally@baileysworld.org"
+            method="post"
+            enctype="text/plain">
+        <p class="form__label">Join the Founders' Circle</p>
+        <h3 class="form__title">Tell us how you want to show up.</h3>
+
+        <div class="form__field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="form__field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="form__field">
+          <label for="f-phone">Phone (optional)</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+
+        <p class="form__label" style="margin-top: 1.5rem;">Interest tier</p>
+        <div class="form__tiers">
+          <label class="form__tier"><input type="radio" name="tier" value="Founders Circle ($100K+)" required />
+            <strong>Founders' Circle</strong><span>$100K+</span></label>
+          <label class="form__tier"><input type="radio" name="tier" value="Major Gift ($25–100K)" />
+            <strong>Major Gift</strong><span>$25–100K</span></label>
+          <label class="form__tier"><input type="radio" name="tier" value="Supporter (under $25K)" />
+            <strong>Supporter</strong><span>Under $25K</span></label>
+          <label class="form__tier"><input type="radio" name="tier" value="Partner / Volunteer / Just interested" />
+            <strong>Partner &amp; Advisor</strong><span>Land · vet · board · volunteer</span></label>
+        </div>
+
+        <div class="form__field">
+          <label for="f-message">A note (optional)</label>
+          <textarea id="f-message" name="message" placeholder="What moves you about this? Or ask anything."></textarea>
+        </div>
+
+        <button type="submit" class="form__submit">Send &nbsp;→&nbsp; Wally</button>
+        <p class="form__note">Your email client will open with your note addressed to the founder. To upgrade to a managed inbox, replace the form's <code>action</code> with your Formspree or Netlify Forms endpoint (see README).</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
+     FOOTER
+     ———————————————————————————————————————————————— -->
+<footer>
+  <div class="foot__top">
+    <div class="foot__brand">
+      <h3>Bailey's <em>World.</em></h3>
+      <p>A 501(c)(3) senior-dog sanctuary for North Carolina's Research Triangle. In memory of Bailey — deaf, food-motivated, trainable. She got the retirement phase she deserved. We're building this so other senior dogs can too.</p>
+    </div>
+    <div class="foot__col">
+      <h4>Business plan</h4>
+      <ul>
+        <li><a href="plan/00_MASTER_PLAN.md">Master plan</a></li>
+        <li><a href="plan/A_market_and_competitive.md">A · Market &amp; competitive</a></li>
+        <li><a href="plan/B_operating_model.md">B · Operating model</a></li>
+        <li><a href="plan/C_site_strategy.md">C · Site strategy</a></li>
+        <li><a href="plan/D_financial_model.md">D · Financial model</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h4>Appendices</h4>
+      <ul>
+        <li><a href="plan/E_capital_stack.md">E · Capital stack</a></li>
+        <li><a href="plan/F_team_governance_vet.md">F · Team &amp; governance</a></li>
+        <li><a href="plan/G_risk_legal_insurance.md">G · Risk &amp; legal</a></li>
+        <li><a href="plan/H_impact_roadmap.md">H · Impact &amp; roadmap</a></li>
+        <li><a href="plan/source/bailey_founder_story.md">The Bailey story</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__bottom">
+    <span>© 2026 Bailey's World, Inc. (NC 501(c)(3) pending) · Raleigh Metro, North Carolina</span>
+    <span>Photos · <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (license-free, attributed)</span>
+  </div>
+</footer>
+
+<script>
+  // ————————————————————————————————————————————————
+  // Nav scroll behavior
+  // ————————————————————————————————————————————————
+  const nav = document.getElementById('nav');
+  const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 80); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Hero image zoom-in after load
+  window.addEventListener('load', () => {
+    document.querySelector('.hero').classList.add('loaded');
+  });
+
+  // ————————————————————————————————————————————————
+  // Reveal animations on scroll
+  // ————————————————————————————————————————————————
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  reveals.forEach(el => revealObs.observe(el));
+
+  // ————————————————————————————————————————————————
+  // Number counters (crisis section)
+  // ————————————————————————————————————————————————
+  const countEls = document.querySelectorAll('[data-count]');
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.querySelector('.suffix');
+        const suffixHTML = suffix ? suffix.outerHTML : '';
+        const duration = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = Math.round(target * eased);
+          el.innerHTML = val.toLocaleString() + suffixHTML;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        counterObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  countEls.forEach(el => counterObs.observe(el));
+
+  // ————————————————————————————————————————————————
+  // Side-rail section tracking
+  // ————————————————————————————————————————————————
+  const railDots = document.querySelectorAll('.rail__dot');
+  const darkSections = new Set(['crisis', 'gates', 'ask']);
+  const sectionMap = {};
+  railDots.forEach(d => {
+    const id = d.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sectionMap[id] = { el, dot: d };
+  });
+  const railObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const id = e.target.id;
+      if (!sectionMap[id]) return;
+      if (e.isIntersecting) {
+        railDots.forEach(d => d.classList.remove('active'));
+        sectionMap[id].dot.classList.add('active');
+        railDots.forEach(d => {
+          const sec = d.dataset.section;
+          d.classList.toggle('on-dark', darkSections.has(id));
+        });
+      }
+    });
+  }, { threshold: 0.45 });
+  Object.values(sectionMap).forEach(({ el }) => railObs.observe(el));
+
+  // ————————————————————————————————————————————————
+  // Scenario toggle (financial pro forma)
+  // ————————————————————————————————————————————————
+  const scenarios = {
+    low: {
+      name: 'Low · $1.2M raise',
+      rows: [
+        ['Individual donations',        300, 400,  500,  600,  650],
+        ['Major gifts · Founders\' Circle', 150, 100, 120, 150, 175],
+        ['DAFs + recoverable',           100, 125, 150, 175, 200],
+        ['Foundation grants',             50,  75, 100, 125, 150],
+        ['Planned-giving realized',        0,   0,  40,  50,  75],
+        ['Adoption fees',                 15,  30,  40,  50,  55],
+        ['Public boarding (Phase II)',     0,   0,  40, 100, 150],
+        ['On-site clinic (Phase III)',     0,   0,   0,  50, 125],
+        ['Events',                        35,  55,  75,  90, 100],
+        ['Corporate sponsorship',         25,  45,  70,  95, 115],
+        ['Retail',                         5,  10,  15,  20,  25],
+      ],
+      total:   [680, 840, 1150, 1510, 1820],
+      opscost: [740, 850, 1050, 1400, 1650],
+      surplus: [-60, -10, 100, 110, 170],
+    },
+    mid: {
+      name: 'Mid · $2.1M raise',
+      rows: [
+        ['Individual donations',         400, 550, 700, 850, 950],
+        ['Major gifts · Founders\' Circle', 200, 175, 200, 225, 250],
+        ['DAFs + recoverable',           150, 200, 250, 300, 350],
+        ['Foundation grants',             75, 100, 150, 200, 250],
+        ['Planned-giving realized',        0,  40,  50,  75, 100],
+        ['Adoption fees',                 25,  45,  60,  70,  80],
+        ['Public boarding (Phase II)',     0,   0,  75, 150, 200],
+        ['On-site clinic (Phase III)',     0,   0,   0, 100, 225],
+        ['Events',                        60, 100, 125, 150, 175],
+        ['Corporate sponsorship',         40,  75, 110, 150, 185],
+        ['Retail',                        10,  20,  30,  40,  50],
+      ],
+      total:   [960, 1310, 1750, 2310, 2820],
+      opscost: [875, 1100, 1400, 1850, 2200],
+      surplus: [85, 205, 350, 460, 620],
+    },
+    high: {
+      name: 'High · $3.0M raise',
+      rows: [
+        ['Individual donations',         500, 700, 900, 1100, 1250],
+        ['Major gifts · Founders\' Circle', 250, 250, 300, 350, 400],
+        ['DAFs + recoverable',           200, 275, 350, 425, 500],
+        ['Foundation grants',            100, 150, 225, 300, 375],
+        ['Planned-giving realized',        0,  75, 100, 150, 200],
+        ['Adoption fees',                 40,  70,  90, 100, 110],
+        ['Public boarding (Phase II)',     0,   0, 125, 200, 275],
+        ['On-site clinic (Phase III)',     0,   0,   0, 175, 325],
+        ['Events',                       100, 150, 200, 250, 300],
+        ['Corporate sponsorship',         75, 125, 175, 225, 275],
+        ['Retail',                        15,  30,  50,  70,  85],
+      ],
+      total:   [1280, 1830, 2520, 3350, 4100],
+      opscost: [1050, 1400, 1850, 2550, 3200],
+      surplus: [230, 430, 670, 800, 900],
+    },
+  };
+  const tbody = document.getElementById('scenario-rows');
+  const fmt = n => (n === 0 ? '—' : n.toLocaleString());
+  const fmtSigned = n => (n >= 0 ? '+' + n.toLocaleString() : '(' + Math.abs(n).toLocaleString() + ')');
+  function renderScenario(key) {
+    const s = scenarios[key];
+    tbody.innerHTML = '';
+    s.rows.forEach(([name, ...vals]) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + name + '</td>' + vals.map(v => '<td>' + fmt(v) + '</td>').join('');
+      tbody.appendChild(tr);
+    });
+    const totalTr = document.createElement('tr'); totalTr.classList.add('total');
+    totalTr.innerHTML = '<td>Total revenue</td>' + s.total.map(v => '<td>' + fmt(v) + '</td>').join('');
+    tbody.appendChild(totalTr);
+    const costTr = document.createElement('tr');
+    costTr.innerHTML = '<td style="color:var(--sepia);opacity:0.75;">Operating cost</td>' + s.opscost.map(v => '<td>' + fmt(v) + '</td>').join('');
+    tbody.appendChild(costTr);
+    const surplusTr = document.createElement('tr'); surplusTr.classList.add('surplus');
+    surplusTr.innerHTML = '<td>Net surplus / (deficit)</td>' + s.surplus.map(v => '<td>' + fmtSigned(v) + '</td>').join('');
+    tbody.appendChild(surplusTr);
+  }
+  renderScenario('mid');
+  document.querySelectorAll('.scenarios__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.scenarios__btn').forEach(b => {
+        b.classList.remove('active');
+        b.removeAttribute('aria-selected');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      renderScenario(btn.dataset.scenario);
+    });
+  });
+
+  // ————————————————————————————————————————————————
+  // Form submission — assembles mailto body
+  // ————————————————————————————————————————————————
+  const form = document.getElementById('founders-form');
+  form.addEventListener('submit', (e) => {
+    // If action is still mailto:, let the browser handle it natively.
+    // If it's been swapped for Formspree/Netlify, this noop also works.
+    if (!form.action.startsWith('mailto:')) return;
+    // Otherwise, build a nicer mailto body than the default plain form encoding.
+    e.preventDefault();
+    const data = new FormData(form);
+    const body = [
+      'Name: ' + (data.get('name') || ''),
+      'Email: ' + (data.get('email') || ''),
+      'Phone: ' + (data.get('phone') || '—'),
+      'Interest: ' + (data.get('tier') || '—'),
+      '',
+      'Note:',
+      data.get('message') || '—',
+      '',
+      '— Sent from baileysworld.org',
+    ].join('\n');
+    const subject = 'Founders\' Circle · ' + (data.get('tier') || 'Inquiry');
+    const mailto = 'mailto:wally@baileysworld.org?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+  });
+</script>
+
+</body>
+</html>

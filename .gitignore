@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+._*
+
+# Transient PPTX extraction from the original pitch deck
+pptx_extracted/
+
+# Local staging / build artifacts
+site/
+node_modules/
+dist/
+build/
+
+# Research + source drafts — kept private, not part of the public repo
+plan/research/
+plan/source/
+
+# Original source documents (the Word/PDF/PPTX versions — content lives in plan/ as markdown now)
+*.pdf
+*.pptx
+*.docx
+
+# Environment + editor noise
+.env
+.env.*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backups + temp
+*.bak
+*.tmp
+*.zip
