@@ -766,6 +766,157 @@
   /* Custom selection */
   ::selection { background: var(--oxblood); color: var(--cream); }
 
+  /* Scenarios horizontal scroll wrapper — critical for mobile */
+  .scenarios__scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -0.25rem; }
+  .scenarios__scroll::-webkit-scrollbar { height: 4px; }
+  .scenarios__scroll::-webkit-scrollbar-thumb { background: rgba(139, 38, 53, 0.3); border-radius: 2px; }
+  .scenarios__scroll .scenarios__table { min-width: 640px; }
+
+  /* ————————————————————————————————————————————————
+     Mobile optimization — tablet (≤ 900px)
+     ———————————————————————————————————————————————— */
+  @media (max-width: 900px) {
+    body { font-size: 17px; }
+    .section { padding: 5.5rem 1.5rem; }
+    .section__label { margin-bottom: 2rem; }
+    .headline { margin-bottom: 1.5rem; }
+    .lede { margin-bottom: 2rem; }
+    .container { padding: 0; }
+
+    /* Model: remove hub elevation when stacked (avoids floating middle card) */
+    .model__col--hub { transform: none; box-shadow: 0 20px 40px -25px rgba(139, 38, 53, 0.4); }
+
+    /* Stack sidebar pads less on mobile */
+    .stack__aside { padding: 2rem 1.5rem; }
+
+    /* Prologue drop-cap scales down */
+    .prologue__body p:first-of-type::first-letter { font-size: 4.2rem; }
+
+    /* Ladder rungs stack content */
+    .ladder__rung { flex-wrap: wrap; gap: 0.5rem 1rem; padding: 1.1rem 1rem; }
+    .ladder__buys { text-align: left; max-width: 100%; }
+
+    /* Hero tighter top + foot */
+    .hero { padding: 5rem 1.5rem 2.5rem; min-height: 88vh; }
+    .hero__foot { padding-top: 1.2rem; }
+  }
+
+  /* ————————————————————————————————————————————————
+     Mobile optimization — phone (≤ 640px)
+     ———————————————————————————————————————————————— */
+  @media (max-width: 640px) {
+    body { font-size: 16.5px; }
+    .section { padding: 4.5rem 1.25rem; }
+
+    /* Nav: tighten chrome, make CTA thumb-friendly */
+    .nav { padding: 1rem 1.25rem; }
+    .nav.scrolled { padding: 0.75rem 1.25rem; }
+    .nav__logo { font-size: 1.05rem; }
+    .nav__cta { padding: 0.65rem 0.95rem; font-size: 10px; letter-spacing: 0.12em; }
+
+    /* Hero: reflow meta row, tighten foot */
+    .hero { padding: 5rem 1.25rem 2rem; min-height: 90vh; }
+    .hero__meta { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem; }
+    .hero__meta .hero__eyebrow { font-size: 10px; letter-spacing: 0.18em; }
+    .hero__title { font-size: clamp(3.5rem, 18vw, 6rem); line-height: 0.9; margin-bottom: 1rem; }
+    .hero__subtitle { font-size: 1.3rem; line-height: 1.25; margin-bottom: 1.75rem; }
+    .hero__foot { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .hero__ask { line-height: 1.7; font-size: 10px; }
+    .hero__scroll { font-size: 10px; }
+    .hero__scroll::after { width: 32px; }
+
+    /* Headlines: cap the upper bound so they fit a phone */
+    .headline { font-size: clamp(2.1rem, 8vw, 3.2rem); letter-spacing: -0.025em; }
+    .lede { font-size: 1.02rem; line-height: 1.55; margin-bottom: 1.75rem; }
+
+    /* Prologue: reduce photo size, tighter pull-quote */
+    .prologue__photo { aspect-ratio: 4/5; }
+    .prologue__body p { font-size: 1rem; line-height: 1.65; }
+    .prologue__body p:first-of-type::first-letter { font-size: 3.6rem; padding: 0.15rem 0.55rem 0 0; }
+    .prologue__pullquote { font-size: clamp(1.5rem, 6.5vw, 2.3rem); padding: 2rem 0.25rem 0.5rem; }
+
+    /* Crisis stats: tighten numbers + padding */
+    .stat { padding: 2.25rem 1.25rem 2rem; }
+    .stat__num { font-size: 3.4rem; margin-bottom: 0.7rem; }
+    .stat__body { font-size: 0.93rem; }
+    .crisis__quote { margin-top: 2.5rem; font-size: 1.25rem; line-height: 1.35; }
+
+    /* Demographics big numbers */
+    .demo__big { font-size: 4.5rem; }
+    .demo__table th, .demo__table td { padding: 0.8rem 0.25rem; font-size: 0.9rem; }
+
+    /* Model columns: tighter padding */
+    .model__col { padding: 1.75rem 1.25rem; }
+    .model__col h5 { font-size: 1.35rem; }
+    .model__scale-cell { padding: 1.4rem 1rem; }
+    .model__scale-cell strong { font-size: 1.85rem; }
+
+    /* Site cards: tighter padding */
+    .site-card { padding: 1.75rem 1.25rem; }
+    .site-card__name { font-size: 1.55rem; }
+    .site-card__score-num { font-size: 2.2rem; }
+
+    /* Scenario toggle: allow wrap, tighter spacing */
+    .scenarios__toggle { flex-wrap: wrap; width: 100%; justify-content: center; }
+    .scenarios__btn { padding: 0.6rem 1rem; font-size: 10px; letter-spacing: 0.14em; flex: 1 1 auto; text-align: center; }
+    .scenarios__table th, .scenarios__table td { padding: 0.9rem 0.5rem; font-size: 0.88rem; }
+
+    /* Capital stack ladder */
+    .ladder__amount { font-size: 1.45rem; }
+    .stack__aside h3 { font-size: 1.55rem; }
+    .stack__aside { padding: 1.75rem 1.25rem; }
+
+    /* Gates: vertical timeline feel */
+    .gate { padding: 2rem 1.25rem 2.25rem; }
+    .gate__num { font-size: 3.5rem; margin-bottom: 1rem; }
+    .gate__name { font-size: 1.3rem; }
+
+    /* Team card */
+    .team__card { padding: 2rem 1.5rem; }
+    .team__card h3 { font-size: 1.7rem; }
+    .roadmap li { grid-template-columns: 75px 1fr; gap: 0.5rem 0.75rem; padding: 0.85rem 0; }
+    .roadmap li em { grid-column: 2; margin-top: 0.15rem; font-size: 0.78rem; }
+
+    /* Ask finale: tighter */
+    .ask__pitch h2 { font-size: clamp(2.3rem, 9vw, 3.4rem); }
+    .ask__pitch p { font-size: 1rem; }
+    .form { padding: 1.75rem 1.25rem; }
+    .form__title { font-size: 1.45rem; }
+    /* Keep form inputs at 16px minimum to prevent iOS auto-zoom on focus */
+    .form__field input, .form__field textarea, .form__field select { font-size: 16px; }
+    .form__tier { padding: 0.75rem 0.9rem; }
+    .form__tier strong { font-size: 0.95rem; }
+
+    /* Footer */
+    footer { padding: 4rem 1.25rem 1.75rem; }
+    .foot__brand h3 { font-size: 1.85rem; }
+    .foot__top { padding-bottom: 2.25rem; gap: 2rem; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; font-size: 9px; letter-spacing: 0.15em; }
+  }
+
+  /* Very narrow phones (≤ 380px) — last-resort squeeze */
+  @media (max-width: 380px) {
+    .section { padding: 4rem 1rem; }
+    .hero { padding: 4.5rem 1rem 2rem; }
+    .hero__title { font-size: clamp(3rem, 16vw, 4.5rem); }
+    .hero__subtitle { font-size: 1.15rem; }
+    .headline { font-size: clamp(1.95rem, 9vw, 2.8rem); }
+    .nav { padding: 0.85rem 1rem; }
+    .nav__cta { padding: 0.55rem 0.75rem; font-size: 9px; }
+    .nav__logo { font-size: 0.95rem; }
+    .stat__num, .demo__big { font-size: 3rem; }
+    .prologue__pullquote::before, .prologue__pullquote::after { font-size: 1em; }
+    .form__tiers { grid-template-columns: 1fr; }
+  }
+
+  /* Touch devices: drop hover-dependent affordances so taps feel immediate */
+  @media (hover: none) and (pointer: coarse) {
+    .ladder__rung:hover { transform: none; background: transparent; border-left-color: transparent; }
+    .site-card:hover { transform: none; box-shadow: none; }
+    .prologue__photo:hover img { transform: none; }
+    .rail { display: none; } /* rail is redundant on touch; nav links + scroll = enough */
+  }
+
 </style>
 </head>
 <body>
@@ -1059,14 +1210,16 @@
         <button class="scenarios__btn" data-scenario="high" role="tab">High · $3.0M</button>
       </div>
 
-      <table class="scenarios__table" id="scenarios-table">
-        <thead>
-          <tr><th>Line · USD thousands</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
-        </thead>
-        <tbody id="scenario-rows">
-          <!-- Populated by JS -->
-        </tbody>
-      </table>
+      <div class="scenarios__scroll">
+        <table class="scenarios__table" id="scenarios-table">
+          <thead>
+            <tr><th>Line · USD thousands</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+          </thead>
+          <tbody id="scenario-rows">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
       <p class="demo__caption" style="margin-top: 1.5rem;">Mid scenario tracks base case. Operating surplus starts Year 1; Phase II (boarding) launches end of Year 2; Phase III (clinic) launches Year 4. Annual surpluses seed the $3M endowment target by Year 7.</p>
     </div>
   </div>
