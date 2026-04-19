@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Operating model — Bailey's World</title>
+<meta name="description" content="Small campus + foster network. Intake, medical, staffing, KPIs, hospice program, adoption funnel, tech stack." />
+<meta property="og:title" content="Operating model — Bailey's World" />
+<meta property="og:description" content="Small campus + foster network. Intake, medical, staffing, KPIs, hospice program, adoption funnel, tech stack." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="../media/bailey.jpg" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%238B2635' d='M12 6c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm8 0c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zM7 13c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm18 0c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm-9 3c-3.3 0-6 3.1-6 7 0 2.2 1.8 4 4 4h4c2.2 0 4-1.8 4-4 0-3.9-2.7-7-6-7z'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,100&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="appendix.css" />
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav__logo">Bailey's <em>World</em></a>
+  <div class="nav__links">
+    <a href="index.html" class="nav__link">Appendices</a>
+    <a href="../index.html" class="nav__link">Home</a>
+  </div>
+  <a href="../index.html#ask" class="nav__cta">Join the Circle</a>
+</nav>
+
+<article>
+  <header class="paper__head">
+    <div class="container">
+      <p class="label paper__eyebrow">Appendix B</p>
+      <h1 class="paper__title">Operating model</h1>
+      <p class="paper__lede">Small on-site campus plus distributed foster network. Intake protocols, length-of-stay math, staffing, medical protocols, tech stack, hospice design.</p>
+    </div>
+  </header>
+
+  <div class="paper__body">
+    <aside class="toc" aria-label="Sections">
+  <p class="toc__label">Sections</p>
+  <ol><li><a href="#baileys-world-triangle-senior-dog-barn-sanctuary">Bailey’s World
+/ Triangle Senior Dog Barn Sanctuary</a></li><li><a href="#operating-model-at-a-glance">1. Operating Model at a Glance</a></li><li><a href="#foster-network-the-load-bearing-system">2. Foster Network (The
+Load-Bearing System)</a></li><li><a href="#intake-protocol-capacity-for-care-framework">3. Intake Protocol
+(Capacity-for-Care Framework)</a></li><li><a href="#dog-flow-length-of-stay">4. Dog Flow &amp; Length of Stay</a></li><li><a href="#staffing-model-phase-i-iii">5. Staffing Model (Phase I →
+III)</a></li><li><a href="#volunteer-program">6. Volunteer Program</a></li><li><a href="#medical-care-protocols">7. Medical &amp; Care Protocols</a></li><li><a href="#adoption-marketing-funnel">8. Adoption Marketing Funnel</a></li><li><a href="#technology-stack">9. Technology Stack</a></li><li><a href="#revenue-operations-social-enterprise-arm">10. Revenue Operations
+(Social Enterprise Arm)</a></li><li><a href="#kpi-dashboard">11. KPI Dashboard</a></li><li><a href="#data-gaps-flagged">12. Data Gaps Flagged</a></li><li><a href="#sources">13. Sources</a></li></ol>
+</aside>
+    <div class="prose">
+      
+<h2  id="baileys-world-triangle-senior-dog-barn-sanctuary">Bailey’s World
+/ Triangle Senior Dog Barn Sanctuary</h2>
+<p><em>The operating model is the single most important innovation in
+Bailey’s World’s design: a <strong>small on-site campus + distributed
+foster network</strong> with hospice specialization. This appendix
+details how the system actually runs. Supporting research:
+<code>plan/research/06_operating_model.md</code>,
+<code>plan/research/02_peer_sanctuaries.md</code>.</em></p>
+<hr />
+<h2  id="operating-model-at-a-glance">1. Operating Model at a Glance</h2>
+<pre><code>INTAKE SOURCES            →    BAILEY&#39;S WORLD CAMPUS    →    OUTFLOW
+(Triangle shelter system)      (20-25 on-site dogs)          (Placement + hospice)
+───────────────────            ───────────────────           ───────────────────
+• Open-admission shelters  →   Indoor suites                →  Foster network
+  (Wake, Durham)               (decompression, medical      →  (25-40 homes)
+• Owner surrenders         →    stabilization, quiet        →  Hospice track
+  (Senior Safety Net          hospice, controlled transfer   (Forever Loved)
+   surrender prevention)       decisions)                   →  Adoption placements
+• Veterinary referrals</code></pre>
+<p><strong>Scale at steady state:</strong> - 20–25 max on-site dogs -
+25–40 active foster homes - 120–220 dogs served annually - 6.0–6.5 FTE
+Phase-I staffing (scaling to 10–12 FTE with clinic in Phase III) -
+70–120 active volunteers contributing 36K–60K hours/year</p>
+<p><strong>Why this model vs. a large-campus model:</strong> On-site
+space is the most expensive capacity to build and operate. Reserving it
+for decompression, medical stabilization, and the seniors least suited
+to foster (hospice residents needing 24/7 care) means every dollar of
+capital pays for what it must. The foster network does the volume work —
+and compounds into community credibility, adopter pipeline, and donor
+engagement.</p>
+<hr />
+<h2  id="foster-network-the-load-bearing-system">2. Foster Network (The
+Load-Bearing System)</h2>
+<h3 id="why-foster-expansion-is-the-1-leverage-move">2.1 Why Foster
+Expansion Is the #1 Leverage Move</h3>
+<p>National context: foster placements have declined since the pandemic
+peak, and most shelters report recruitment challenges. The <strong>Best
+Friends “Bring Love Home Challenge” (June 2024)</strong> produced an
+<strong>11.4% lift in placements</strong> for participating rescues and
+a sustained <strong>24.6% lift in adoptions through September
+2024</strong> (vs. a 1.7% decline at non-participating rescues). Foster
+expansion is the single highest-leverage intervention for a sanctuary
+model.</p>
+<h3 id="funnel-benchmarks-target-sizing">2.2 Funnel Benchmarks &amp;
+Target Sizing</h3>
+<p><strong>Funnel assumptions for Bailey’s World:</strong> -
+Landing-page → application start: 15–25% on optimized pages (2024 M+R
+Benchmarks) - Application → approval: 40–60% - Approval → active foster
+(first placement within 60 days): 50–70% - 12-month retention: 60–75%
+with strong support</p>
+<p><strong>Target pipeline (steady state):</strong> - 25–40 active
+foster homes - 60–100 approved fosters in the standby pool -
+<strong>150–250 applications per year</strong> (40–50% approval × 50%
+activation = 25–40 active)</p>
+<p><strong>Throughput:</strong> - Healthy-senior track: 2–4 fosters per
+home per year - Hospice / forever-foster track: 1 dog per 6–12 months
+(slower)</p>
+<h3 id="foster-training-curriculum">2.3 Foster Training Curriculum</h3>
+<p><strong>Core (adapted from Best Friends + ASPCApro +
+Muttville):</strong> - Handling &amp; body language for seniors -
+Medication administration - Mobility aids (ramps, slings, rugs for
+traction) - Cognitive-dysfunction handling - Palliative-care
+fundamentals - Hospice boundary-setting (emotional protection for
+foster) - Grief support and memorial practices</p>
+<p><strong>Senior-specific layer:</strong> Bailey’s World will maintain
+a written Foster Manual (template from Muttville’s January 2019 manual)
+with NC-specific additions.</p>
+<h3 id="foster-support-system">2.4 Foster Support System</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Support</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Medical reimbursement</td>
+<td>100% of veterinary, diagnostic, therapeutic, emergency +
+prescriptions</td>
+</tr>
+<tr>
+<td>Food/supplies</td>
+<td>Foster covers unless requests rescue-provided</td>
+</tr>
+<tr>
+<td>Medical reimbursement SLA</td>
+<td><strong>48 hours</strong></td>
+</tr>
+<tr>
+<td>Respite coverage</td>
+<td>Back-up fosters on rotation; 1–7 day emergency respite</td>
+</tr>
+<tr>
+<td>Communications</td>
+<td>Weekly check-in text; monthly coordinator call</td>
+</tr>
+<tr>
+<td>Grief support</td>
+<td>Peer-support channel; professional counselor on retainer for
+loss</td>
+</tr>
+<tr>
+<td>Recognition</td>
+<td>Quarterly events; annual foster-appreciation gala</td>
+</tr>
+<tr>
+<td>Foster mentor tier</td>
+<td>Experienced fosters paid stipend to onboard new ones (“5-Star
+Foster” model adapted from APA!)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hospice-forever-foster-program-the-bailey-program">2.5 Hospice /
+Forever-Foster Program (The Bailey Program)</h3>
+<p>Given Bailey’s story — she was supposed to die earlier and lived six
+more years — the hospice program should be named with direct reference.
+<strong>Working name: “Forever Loved” or “The Bailey
+Program.”</strong></p>
+<p><strong>Structure (adapted from Frosted Faces Molly &amp; Me +
+Muttville Fospice + OFSDS Geezer Guardians):</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Bailey’s World Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eligibility</td>
+<td>Life expectancy &lt;12 months by vet assessment OR chronic complex
+condition unlikely to meet standard-adopter appetite</td>
+</tr>
+<tr>
+<td>Foster stipend</td>
+<td><strong>$150–$300/month</strong> (scaled by care complexity)</td>
+</tr>
+<tr>
+<td>Medical coverage</td>
+<td>100%, including specialists and emergency</td>
+</tr>
+<tr>
+<td>Wellness reimbursement</td>
+<td>Quarterly $200 reimbursement</td>
+</tr>
+<tr>
+<td>Bereavement</td>
+<td>Paid cremation, memorial care, grief support for family</td>
+</tr>
+<tr>
+<td>Expected duration</td>
+<td>3–12 months median; outliers 24+ months</td>
+</tr>
+<tr>
+<td>Donor overlay</td>
+<td>“Adopt a Hospice Hero” — named monthly sponsorship matched to named
+dog; monthly photo/video update to sponsor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capacity:</strong> Reserve <strong>25–35% of foster homes
+(7–14 homes)</strong> as hospice-capable. This is the mission core.</p>
+<hr />
+<h2  id="intake-protocol-capacity-for-care-framework">3. Intake Protocol
+(Capacity-for-Care Framework)</h2>
+<p>Based on Association of Shelter Veterinarians’ 2022 Guidelines for
+Standards of Care (ASV C4C framework).</p>
+<h3 id="intake-source-hierarchy">3.1 Intake Source Hierarchy</h3>
+<ol type="1">
+<li><strong>Transfer partner</strong> (APS Durham, Wake County Animal
+Center, Orange County Animal Services, SPCA Wake)</li>
+<li><strong>Owner surrender</strong> (after Senior Safety Net counseling
+— see 3.4)</li>
+<li><strong>Veterinary referral</strong></li>
+</ol>
+<h3 id="capacity-for-care-c4c-check-every-intake">3.2 Capacity-for-Care
+(C4C) Check — Every Intake</h3>
+<p>Four simultaneous tests: 1. <strong>Medical capacity</strong> — can
+we treat what’s in front of us? 2. <strong>Behavioral capacity</strong>
+— can we place this dog? 3. <strong>Housing capacity</strong> — do we
+have a suite or foster slot? 4. <strong>Financial capacity</strong> — do
+we have reserve to absorb predictable costs?</p>
+<p><strong>Trigger:</strong> admission may not push on-site or foster
+census over 90% of cap. If yes, defer or refer to partner rescue.</p>
+<h3 id="medical-triage-at-intake">3.3 Medical Triage (at intake)</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Level</th>
+<th>Signal</th>
+<th>Placement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 Green</td>
+<td>Standard senior: dental, arthritis, weight; stable</td>
+<td>Foster-eligible within 72 hours</td>
+</tr>
+<tr>
+<td>🟡 Yellow</td>
+<td>Diagnostic workup or in-progress treatment</td>
+<td>On-site suite until stable (avg 7–21 days)</td>
+</tr>
+<tr>
+<td>🔴 Red</td>
+<td>Terminal or unstable</td>
+<td>Hospice track; direct-to-hospice-foster or on-site palliative
+suite</td>
+</tr>
+</tbody>
+</table>
+<h3 id="surrender-prevention-senior-safety-net-program">3.4 Surrender
+Prevention (“Senior Safety Net” Program)</h3>
+<p><strong>2025 ASPCA data (cited by Humane World):</strong> 94% of pet
+owners considering surrender kept their pet after receiving support.
+Build a surrender-prevention program covering:</p>
+<ul>
+<li>Subsidized vet care for low-income owners of seniors</li>
+<li>Free food / medication support</li>
+<li>Respite boarding (1–14 days)</li>
+<li>Behavior / mobility coaching</li>
+</ul>
+<p><strong>Strategic value:</strong> High-leverage, low-cost arm; strong
+grant narrative for Petco Love, Banfield Foundation, Maddie’s Fund.</p>
+<h3 id="behavioral-assessment">3.5 Behavioral Assessment</h3>
+<p>Use a <strong>modified SAFER assessment adapted for seniors</strong>.
+Senior dogs often “fail” standard SAFER on food-guarding due to
+historical resource scarcity — the modified protocol accounts for
+this.</p>
+<h3 id="transfer-partner-mou-template">3.6 Transfer Partner MOU
+Template</h3>
+<p>Wake County Animal Center’s <strong>May 2024 Transfer Partnership
+Agreement</strong> is the Triangle-area template. Core terms: -
+501(c)(3) required - Receiving org
+vaccinates/deworms/microchips/spay-neuters where possible - Can request
+but not guarantee specific animals - Must report adoption outcome - May
+not re-transfer without notice</p>
+<p>APS Durham operates within the Best Friends Network; its
+placement-partner process is complementary. <strong>Friends of Wake
+County Animal Center</strong> sponsors medical-case transfers — a funded
+channel Bailey’s World can tap.</p>
+<hr />
+<h2  id="dog-flow-length-of-stay">4. Dog Flow &amp; Length of Stay</h2>
+<h3 id="the-math">4.1 The Math</h3>
+<p>At 25 on-site max and 120–220 dogs/year, required average on-site LOS
+is: - <strong>120 dogs/year → ~76 days</strong> average on-site LOS -
+<strong>220 dogs/year → ~41 days</strong> average on-site LOS</p>
+<h3 id="target-los-structure">4.2 Target LOS Structure</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Track</th>
+<th>On-site median</th>
+<th>Foster median</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Green (healthy senior)</td>
+<td>7–14 days</td>
+<td>60–120 days</td>
+<td>Decompression + matchmaking</td>
+</tr>
+<tr>
+<td>Yellow (diagnostic/workup)</td>
+<td>14–30 days</td>
+<td>90–150 days</td>
+<td>Stabilize before foster move</td>
+</tr>
+<tr>
+<td>Red (hospice)</td>
+<td>As long as needed</td>
+<td>Open-ended</td>
+<td>Off-LOS reporting; survival curves instead</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Steady-state on-site LOS target: 30–45 days median.</strong>
+With 25–40 foster homes absorbing 60–80% of dogs within 7–14 days of
+intake, this is achievable.</p>
+<h3 id="bottleneck-mitigations">4.3 Bottleneck Mitigations</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bottleneck</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Medical complexity extending diagnostics</td>
+<td>High-quality intake exam; clear owner-facing summary; standing PO
+for common senior diagnostics</td>
+</tr>
+<tr>
+<td>Poor photography/storytelling</td>
+<td>Weekly professional photo day; senior-specific video-storytelling
+format; Pet Diaries format</td>
+</tr>
+<tr>
+<td>Adoption-fee anxiety</td>
+<td>Waive or reduce for senior-to-senior; clear medical-sponsorship
+messaging</td>
+</tr>
+<tr>
+<td>Slow home-visit scheduling</td>
+<td>Virtual home visits as default; in-person only for flagged cases
+(reduces time-to-placement 40–60%)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2  id="staffing-model-phase-i-iii">5. Staffing Model (Phase I →
+III)</h2>
+<h3 id="phase-i-staffing-barn-conversion-first-intake">5.1 Phase-I
+Staffing (Barn Conversion + First Intake)</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Role</th>
+<th>FTE</th>
+<th>NC Comp Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executive Director (Wally)</td>
+<td>1.0</td>
+<td>$95K–$110K (below NC benchmark — founder contribution)</td>
+</tr>
+<tr>
+<td>Operations / Foster Coordinator</td>
+<td>1.0</td>
+<td>$50K–$58K</td>
+</tr>
+<tr>
+<td>Volunteer &amp; Community Coordinator</td>
+<td>0.5–1.0</td>
+<td>$40K–$48K</td>
+</tr>
+<tr>
+<td>Animal Care Lead (senior kennel tech)</td>
+<td>1.0</td>
+<td>$38K–$45K</td>
+</tr>
+<tr>
+<td>Animal Care Staff (PT kennel techs)</td>
+<td>1.5 FTE (3 PT)</td>
+<td>$17–$20/hr</td>
+</tr>
+<tr>
+<td>Registered Vet Technician (per diem or 0.5)</td>
+<td>0.5</td>
+<td>$24–$32/hr</td>
+</tr>
+<tr>
+<td>Development / Communications</td>
+<td>0.5–1.0</td>
+<td>$55K–$70K</td>
+</tr>
+<tr>
+<td><strong>Phase-I Total</strong></td>
+<td><strong>~6.0–6.5 FTE</strong></td>
+<td><strong>~$380K–$460K personnel cost</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Plus <strong>contract DVM</strong>: ~20 hr/wk at $100–$120/hr via Roo
+or direct = ~$110K–$125K/yr</p>
+<h3 id="phase-iii-additions-on-site-vet-clinic">5.2 Phase-III Additions
+(On-Site Vet Clinic)</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Role</th>
+<th>FTE</th>
+<th>Comp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Medical Director (DVM)</td>
+<td>1.0</td>
+<td>$140K–$155K base + benefits + CE allowance</td>
+</tr>
+<tr>
+<td>Senior RVT</td>
+<td>1.0</td>
+<td>$50K–$60K</td>
+</tr>
+<tr>
+<td>Client Services Coordinator</td>
+<td>0.5–1.0</td>
+<td>$42K–$50K</td>
+</tr>
+</tbody>
+</table>
+<p>Employed DVM replaces the Phase-I/II contract DVM model.</p>
+<h3 id="staffing-philosophy-15-minute-rule">5.3 Staffing Philosophy —
+15-Minute Rule</h3>
+<p>ASPCA/ASV standard: <strong>15 minutes of direct care per animal per
+day</strong>. At 25 on-site dogs = 375 minutes/day = 0.8 FTE of direct
+kennel labor alone. Doubled to 1.5–2.0 FTE when enrichment, medication
+rounds, and cleaning are layered in. This validates the Phase-I staffing
+plan above.</p>
+<h3 id="volunteer-labor-multiplier">5.4 Volunteer Labor Multiplier</h3>
+<ul>
+<li>Typical: 3–5× staff FTE in volunteer hours</li>
+<li>Bailey’s World target: 6.0 FTE paid × 4 multiplier = <strong>~24,000
+volunteer hours/year</strong></li>
+<li>~70–120 active volunteers at ~8 hours/month</li>
+<li>Independent Sector 2024 NC value of a volunteer hour: $29.95 →
+<strong>~$1.0M–$1.8M annually in in-kind labor</strong></li>
+</ul>
+<hr />
+<h2  id="volunteer-program">6. Volunteer Program</h2>
+<h3 id="triangle-specific-recruitment-channels">6.1 Triangle-Specific
+Recruitment Channels</h3>
+<ul>
+<li><strong>Corporate days</strong> via RTP tech employers: Cisco, IBM,
+Red Hat, Fidelity, Lenovo, Epic Games, SAS, Pendo, Relias</li>
+<li><strong>University pipelines:</strong> Duke, UNC, NC State — pre-vet
+societies are natural partners</li>
+<li><strong>Retiree networks:</strong> OLLI at Duke (perfect alignment
+with senior-dog mission — older volunteers adopting older dogs),
+Triangle-area retiree clubs</li>
+<li><strong>Faith communities</strong></li>
+<li><strong>HOA outreach</strong> in Cary, Apex, Raleigh</li>
+</ul>
+<h3 id="skill-based-volunteer-roles-high-leverage">6.2 Skill-Based
+Volunteer Roles (High-Leverage)</h3>
+<ol type="1">
+<li>Photography / videography (weekly adoption-portrait days)</li>
+<li>Senior dog enrichment (snuffle mats, gentle walking, sensory
+enrichment)</li>
+<li>Grooming (licensed groomers often contribute 2–4 hr/month)</li>
+<li>Transport (shelter pulls, vet runs)</li>
+<li>Foster mentors (vetted experienced fosters supporting new ones)</li>
+<li>Adoption ambassadors (Phase II meet-and-greet hosts)</li>
+<li>Legal / accounting / marketing pro bono</li>
+</ol>
+<h3 id="volunteer-management-stack">6.3 Volunteer Management Stack</h3>
+<ul>
+<li><strong>Better Impact + Galaxy Digital</strong> (merged late 2024;
+dominant platform) → $600–$2,400/year</li>
+<li>Free alternatives: VolunteerMatch (postings), SignUpGenius
+(scheduling $100–$300/yr), Track It Forward ($300–$600/yr)</li>
+</ul>
+<hr />
+<h2  id="medical-care-protocols">7. Medical &amp; Care Protocols</h2>
+<h3 id="quality-of-life-assessment-required-cadence">7.1 Quality-of-Life
+Assessment (Required Cadence)</h3>
+<p><strong>Dual-tool approach:</strong> - <strong>HHHHHMM (Villalobos)
+scale</strong> — 7 categories × 0–10 scale; total &gt;35 or all &gt;5 =
+acceptable QOL - <strong>Lap of Love Pet QOL Scale</strong> —
+weekly-trending emphasis</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Cadence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intake</td>
+<td>Baseline HHHHHMM + Lap of Love score</td>
+</tr>
+<tr>
+<td>Stable senior</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Declining / hospice</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>Crisis</td>
+<td>At every interaction</td>
+</tr>
+</tbody>
+</table>
+<p>Scores logged in <strong>Shelterluv medical module</strong> — visible
+to foster, staff, attending vet.</p>
+<h3 id="common-senior-interventions-budget-assumptions">7.2 Common
+Senior Interventions &amp; Budget Assumptions</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Intervention</th>
+<th>Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dental cleaning (intake standard)</td>
+<td>~$700 avg (range $300–$1,500+)</td>
+<td><strong>#1 senior presenting issue</strong>; extractions
++$500–$2,500 per tooth</td>
+</tr>
+<tr>
+<td>Arthritis — Librela (monthly injection)</td>
+<td>$85–$250/mo</td>
+<td>Breakthrough category; growing use</td>
+</tr>
+<tr>
+<td>Arthritis — NSAIDs (carprofen, meloxicam, galliprant)</td>
+<td>$20–$80/mo</td>
+<td></td>
+</tr>
+<tr>
+<td>Cognitive dysfunction (selegiline, SAMe, omegas)</td>
+<td>$30–$60/mo</td>
+<td></td>
+</tr>
+<tr>
+<td>Senior bloodwork + urinalysis</td>
+<td>$150–$250 per panel</td>
+<td>Every 6 months</td>
+</tr>
+<tr>
+<td>End-stage comorbidity mgmt</td>
+<td>$100–$500/mo</td>
+<td>Kidney, heart, cancer — variable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="palliative-hospice-pathway-written-protocol">7.3 Palliative /
+Hospice Pathway (Written Protocol)</h3>
+<p><strong>Three defined phases:</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Trigger</th>
+<th>Check-ins</th>
+<th>Authority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Comfort care</strong></td>
+<td>QOL &gt;5 all categories</td>
+<td>Weekly vet call</td>
+<td>Foster + coordinator</td>
+</tr>
+<tr>
+<td><strong>Palliative</strong></td>
+<td>QOL 4–5, trending decline</td>
+<td>Bi-weekly home visit by vet tech</td>
+<td>Foster + Medical Lead + coordinator</td>
+</tr>
+<tr>
+<td><strong>Hospice</strong></td>
+<td>QOL &lt;4 any category OR trending down 2+ weeks</td>
+<td>Daily vet tech contact</td>
+<td>Foster + Medical Lead + ED</td>
+</tr>
+</tbody>
+</table>
+<h3 id="euthanasia-decision-framework">7.4 Euthanasia Decision
+Framework</h3>
+<p>Written protocol consistent with <strong>AVMA Guidelines</strong> and
+<strong>Lap of Love clinical standards</strong>. Decision triggers:</p>
+<ul>
+<li>HHHHHMM total &lt;35</li>
+<li>Uncontrolled pain despite multimodal therapy</li>
+<li>Loss of 2+ “core joys” (eating, walking, greeting family)</li>
+<li>Medical emergency with poor prognosis</li>
+</ul>
+<p><strong>Decision requires:</strong> Attending vet sign-off + ED or
+Medical Lead concurrence + foster consultation when relevant.
+<strong>Always offer in-home euthanasia via Lap of Love or local mobile
+vet</strong> rather than clinic. Post-euthanasia: cremation covered,
+memorial arranged, grief support provided to foster family.</p>
+<p>This protocol should be <strong>published publicly</strong> on
+baileysworld.org — radical transparency builds donor trust and pre-empts
+social-media crises.</p>
+<hr />
+<h2  id="adoption-marketing-funnel">8. Adoption Marketing Funnel</h2>
+<h3 id="application-to-placement-sla">8.1 Application-to-Placement
+SLA</h3>
+<ul>
+<li><strong>Application response: 24–48 hours</strong></li>
+<li>Full processing (references, visit, meet-and-greet): 5–7 days</li>
+<li>Slow processing is the #1 reason warm leads drop off.</li>
+</ul>
+<h3 id="home-visit-policy">8.2 Home Visit Policy</h3>
+<p><strong>Virtual default</strong> (10-min FaceTime/Zoom walkthrough).
+In-person only when: - Renter without landlord documentation - Flagged
+references - Medically complex placement requiring handoff - Adopter
+requests in-person</p>
+<p>Virtual visits reduce time-to-placement 40–60% in peer rescues.</p>
+<h3 id="digital-storytelling-the-flywheel">8.3 Digital Storytelling (The
+Flywheel)</h3>
+<p>Research (ASPCA Pro, Best Friends “From Kennels to Clicks”) shows
+<strong>video content outperforms static images 3–6×</strong> on
+engagement and adoption clickthrough.</p>
+<p><strong>Senior-specific formats:</strong> - “Day in the life” foster
+vlogs - HHHHHMM QOL score sheet published publicly (transparency builds
+trust) - “This dog has ~X good months left — let’s make them the best”
+honest framing - Bailey’s Story weekly format — each senior gets their
+own narrative thread - Before/after medical transformation (dental,
+mobility, coat) - Memorial posts for dogs who pass in care
+(counterintuitively drive huge engagement + donor retention)</p>
+<h3 id="channel-mix">8.4 Channel Mix</h3>
+<ul>
+<li><strong>Petfinder</strong> (~60% of most rescues’ adoption leads;
+mandatory)</li>
+<li>Adopt-a-Pet</li>
+<li>Rescue Groups</li>
+<li>Owned: Instagram, TikTok, Facebook, YouTube</li>
+<li><strong>Shelterluv auto-syncs to Petfinder + Rescue
+Groups</strong></li>
+</ul>
+<h3 id="adoption-fee-structure">8.5 Adoption Fee Structure</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Fee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard senior</td>
+<td>$150–$350</td>
+</tr>
+<tr>
+<td>Senior-to-Senior (adopter 60+)</td>
+<td>$50–$75 or waived</td>
+</tr>
+<tr>
+<td>Hospice / forever-foster</td>
+<td>$0; medical covered by Bailey’s World</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pets for the Elderly Foundation</strong> covers adoption fees
+for qualified 60+ adopters at participating shelters — apply for
+partnership.</p>
+<h3 id="post-adoption-support-baileys-best-benefit">8.6 Post-Adoption
+Support (“Bailey’s Best Benefit”)</h3>
+<ul>
+<li><strong>90-day medical grace</strong> (Bailey’s World covers any
+adoption-related medical issue)</li>
+<li><strong>Lifetime return guarantee</strong> (core to senior-adopter
+trust)</li>
+<li>Monthly newsletter with behavioral/health tips</li>
+<li>Optional medical stipend for adopters of dogs with known chronic
+conditions</li>
+<li>15-day waived co-pays, annual free grooming, 10% retail
+discount</li>
+</ul>
+<hr />
+<h2  id="technology-stack">9. Technology Stack</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Tool</th>
+<th>Annual Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shelter management</strong></td>
+<td>Shelterluv ($2/adoption, no setup/hosting fees)</td>
+<td>~$300–$600</td>
+</tr>
+<tr>
+<td><strong>Donor CRM</strong></td>
+<td>Little Green Light Phase I → Bloomerang Phase II</td>
+<td>$500 → $3K</td>
+</tr>
+<tr>
+<td>Website</td>
+<td>WordPress/Webflow + Shelterluv widgets + Petfinder API</td>
+<td>$500/yr hosting; $8K–$20K one-time build</td>
+</tr>
+<tr>
+<td>Accounting</td>
+<td>QuickBooks Online Nonprofit + TechSoup discount</td>
+<td>~$600</td>
+</tr>
+<tr>
+<td>Email / comms</td>
+<td>Mailchimp Standard</td>
+<td>~$600–$900</td>
+</tr>
+<tr>
+<td>Volunteer mgmt</td>
+<td>Better Impact (Galaxy Digital merged)</td>
+<td>$600–$2,400</td>
+</tr>
+<tr>
+<td>Productivity</td>
+<td>Google Workspace Nonprofit (free)</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Zoom, Canva, misc</td>
+<td></td>
+<td>$500–$1K</td>
+</tr>
+<tr>
+<td><strong>Total annual tech</strong></td>
+<td></td>
+<td><strong>~$3,600–$9,000</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Impact dashboard:</strong> Google Looker Studio (free)
+pulling from Shelterluv CSV + Bloomerang API + QuickBooks exports.
+One-time data-engineering buildout ~40 hours (~$4K contracted or
+volunteer pro bono).</p>
+<hr />
+<h2  id="revenue-operations-social-enterprise-arm">10. Revenue Operations
+(Social Enterprise Arm)</h2>
+<h3 id="public-boarding-phase-ii-launch">10.1 Public Boarding (Phase II
+launch)</h3>
+<p><strong>Triangle market:</strong> - Median boarding:
+<strong>$45/night</strong> in Raleigh (range $26–$59) - Vet-adjacent
+boarding (with med administration): $50–$80/night - Medication
+surcharge: $15/med at Pupsi; $5–$10/dose bundled at vet-adjacent</p>
+<p><strong>Critical market gap:</strong> many boarders decline dogs 14+
+years old. Bailey’s World can own the <strong>“senior-safe medicated
+boarding”</strong> niche.</p>
+<p><strong>Proposed pricing:</strong> - $65/night standard senior
+boarding - +$15/night medicated surcharge (for dogs on 3+ meds or
+injectable schedules)</p>
+<p><strong>Capacity (Phase II):</strong> 6–10 boarding suites separate
+from sanctuary suites. 70% utilization target → <strong>$100K–$200K
+annual revenue at full ramp</strong>.</p>
+<h3 id="on-site-vet-clinic-phase-iii">10.2 On-Site Vet Clinic (Phase
+III)</h3>
+<p><strong>Cost-plus hybrid pricing model:</strong> -
+<strong>Means-tested</strong> sliding scale for low-income owners:
+50–75% of market rate - <strong>Public market rate</strong> for
+non-qualifying public clients: generates margin that subsidizes
+sanctuary medical costs - <strong>Mission specialty:</strong> geriatric
+&amp; palliative care differentiates from general-practice vets in the
+area</p>
+<p><strong>Mission ROI:</strong> Each public-paying client generates
+gross margin offsetting the cost of caring for 1–2 sanctuary
+seniors.</p>
+<h3 id="retail">10.3 Retail</h3>
+<ul>
+<li>Branded goods (shirts, stickers, glasses, memorial markers) via
+Shopify</li>
+<li>Typical rescue retail margin: 30–50%</li>
+<li>Revenue contribution usually &lt;5% of total, but high
+brand-building value</li>
+<li><strong>Bailey-branded</strong> line — founder’s story as the
+product narrative</li>
+</ul>
+<h3 id="events">10.4 Events</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Event</th>
+<th>Target Gross</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annual senior-dog walk/fun run</td>
+<td>$6K–$25K (200–500 participants × $30–$50 entry)</td>
+</tr>
+<tr>
+<td>Giving Tuesday</td>
+<td>$25K (well-run campaigns $10K–$50K+)</td>
+</tr>
+<tr>
+<td>Legacy Gala</td>
+<td>$75K–$150K (Triangle supports mid-size rescue galas in this
+range)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sponsor-a-senior-corporate-program">10.5 “Sponsor a Senior”
+Corporate Program</h3>
+<p><strong>Recommended tiers:</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Monthly</th>
+<th>Includes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treat Sponsor</td>
+<td>$25</td>
+<td>Named treats + monthly photo</td>
+</tr>
+<tr>
+<td>Care Sponsor</td>
+<td>$50</td>
+<td>Monthly photo + quarterly video update</td>
+</tr>
+<tr>
+<td>Medical Sponsor</td>
+<td>$125</td>
+<td>Medical updates + annual visit invite</td>
+</tr>
+<tr>
+<td>Suite Sponsor</td>
+<td>$1,000/yr</td>
+<td>Named physical suite + plaque</td>
+</tr>
+<tr>
+<td>Full-Care Sponsor (corporate)</td>
+<td>$5,000/yr</td>
+<td>Named annual report recognition + corporate volunteer day + logo on
+web</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RTP corporate match targets:</strong> Cisco, IBM, Red Hat,
+Fidelity, Lenovo, SAS, Pendo, Relias — many with 2×–3× match
+opportunities plus volunteer days.</p>
+<hr />
+<h2  id="kpi-dashboard">11. KPI Dashboard</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Benchmark Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Live Release Rate</strong></td>
+<td>&gt;95%</td>
+<td>Best Friends no-kill 90%; 2024 national avg 82%</td>
+</tr>
+<tr>
+<td>On-site avg LOS</td>
+<td>30–45 days</td>
+<td>Muttville 21 days; sanctuary runs longer</td>
+</tr>
+<tr>
+<td>Foster utilization rate</td>
+<td>&gt;75%</td>
+<td>Internal; &lt;60% signals burnout or recruitment slowdown</td>
+</tr>
+<tr>
+<td>Foster retention 12-mo</td>
+<td>&gt;65%</td>
+<td>Tandfonline 2024 retention study</td>
+</tr>
+<tr>
+<td>Foster-to-adopt conversion</td>
+<td>25–40%</td>
+<td>Industry typical for senior rescues</td>
+</tr>
+<tr>
+<td>App → placement conversion</td>
+<td>35–55%</td>
+<td>Strong peer rescues</td>
+</tr>
+<tr>
+<td>App-to-placement cycle time</td>
+<td>&lt;14 days</td>
+<td>Best practice</td>
+</tr>
+<tr>
+<td>Donor retention (first-time)</td>
+<td>&gt;25%</td>
+<td>2024 US avg 13.8–17.9%</td>
+</tr>
+<tr>
+<td>Donor retention (repeat)</td>
+<td>&gt;75%</td>
+<td>2024 US avg 69.2%</td>
+</tr>
+<tr>
+<td>Monthly-giver retention</td>
+<td>&gt;85%</td>
+<td>Industry up to 90%</td>
+</tr>
+<tr>
+<td><strong>COCA per dog</strong></td>
+<td><strong>$1,800–$3,500</strong></td>
+<td>Dakin Humane blended $950 (all species); senior sanctuaries run
+2–4×</td>
+</tr>
+<tr>
+<td>Volunteer hr / staff FTE</td>
+<td>3–5×</td>
+<td>General nonprofit benchmark</td>
+</tr>
+<tr>
+<td>Grant win rate (dollar-weighted)</td>
+<td>20–35%</td>
+<td>Well-researched program</td>
+</tr>
+<tr>
+<td>SROI</td>
+<td>3:1 to 8:1</td>
+<td>Social Value International; typical senior-rescue range</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mission-specific-metrics">11.1 Mission-Specific Metrics</h3>
+<ul>
+<li><strong>SADs (Suffering-Adjusted Days) Averted</strong> — sum of
+(baseline QOL − current QOL) × days in care; requires HHHHHMM cadence
+discipline</li>
+<li><strong>QOL trajectory</strong> — % of dogs whose HHHHHMM score
+improves by 5+ points from intake to 30-day mark</li>
+<li><strong>Social → adoption conversion</strong> — UTM parameters on
+Shelterluv URLs; track clickthrough Instagram/FB → Petfinder →
+application</li>
+</ul>
+<hr />
+<h2  id="data-gaps-flagged">12. Data Gaps Flagged</h2>
+<ol type="1">
+<li>Senior-specific LOS data at NC rescue level — calibrate after first
+12 months of Shelterluv data</li>
+<li>NC animal-welfare ED compensation — commission compensation study
+via NC Center for Nonprofits</li>
+<li>Foster application approval rates at peer rescues — practitioner
+reports only; no rigorous published data</li>
+<li>OFSDS 990 financials (EIN via ProPublica Nonprofit Explorer) — pull
+at business-plan stage for peer benchmark</li>
+<li>RTP corporate match programs 1:1 verification — direct CSR outreach
+during Phase I development</li>
+</ol>
+<hr />
+<h2  id="sources">13. Sources</h2>
+<p>Full citations in <code>plan/research/06_operating_model.md</code>
+and <code>plan/research/02_peer_sanctuaries.md</code>. Primary:</p>
+<ul>
+<li>ASV Guidelines for Standards of Care in Animal Shelters, 2nd edition
+(2022)</li>
+<li>Best Friends Shelter Pet Lifesaving Data 2024 + 2025 Mid-Year</li>
+<li>Shelter Animals Count 2025 Annual Report</li>
+<li>Dog Foster Volunteer Retention — Tandfonline 2024 study</li>
+<li>Muttville Foster Manual</li>
+<li>Austin Pets Alive! 5-Star Foster Program</li>
+<li>Frosted Faces Foundation Molly &amp; Me Program</li>
+<li>Old Friends SDS Geezer Guardians program</li>
+<li>Wake County Animal Center Transfer Partnership Agreement (May
+2024)</li>
+<li>Shelterluv, Bloomerang, Little Green Light pricing</li>
+<li>AAHA Senior Pet QOL, HHHHHMM (Villalobos) scale, Lap of Love
+QOL</li>
+<li>Librela / GoodRx medication pricing benchmarks</li>
+<li>Dakin Humane COCA data</li>
+<li>Social Value International SROI framework</li>
+<li>RKD 2024 Animal Welfare Benchmark</li>
+</ul>
+
+    </div>
+  </div>
+
+  <footer class="paper__foot">
+    <nav class="paper__nav" aria-label="Appendix navigation">
+      <a href="A_market_and_competitive.html" class="prev">
+  <span class="paper__nav__label">← Appendix A</span>
+  <span class="paper__nav__title">Market & competitive landscape</span>
+</a>
+      <a href="C_site_strategy.html" class="next">
+  <span class="paper__nav__label">Appendix C →</span>
+  <span class="paper__nav__title">Site strategy</span>
+</a>
+    </nav>
+  </footer>
+</article>
+
+
+<footer class="site-foot">
+  <div class="site-foot__inner">
+    <div>
+      <h3>Bailey's <em>World.</em></h3>
+      <p>A 501(c)(3) senior-dog sanctuary for North Carolina's Research Triangle. In memory of Bailey. She got the retirement phase she deserved — we're building this so other senior dogs can too.</p>
+    </div>
+    <nav class="site-foot__nav">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Appendix index</a>
+      <a href="../index.html#ask">Join the Circle</a>
+      <a href="https://github.com/misterpavano/baileys-world" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+  <p class="site-foot__legal">© 2026 Bailey's World, Inc. · 501(c)(3) pending · Raleigh Metro, NC</p>
+</footer>
+
+<script>
+// Active-section highlight in the TOC
+const toc = document.querySelector('.toc');
+const headings = document.querySelectorAll('.prose h2');
+if (toc && headings.length) {
+  const links = new Map();
+  toc.querySelectorAll('a').forEach(a => {
+    const id = a.getAttribute('href').replace('#', '');
+    links.set(id, a);
+  });
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('active'));
+        const a = links.get(e.target.id);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -60% 0px' });
+  headings.forEach(h => obs.observe(h));
+}
+// Wrap tables in horizontal-scroll containers for mobile
+document.querySelectorAll('.prose table').forEach(table => {
+  const wrap = document.createElement('div');
+  wrap.className = 'table-scroll';
+  table.parentNode.insertBefore(wrap, table);
+  wrap.appendChild(table);
+});
+</script>
+</body>
+</html>
