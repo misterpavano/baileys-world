@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bailey's World — Campus vision · 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2EADC;
+    --paper-warm: #EADFCB;
+    --ink: #241B10;
+    --ink-soft: #5C4E38;
+    --ink-mute: #8A7A5E;
+    --barn-red: #9E3722;
+    --wood-warm: #C08653;
+    --sage: #7A8A5E;
+    --glass-glow: #F4E8C9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 32px 24px 80px;
+    overflow-x: hidden;
+  }
+  .frame { max-width: 1320px; margin: 0 auto; }
+
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(36, 27, 16, 0.15);
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 12px;
+  }
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  h1.title em { font-style: italic; color: var(--barn-red); }
+  .meta {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .meta strong { color: var(--ink); font-weight: 500; }
+
+  .stage-wrap {
+    position: relative;
+    background: linear-gradient(180deg, #F6EFDF 0%, #EDE2C9 100%);
+    border: 1px solid rgba(36,27,16,0.12);
+    padding: 16px;
+    box-shadow: 0 30px 60px -30px rgba(36, 27, 16, 0.25);
+  }
+  #stage {
+    width: 100%;
+    height: 640px;
+    background: #F4EAD3;
+    display: block;
+    cursor: grab;
+    position: relative;
+  }
+  #stage:active { cursor: grabbing; }
+  #stage canvas { display: block; }
+
+  .hud {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+  }
+  .hud-badge {
+    background: rgba(36, 27, 16, 0.92);
+    color: var(--paper);
+    padding: 6px 12px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: fit-content;
+  }
+  .hud-badge em {
+    font-style: normal;
+    color: var(--glass-glow);
+    margin-left: 6px;
+  }
+  .hud-instruct {
+    background: rgba(244, 234, 211, 0.8);
+    backdrop-filter: blur(4px);
+    padding: 6px 10px;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+    width: fit-content;
+    pointer-events: none;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    right: 28px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    pointer-events: auto;
+  }
+  .ctrl-btn {
+    background: rgba(244, 234, 211, 0.95);
+    border: 1px solid rgba(36,27,16,0.3);
+    color: var(--ink);
+    padding: 9px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .ctrl-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .ctrl-btn.active {
+    background: var(--barn-red);
+    color: var(--paper);
+    border-color: var(--barn-red);
+  }
+  .ctrl-group {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(36,27,16,0.3);
+    background: rgba(244, 234, 211, 0.95);
+  }
+  .ctrl-group .ctrl-btn {
+    border: none;
+    border-right: 1px solid rgba(36,27,16,0.2);
+    background: transparent;
+  }
+  .ctrl-group .ctrl-btn:last-child { border-right: none; }
+  .ctrl-group .ctrl-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .caption-row {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 60px;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(36,27,16,0.12);
+  }
+  .caption-row h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .caption-row h2 em { font-style: italic; color: var(--barn-red); }
+  .caption-row p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .pillar {
+    padding: 16px;
+    background: rgba(255,255,255,0.35);
+    border-left: 2px solid var(--barn-red);
+  }
+  .pillar .num {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    color: var(--barn-red);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .pillar h3 {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .pillar p {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(36,27,16,0.12);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .footer-row .mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+  }
+
+  @media (max-width: 820px) {
+    .masthead { grid-template-columns: 1fr; }
+    .meta { text-align: left; }
+    .caption-row { grid-template-columns: 1fr; gap: 24px; }
+    .pillars { grid-template-columns: 1fr; }
+    #stage { height: 480px; }
+    .controls { bottom: 16px; left: 16px; right: 16px; }
+  }
+
+  /* Embed mode — when loaded inside an iframe via ?embed=1, strip chrome and fill */
+  body.embed { padding: 0 !important; background: var(--paper); }
+  body.embed .masthead,
+  body.embed .caption-row,
+  body.embed .footer-row { display: none !important; }
+  body.embed .frame { max-width: none; padding: 0; margin: 0; }
+  body.embed .stage-wrap { margin: 0; border-radius: 0; }
+  body.embed #stage { height: 100vh; min-height: 420px; border-radius: 0; }
+  body.embed .hud { top: 14px; left: 14px; }
+  body.embed .controls { bottom: 14px; left: 14px; right: 14px; }
+</style>
+</head>
+<body>
+<script>
+  // Detect iframe embed (?embed=1) and apply stripped-chrome mode
+  if (new URLSearchParams(location.search).has('embed')) {
+    document.documentElement.classList.add('embed');
+    document.addEventListener('DOMContentLoaded', () => document.body.classList.add('embed'));
+  }
+</script>
+<div class="frame">
+
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">Bailey's World · Campus vision · 3D</div>
+      <h1 class="title">Drag to see it from <em>every angle.</em></h1>
+    </div>
+    <div class="meta">
+      <strong>Three.js · rotatable</strong><br>
+      Phase I · parcel-agnostic<br>
+      Orbit · zoom · preset views
+    </div>
+  </header>
+
+  <div class="stage-wrap">
+    <div id="stage">
+      <div class="hud">
+        <div class="hud-badge">Phase I <em>opens at CO</em></div>
+        <div class="hud-instruct">Drag to orbit · scroll to zoom · right-click to pan</div>
+      </div>
+      <div class="controls">
+        <div class="ctrl-group" role="group" aria-label="Camera presets">
+          <button class="ctrl-btn active" data-view="iso">¾ Iso</button>
+          <button class="ctrl-btn" data-view="front">Approach</button>
+          <button class="ctrl-btn" data-view="side">Side</button>
+          <button class="ctrl-btn" data-view="top">Plan</button>
+          <button class="ctrl-btn" data-view="living">Living room</button>
+        </div>
+        <button class="ctrl-btn" id="toggle-phases">Show Phase II/III</button>
+        <button class="ctrl-btn" id="toggle-rotate">Auto-rotate: off</button>
+        <button class="ctrl-btn" id="toggle-daynight">Night</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption-row">
+    <div>
+      <h2>Not a kennel.<br><em>A living room.</em></h2>
+      <p>A three-panel barn in ¾ view: west wing holds private suites (the bedrooms), the glass center is the daytime living room, east wing handles medical and community operations. Orbit around it.</p>
+      <p>The monitor roof over the center is load-bearing architecturally and symbolically — it literally elevates the living room above the two working wings, flooding it with clerestory daylight.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h3>Adaptive reuse</h3>
+        <p>A dead agricultural structure gets a second act — the same chapter as the dogs it houses.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h3>Zoning logic</h3>
+        <p>Indoor-only suites waive the 150-ft kennel setback in Orange County.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h3>Adoption engine</h3>
+        <p>Seniors shown in their best-case self convert at rates kennels can't match.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-row">
+    <div>Phase I · committed at CO · pre-land, parcel-agnostic</div>
+    <div class="mark">Bailey's <em>World.</em></div>
+    <div>3D · v1</div>
+  </footer>
+
+</div>
+
+<!-- Three.js from cdnjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // ======================================================================
+  // OrbitControls (inlined, r128-compatible, trimmed)
+  // ======================================================================
+  THREE.OrbitControls = function (object, domElement) {
+    this.object = object;
+    this.domElement = (domElement !== undefined) ? domElement : document;
+    this.enabled = true;
+    this.target = new THREE.Vector3();
+    this.minDistance = 0;
+    this.maxDistance = Infinity;
+    this.minPolarAngle = 0;
+    this.maxPolarAngle = Math.PI;
+    this.enableDamping = true;
+    this.dampingFactor = 0.08;
+    this.enableZoom = true;
+    this.zoomSpeed = 1.0;
+    this.enableRotate = true;
+    this.rotateSpeed = 1.0;
+    this.enablePan = true;
+    this.panSpeed = 1.0;
+    this.autoRotate = false;
+    this.autoRotateSpeed = 1.5;
+
+    var scope = this;
+    var STATE = { NONE: -1, ROTATE: 0, PAN: 2 };
+    var state = STATE.NONE;
+    var EPS = 0.000001;
+    var spherical = new THREE.Spherical();
+    var sphericalDelta = new THREE.Spherical();
+    var scale = 1;
+    var panOffset = new THREE.Vector3();
+    var rotateStart = new THREE.Vector2();
+    var rotateEnd = new THREE.Vector2();
+    var rotateDelta = new THREE.Vector2();
+    var panStart = new THREE.Vector2();
+    var panEnd = new THREE.Vector2();
+    var panDelta = new THREE.Vector2();
+
+    this.update = function() {
+      var offset = new THREE.Vector3();
+      var quat = new THREE.Quaternion().setFromUnitVectors(object.up, new THREE.Vector3(0,1,0));
+      var quatInverse = quat.clone().invert();
+      var lastPos = new THREE.Vector3();
+      var lastQuat = new THREE.Quaternion();
+
+      return function update() {
+        var position = scope.object.position;
+        offset.copy(position).sub(scope.target);
+        offset.applyQuaternion(quat);
+        spherical.setFromVector3(offset);
+        if (scope.autoRotate && state === STATE.NONE) {
+          sphericalDelta.theta -= (2 * Math.PI / 60 / 60) * scope.autoRotateSpeed;
+        }
+        spherical.theta += sphericalDelta.theta;
+        spherical.phi += sphericalDelta.phi;
+        spherical.phi = Math.max(scope.minPolarAngle, Math.min(scope.maxPolarAngle, spherical.phi));
+        spherical.makeSafe();
+        spherical.radius *= scale;
+        spherical.radius = Math.max(scope.minDistance, Math.min(scope.maxDistance, spherical.radius));
+        scope.target.add(panOffset);
+        offset.setFromSpherical(spherical);
+        offset.applyQuaternion(quatInverse);
+        position.copy(scope.target).add(offset);
+        scope.object.lookAt(scope.target);
+        if (scope.enableDamping) {
+          sphericalDelta.theta *= (1 - scope.dampingFactor);
+          sphericalDelta.phi *= (1 - scope.dampingFactor);
+          panOffset.multiplyScalar(1 - scope.dampingFactor);
+        } else {
+          sphericalDelta.set(0,0,0);
+          panOffset.set(0,0,0);
+        }
+        scale = 1;
+        return false;
+      };
+    }();
+
+    function pan(deltaX, deltaY) {
+      var offset = new THREE.Vector3();
+      offset.copy(scope.object.position).sub(scope.target);
+      var targetDistance = offset.length();
+      targetDistance *= Math.tan((scope.object.fov / 2) * Math.PI / 180.0);
+      var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+      // pan left
+      var v = new THREE.Vector3();
+      var te = scope.object.matrix.elements;
+      v.set(te[0], te[1], te[2]);
+      v.multiplyScalar(-(2 * deltaX * targetDistance / element.clientHeight));
+      panOffset.add(v);
+      // pan up
+      v.set(te[4], te[5], te[6]);
+      v.multiplyScalar(2 * deltaY * targetDistance / element.clientHeight);
+      panOffset.add(v);
+    }
+
+    function onMouseDown(event) {
+      if (!scope.enabled) return;
+      event.preventDefault();
+      if (event.button === 0) {
+        if (!scope.enableRotate) return;
+        rotateStart.set(event.clientX, event.clientY);
+        state = STATE.ROTATE;
+      } else if (event.button === 2) {
+        if (!scope.enablePan) return;
+        panStart.set(event.clientX, event.clientY);
+        state = STATE.PAN;
+      }
+      if (state !== STATE.NONE) {
+        document.addEventListener('mousemove', onMouseMove, false);
+        document.addEventListener('mouseup', onMouseUp, false);
+      }
+    }
+    function onMouseMove(event) {
+      if (!scope.enabled) return;
+      event.preventDefault();
+      if (state === STATE.ROTATE) {
+        rotateEnd.set(event.clientX, event.clientY);
+        rotateDelta.subVectors(rotateEnd, rotateStart).multiplyScalar(scope.rotateSpeed);
+        var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+        sphericalDelta.theta -= 2 * Math.PI * rotateDelta.x / element.clientWidth;
+        sphericalDelta.phi -= 2 * Math.PI * rotateDelta.y / element.clientHeight;
+        rotateStart.copy(rotateEnd);
+      } else if (state === STATE.PAN) {
+        panEnd.set(event.clientX, event.clientY);
+        panDelta.subVectors(panEnd, panStart).multiplyScalar(scope.panSpeed);
+        pan(panDelta.x, panDelta.y);
+        panStart.copy(panEnd);
+      }
+    }
+    function onMouseUp(event) {
+      state = STATE.NONE;
+      document.removeEventListener('mousemove', onMouseMove, false);
+      document.removeEventListener('mouseup', onMouseUp, false);
+    }
+    function onMouseWheel(event) {
+      if (!scope.enabled || !scope.enableZoom) return;
+      event.preventDefault();
+      if (event.deltaY < 0) scale /= Math.pow(0.95, scope.zoomSpeed);
+      else if (event.deltaY > 0) scale *= Math.pow(0.95, scope.zoomSpeed);
+    }
+    function onContextMenu(event) { event.preventDefault(); }
+    function onTouchStart(event) {
+      if (!scope.enabled) return;
+      if (event.touches.length === 1) {
+        rotateStart.set(event.touches[0].pageX, event.touches[0].pageY);
+        state = STATE.ROTATE;
+      } else if (event.touches.length === 2) {
+        panStart.set((event.touches[0].pageX + event.touches[1].pageX)/2, (event.touches[0].pageY + event.touches[1].pageY)/2);
+        state = STATE.PAN;
+      }
+    }
+    function onTouchMove(event) {
+      if (!scope.enabled) return;
+      event.preventDefault();
+      if (state === STATE.ROTATE && event.touches.length === 1) {
+        rotateEnd.set(event.touches[0].pageX, event.touches[0].pageY);
+        rotateDelta.subVectors(rotateEnd, rotateStart).multiplyScalar(scope.rotateSpeed);
+        var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
+        sphericalDelta.theta -= 2 * Math.PI * rotateDelta.x / element.clientWidth;
+        sphericalDelta.phi -= 2 * Math.PI * rotateDelta.y / element.clientHeight;
+        rotateStart.copy(rotateEnd);
+      }
+    }
+    function onTouchEnd() { state = STATE.NONE; }
+
+    this.domElement.addEventListener('contextmenu', onContextMenu, false);
+    this.domElement.addEventListener('mousedown', onMouseDown, false);
+    this.domElement.addEventListener('wheel', onMouseWheel, { passive: false });
+    this.domElement.addEventListener('touchstart', onTouchStart, { passive: false });
+    this.domElement.addEventListener('touchmove', onTouchMove, { passive: false });
+    this.domElement.addEventListener('touchend', onTouchEnd, false);
+
+    this.update();
+  };
+  THREE.OrbitControls.prototype = Object.create(THREE.EventDispatcher.prototype);
+  THREE.OrbitControls.prototype.constructor = THREE.OrbitControls;
+
+  // ======================================================================
+  // MAIN SCENE
+  // ======================================================================
+  const stage = document.getElementById('stage');
+
+  // Palette
+  const COLORS = {
+    paper: 0xF4EAD3,
+    ground: 0xC8BE93,
+    pasture: 0xB8BE87,
+    path: 0xD0B98E,
+    barnRed: 0x9E3722,
+    barnRedDark: 0x6E2213,
+    roof: 0x3F2816,
+    roofLight: 0x5A3A22,
+    wood: 0x986234,
+    woodDark: 0x5F3A1B,
+    woodLight: 0xC08653,
+    glass: 0xD8E2DF,
+    glassWarm: 0xF3E3B8,
+    glassMullion: 0x2A2418,
+    foundation: 0x6B5940,
+    sage: 0x7A8A5E,
+    sageDark: 0x4E5A38,
+    sageLight: 0x9FAE7E,
+    leaves: 0x8FA36A,
+    ghost: 0xDAC7A3,
+  };
+
+  // Scene
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(COLORS.paper);
+  scene.fog = new THREE.Fog(COLORS.paper, 80, 220);
+
+  // Camera
+  const camera = new THREE.PerspectiveCamera(42, stage.clientWidth / stage.clientHeight, 0.1, 500);
+  const ISO_POSITION = new THREE.Vector3(38, 28, 42);
+  camera.position.copy(ISO_POSITION);
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(stage.clientWidth, stage.clientHeight);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  stage.appendChild(renderer.domElement);
+
+  // ===== Environment map (enables PBR reflections + physical glass) =====
+  // Procedural warm-paper gradient baked into a PMREM environment.
+  (function buildEnvironment() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, 512);
+    grad.addColorStop(0.00, '#FFF1CE'); // warm sky top
+    grad.addColorStop(0.45, '#EADFCB'); // paper middle
+    grad.addColorStop(0.55, '#C8BE93'); // horizon
+    grad.addColorStop(1.00, '#7A6A4E'); // warm ground bounce
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 2, 512);
+    const gradientTex = new THREE.CanvasTexture(canvas);
+    gradientTex.mapping = THREE.EquirectangularReflectionMapping;
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+    const envMap = pmrem.fromEquirectangular(gradientTex).texture;
+    scene.environment = envMap;
+    gradientTex.dispose();
+    pmrem.dispose();
+  })();
+
+  // Controls
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.target.set(0, 3, 0);
+  controls.minDistance = 18;
+  controls.maxDistance = 90;
+  controls.maxPolarAngle = Math.PI / 2.05;
+  controls.minPolarAngle = 0.15;
+
+  // ===== Lighting =====
+  // With scene.environment doing the ambient bounce work, we drop AmbientLight
+  // and rely on the sun + one cool fill + a gentle hemisphere for character.
+
+  // Sun (key light) — tightened shadow frustum for sharper, higher-density shadows
+  const sun = new THREE.DirectionalLight(0xFFF0D0, 1.25);
+  sun.position.set(30, 45, 18);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048);
+  sun.shadow.camera.left = -22;
+  sun.shadow.camera.right = 22;
+  sun.shadow.camera.top = 22;
+  sun.shadow.camera.bottom = -26;
+  sun.shadow.camera.near = 0.5;
+  sun.shadow.camera.far = 120;
+  sun.shadow.bias = -0.0004;
+  sun.shadow.normalBias = 0.02;
+  sun.shadow.radius = 2.5; // softer contact shadows without losing definition
+  scene.add(sun);
+
+  // Fill light (cool sky bounce from opposite side)
+  const fill = new THREE.DirectionalLight(0xAAC4D8, 0.4);
+  fill.position.set(-25, 20, -15);
+  scene.add(fill);
+
+  // Subtle hemisphere (ground bounce) — reduced since the environment map
+  // contributes most of the ambient character now.
+  scene.add(new THREE.HemisphereLight(0xF5E2B8, 0x8A7A5A, 0.15));
+
+  // ===== Materials helpers =====
+  // Upgraded from Lambert/Phong to PBR MeshStandardMaterial so materials
+  // respond to the environment map and tone mapping. Defaults aim for a
+  // slightly matte, painted-wood feel — roughness dominant, no metalness.
+  const lambert = (color) => new THREE.MeshStandardMaterial({
+    color,
+    roughness: 0.82,
+    metalness: 0.0,
+  });
+  // Preserved name for compatibility; now a slightly shinier PBR surface.
+  const phong = (color, opts = {}) => new THREE.MeshStandardMaterial({
+    color,
+    roughness: 0.5,
+    metalness: 0.0,
+    ...opts,
+  });
+
+  // Edge-line helper for low-poly defined silhouettes
+  function addEdges(mesh, color = 0x241B10, opacity = 0.35) {
+    const edges = new THREE.EdgesGeometry(mesh.geometry, 20);
+    const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color, transparent: true, opacity }));
+    mesh.add(line);
+  }
+
+  // ======================================================================
+  // GROUND & SITE
+  // ======================================================================
+  const siteGroup = new THREE.Group();
+  scene.add(siteGroup);
+
+  // Ground disc
+  const groundGeo = new THREE.CircleGeometry(80, 64);
+  const groundMat = new THREE.MeshLambertMaterial({ color: COLORS.ground });
+  const ground = new THREE.Mesh(groundGeo, groundMat);
+  ground.rotation.x = -Math.PI / 2;
+  ground.position.y = 0;
+  ground.receiveShadow = true;
+  siteGroup.add(ground);
+
+  // Yard (rectangular pasture behind barn)
+  const yardGeo = new THREE.PlaneGeometry(24, 16);
+  const yardMat = new THREE.MeshLambertMaterial({ color: COLORS.pasture });
+  const yard = new THREE.Mesh(yardGeo, yardMat);
+  yard.rotation.x = -Math.PI / 2;
+  yard.position.set(0, 0.02, -13);
+  yard.receiveShadow = true;
+  siteGroup.add(yard);
+
+  // Approach path (wedge from front, curving in)
+  const pathShape = new THREE.Shape();
+  pathShape.moveTo(-3, 20);
+  pathShape.lineTo(-1.5, 8);
+  pathShape.lineTo(1.5, 8);
+  pathShape.lineTo(3, 20);
+  pathShape.lineTo(-3, 20);
+  const pathGeo = new THREE.ShapeGeometry(pathShape);
+  const pathMat = new THREE.MeshLambertMaterial({ color: COLORS.path });
+  const path = new THREE.Mesh(pathGeo, pathMat);
+  path.rotation.x = -Math.PI / 2;
+  path.position.y = 0.03;
+  path.receiveShadow = true;
+  siteGroup.add(path);
+
+  // Fence posts around yard perimeter
+  function addFence(x1, z1, x2, z2, posts = 8) {
+    const postGeo = new THREE.BoxGeometry(0.25, 1.2, 0.25);
+    const postMat = lambert(COLORS.woodDark);
+    const railMat = lambert(COLORS.wood);
+    for (let i = 0; i <= posts; i++) {
+      const t = i / posts;
+      const x = x1 + (x2 - x1) * t;
+      const z = z1 + (z2 - z1) * t;
+      const post = new THREE.Mesh(postGeo, postMat);
+      post.position.set(x, 0.6, z);
+      post.castShadow = true;
+      siteGroup.add(post);
+    }
+    // Two rails
+    const dx = x2 - x1, dz = z2 - z1;
+    const len = Math.sqrt(dx * dx + dz * dz);
+    const angle = Math.atan2(dz, dx);
+    for (const railY of [0.35, 0.85]) {
+      const railGeo = new THREE.BoxGeometry(len, 0.1, 0.08);
+      const rail = new THREE.Mesh(railGeo, railMat);
+      rail.position.set((x1 + x2) / 2, railY, (z1 + z2) / 2);
+      rail.rotation.y = -angle;
+      rail.castShadow = true;
+      siteGroup.add(rail);
+    }
+  }
+  // Yard is 24 wide, 16 deep, centered at x=0, z=-13
+  addFence(-12, -5, -12, -21, 6);   // left side of yard
+  addFence(12, -5, 12, -21, 6);     // right side of yard
+  addFence(-12, -21, 12, -21, 10);  // back of yard
+
+  // ======================================================================
+  // THE BARN — three-panel, monitor roof
+  // ======================================================================
+  const barn = new THREE.Group();
+  scene.add(barn);
+
+  // Dimensions (meters)
+  const WING_W = 9;       // width of each wing (along X)
+  const WING_D = 8;       // depth (along Z)
+  const WING_H = 5;       // wall height of wings
+  const WING_ROOF_H = 3;  // roof ridge height above wall
+  const CENTER_W = 8;     // width of center panel
+  const CENTER_D = 8;     // depth of center
+  const CENTER_H = 4.5;   // wall height of center lower section
+  const CENTER_ROOF_LOW = 1;  // height of lower roof flanking the clerestory
+  const CLERESTORY_H = 2.5;   // height of raised clerestory
+  const CLERESTORY_W = 5;     // width of raised clerestory portion
+  const CLERESTORY_ROOF_H = 1.5; // roof above clerestory
+  const FOUND_H = 0.4;    // foundation
+
+  const TOTAL_W = WING_W + CENTER_W + WING_W;
+  const BARN_X_OFFSET = 0; // center the barn
+
+  // ======================================================================
+  // LEFT WING (west — suites / bedrooms)
+  // ======================================================================
+  const leftWing = new THREE.Group();
+  const leftWingX = -CENTER_W / 2 - WING_W / 2;
+
+  // Foundation
+  const foundMat = lambert(COLORS.foundation);
+  const leftFound = new THREE.Mesh(
+    new THREE.BoxGeometry(WING_W, FOUND_H, WING_D),
+    foundMat
+  );
+  leftFound.position.set(0, FOUND_H / 2, 0);
+  leftFound.castShadow = true;
+  leftFound.receiveShadow = true;
+  leftWing.add(leftFound);
+
+  // Walls (wood siding look — single mesh with color)
+  const wingWallMat = lambert(COLORS.barnRed);
+  const wingWallMatDark = lambert(COLORS.barnRedDark);
+
+  const leftWalls = new THREE.Mesh(
+    new THREE.BoxGeometry(WING_W, WING_H, WING_D),
+    wingWallMat
+  );
+  leftWalls.position.set(0, FOUND_H + WING_H / 2, 0);
+  leftWalls.castShadow = true;
+  leftWalls.receiveShadow = true;
+  leftWing.add(leftWalls);
+  addEdges(leftWalls, COLORS.barnRedDark, 0.5);
+
+  // Gable roof — use a triangular prism (extruded shape)
+  function makeGableRoof(width, depth, roofH, color) {
+    const shape = new THREE.Shape();
+    shape.moveTo(-width / 2, 0);
+    shape.lineTo(width / 2, 0);
+    shape.lineTo(0, roofH);
+    shape.lineTo(-width / 2, 0);
+    const geo = new THREE.ExtrudeGeometry(shape, { depth: depth, bevelEnabled: false });
+    geo.translate(0, 0, -depth / 2);
+    const mat = lambert(color);
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    return mesh;
+  }
+
+  const leftRoof = makeGableRoof(WING_W, WING_D, WING_ROOF_H, COLORS.roof);
+  leftRoof.position.set(0, FOUND_H + WING_H, 0);
+  leftWing.add(leftRoof);
+  addEdges(leftRoof, 0x1F1208, 0.6);
+
+  // Windows on front face (4 suite windows) — use small emissive planes
+  const windowMat = new THREE.MeshStandardMaterial({
+    color: COLORS.glassWarm,
+    emissive: COLORS.glassWarm,
+    emissiveIntensity: 0.6,
+    metalness: 0,
+    roughness: 0.3,
+  });
+  const windowTrimMat = lambert(COLORS.woodDark);
+  function addWindow(parent, x, y, z, w = 0.9, h = 1.4, face = 'front') {
+    const win = new THREE.Mesh(new THREE.PlaneGeometry(w, h), windowMat);
+    // Trim (slightly larger, behind)
+    const trim = new THREE.Mesh(new THREE.PlaneGeometry(w + 0.15, h + 0.15), windowTrimMat);
+    if (face === 'front') {
+      win.position.set(x, y, z + 0.01);
+      trim.position.set(x, y, z + 0.005);
+    } else if (face === 'back') {
+      win.position.set(x, y, z - 0.01);
+      win.rotation.y = Math.PI;
+      trim.position.set(x, y, z - 0.005);
+      trim.rotation.y = Math.PI;
+    } else if (face === 'left') {
+      win.position.set(x - 0.01, y, z);
+      win.rotation.y = -Math.PI / 2;
+      trim.position.set(x - 0.005, y, z);
+      trim.rotation.y = -Math.PI / 2;
+    } else if (face === 'right') {
+      win.position.set(x + 0.01, y, z);
+      win.rotation.y = Math.PI / 2;
+      trim.position.set(x + 0.005, y, z);
+      trim.rotation.y = Math.PI / 2;
+    }
+    parent.add(trim);
+    parent.add(win);
+    // Mullion cross
+    const mullionMat = lambert(COLORS.woodDark);
+    const vertMul = new THREE.Mesh(new THREE.PlaneGeometry(0.05, h), mullionMat);
+    const horzMul = new THREE.Mesh(new THREE.PlaneGeometry(w, 0.05), mullionMat);
+    vertMul.position.copy(win.position); vertMul.rotation.copy(win.rotation);
+    horzMul.position.copy(win.position); horzMul.rotation.copy(win.rotation);
+    // Offset mullions slightly forward
+    const offsetVec = new THREE.Vector3(0, 0, 0.005);
+    offsetVec.applyQuaternion(win.quaternion);
+    vertMul.position.add(offsetVec);
+    horzMul.position.add(offsetVec);
+    parent.add(vertMul);
+    parent.add(horzMul);
+  }
+  // Front windows on left wing
+  const leftWingFrontZ = WING_D / 2;
+  for (let i = 0; i < 4; i++) {
+    const x = -WING_W / 2 + 1.2 + i * 2;
+    addWindow(leftWing, x, FOUND_H + 2.8, leftWingFrontZ, 0.9, 1.3, 'front');
+  }
+  // Back windows (facing yard)
+  for (let i = 0; i < 4; i++) {
+    const x = -WING_W / 2 + 1.2 + i * 2;
+    addWindow(leftWing, x, FOUND_H + 2.8, -WING_D / 2, 0.9, 1.3, 'back');
+  }
+  // Side windows (end of barn)
+  addWindow(leftWing, -WING_W / 2, FOUND_H + 2.8, -1.5, 0.8, 1.2, 'left');
+  addWindow(leftWing, -WING_W / 2, FOUND_H + 2.8, 1.5, 0.8, 1.2, 'left');
+
+  // Dormer windows on roof (3 on front slope)
+  function addDormer(parent, x, y, z, w = 1, h = 0.9) {
+    const dormer = new THREE.Group();
+    // Small box body
+    const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.8), wingWallMat);
+    body.castShadow = true;
+    dormer.add(body);
+    // Tiny roof on top
+    const d_roof = makeGableRoof(w, 0.8, 0.5, COLORS.roof);
+    d_roof.position.y = h / 2;
+    dormer.add(d_roof);
+    // Window on front
+    const win = new THREE.Mesh(new THREE.PlaneGeometry(w * 0.7, h * 0.6), windowMat);
+    win.position.set(0, 0, 0.41);
+    dormer.add(win);
+    dormer.position.set(x, y, z);
+    parent.add(dormer);
+  }
+  for (let i = 0; i < 3; i++) {
+    const x = -WING_W / 2 + 1.8 + i * 2.5;
+    addDormer(leftWing, x, FOUND_H + WING_H + WING_ROOF_H * 0.5, WING_D / 2 - 1.1, 1.1, 0.85);
+  }
+
+  leftWing.position.set(leftWingX, 0, 0);
+  barn.add(leftWing);
+
+  // ======================================================================
+  // RIGHT WING (east — medical, meet & greet, ops)
+  // ======================================================================
+  const rightWing = new THREE.Group();
+  const rightWingX = CENTER_W / 2 + WING_W / 2;
+
+  const rightFound = new THREE.Mesh(
+    new THREE.BoxGeometry(WING_W, FOUND_H, WING_D),
+    foundMat
+  );
+  rightFound.position.set(0, FOUND_H / 2, 0);
+  rightFound.castShadow = true;
+  rightFound.receiveShadow = true;
+  rightWing.add(rightFound);
+
+  const rightWalls = new THREE.Mesh(
+    new THREE.BoxGeometry(WING_W, WING_H, WING_D),
+    wingWallMat
+  );
+  rightWalls.position.set(0, FOUND_H + WING_H / 2, 0);
+  rightWalls.castShadow = true;
+  rightWalls.receiveShadow = true;
+  rightWing.add(rightWalls);
+  addEdges(rightWalls, COLORS.barnRedDark, 0.5);
+
+  const rightRoof = makeGableRoof(WING_W, WING_D, WING_ROOF_H, COLORS.roof);
+  rightRoof.position.set(0, FOUND_H + WING_H, 0);
+  rightWing.add(rightRoof);
+  addEdges(rightRoof, 0x1F1208, 0.6);
+
+  // Large sliding barn door in front of right wing (meet-and-greet entrance)
+  const rightDoor = new THREE.Group();
+  const doorMat = lambert(COLORS.wood);
+  const doorDarkMat = lambert(COLORS.woodDark);
+  const doorBody = new THREE.Mesh(
+    new THREE.BoxGeometry(2.8, 3.5, 0.12),
+    doorMat
+  );
+  rightDoor.add(doorBody);
+  // Cross-brace planks
+  for (let i = 0; i < 4; i++) {
+    const plank = new THREE.Mesh(new THREE.BoxGeometry(0.6, 3.5, 0.02), doorDarkMat);
+    plank.position.set(-1.2 + i * 0.8, 0, 0.07);
+    rightDoor.add(plank);
+  }
+  // X brace
+  const xbrace1 = new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.1, 0.03), doorDarkMat);
+  xbrace1.rotation.z = Math.atan2(3.5, 2.8);
+  xbrace1.position.z = 0.08;
+  rightDoor.add(xbrace1);
+  const xbrace2 = new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.1, 0.03), doorDarkMat);
+  xbrace2.rotation.z = -Math.atan2(3.5, 2.8);
+  xbrace2.position.z = 0.08;
+  rightDoor.add(xbrace2);
+  // Top rail (sliding door track)
+  const topRail = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.15, 0.2), doorDarkMat);
+  topRail.position.set(0, 1.9, 0);
+  rightDoor.add(topRail);
+
+  rightDoor.position.set(-1.8, FOUND_H + 1.8, WING_D / 2 + 0.08);
+  rightWing.add(rightDoor);
+
+  // Windows on right wing — front
+  addWindow(rightWing, 1.5, FOUND_H + 2.8, WING_D / 2, 0.9, 1.3, 'front');
+  addWindow(rightWing, 2.9, FOUND_H + 2.8, WING_D / 2, 0.9, 1.3, 'front');
+  // Back (medical - higher, smaller for privacy)
+  for (let i = 0; i < 3; i++) {
+    const x = -WING_W / 2 + 1.8 + i * 2.5;
+    addWindow(rightWing, x, FOUND_H + 3.2, -WING_D / 2, 0.7, 1.0, 'back');
+  }
+  // End windows
+  addWindow(rightWing, WING_W / 2, FOUND_H + 2.8, -1.5, 0.8, 1.2, 'right');
+  addWindow(rightWing, WING_W / 2, FOUND_H + 2.8, 1.5, 0.8, 1.2, 'right');
+
+  rightWing.position.set(rightWingX, 0, 0);
+  barn.add(rightWing);
+
+  // ======================================================================
+  // CENTER PANEL — THE GLASS LIVING ROOM
+  // ======================================================================
+  const center = new THREE.Group();
+
+  // Foundation
+  const centerFound = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W, FOUND_H, CENTER_D),
+    foundMat
+  );
+  centerFound.position.set(0, FOUND_H / 2, 0);
+  centerFound.castShadow = true;
+  centerFound.receiveShadow = true;
+  center.add(centerFound);
+
+  // Low barn-red base band (below glass line)
+  // Reduced from 0.6 → 0.35 so floor-level interior life (rug, dogs, beds, balls)
+  // becomes visible from outside. Glass height and mullions auto-adjust via GLASS_H.
+  const baseBandH = 0.35;
+  const centerBase = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W, baseBandH, CENTER_D),
+    wingWallMat
+  );
+  centerBase.position.set(0, FOUND_H + baseBandH / 2, 0);
+  centerBase.castShadow = true;
+  centerBase.receiveShadow = true;
+  center.add(centerBase);
+
+  // Glass walls — plain alpha transparency (NOT transmission).
+  // Transmission is the "photoreal" path but is fragile with nested glass,
+  // render-order, and depth-write edge cases. Alpha blending is what actual
+  // architectural viz uses: reliably see-through regardless of scene setup.
+  const glassMat = new THREE.MeshStandardMaterial({
+    color: 0xC8DAE4,
+    metalness: 0.0,
+    roughness: 0.15,
+    transparent: true,
+    opacity: 0.22,
+    depthWrite: false, // critical: don't block interior from rendering
+    envMapIntensity: 0.5,
+    side: THREE.DoubleSide,
+  });
+
+  const GLASS_H = CENTER_H - baseBandH;
+  // Front glass wall
+  const frontGlass = new THREE.Mesh(
+    new THREE.PlaneGeometry(CENTER_W, GLASS_H),
+    glassMat
+  );
+  frontGlass.position.set(0, FOUND_H + baseBandH + GLASS_H / 2, CENTER_D / 2);
+  center.add(frontGlass);
+
+  // Back glass wall (for sightline through to yard)
+  const backGlass = new THREE.Mesh(
+    new THREE.PlaneGeometry(CENTER_W, GLASS_H),
+    glassMat
+  );
+  backGlass.position.set(0, FOUND_H + baseBandH + GLASS_H / 2, -CENTER_D / 2);
+  backGlass.rotation.y = Math.PI;
+  center.add(backGlass);
+
+  // Side panels (partial — connect to wings, mostly solid with a strip of glass)
+  // We show solid sides where the wings join, with a glass band at top
+  // But since wings are adjacent, the side walls are shared — minimal treatment needed here.
+  // Keep open for now; the wings provide the structural sides visually.
+
+  // Mullions — vertical posts on front and back glass
+  const mullionMat = new THREE.MeshLambertMaterial({ color: COLORS.glassMullion });
+  const numMullions = 6;
+  for (let i = 0; i <= numMullions; i++) {
+    const x = -CENTER_W / 2 + (CENTER_W / numMullions) * i;
+    // Front
+    const mF = new THREE.Mesh(
+      new THREE.BoxGeometry(0.1, GLASS_H, 0.12),
+      mullionMat
+    );
+    mF.position.set(x, FOUND_H + baseBandH + GLASS_H / 2, CENTER_D / 2 + 0.02);
+    mF.castShadow = true;
+    center.add(mF);
+    // Back
+    const mB = new THREE.Mesh(
+      new THREE.BoxGeometry(0.1, GLASS_H, 0.12),
+      mullionMat
+    );
+    mB.position.set(x, FOUND_H + baseBandH + GLASS_H / 2, -CENTER_D / 2 - 0.02);
+    mB.castShadow = true;
+    center.add(mB);
+  }
+  // Horizontal transom
+  const transomFront = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W, 0.15, 0.15),
+    mullionMat
+  );
+  transomFront.position.set(0, FOUND_H + baseBandH + GLASS_H * 0.65, CENTER_D / 2 + 0.02);
+  center.add(transomFront);
+  const transomBack = transomFront.clone();
+  transomBack.position.z = -CENTER_D / 2 - 0.02;
+  center.add(transomBack);
+
+  // Top horizontal beam (under low roof)
+  const topBeamMat = lambert(COLORS.woodDark);
+  const topBeamFront = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W, 0.3, 0.25),
+    topBeamMat
+  );
+  topBeamFront.position.set(0, FOUND_H + CENTER_H + 0.15, CENTER_D / 2);
+  center.add(topBeamFront);
+  const topBeamBack = topBeamFront.clone();
+  topBeamBack.position.z = -CENTER_D / 2;
+  center.add(topBeamBack);
+
+  // Low flanking roof (the wider base of the monitor)
+  // This is a flat roof section extending to the full wing height,
+  // with a raised clerestory box in the middle.
+  // Low roof slabs on either side of the clerestory
+  const lowRoofFlankW = (CENTER_W - CLERESTORY_W) / 2;
+  const lowRoofMat = lambert(COLORS.roof);
+
+  const lowRoofLeft = new THREE.Mesh(
+    new THREE.BoxGeometry(lowRoofFlankW, CENTER_ROOF_LOW, CENTER_D),
+    lowRoofMat
+  );
+  lowRoofLeft.position.set(-CLERESTORY_W / 2 - lowRoofFlankW / 2, FOUND_H + CENTER_H + CENTER_ROOF_LOW / 2, 0);
+  lowRoofLeft.castShadow = true;
+  lowRoofLeft.receiveShadow = true;
+  center.add(lowRoofLeft);
+  addEdges(lowRoofLeft, 0x1F1208, 0.5);
+
+  const lowRoofRight = new THREE.Mesh(
+    new THREE.BoxGeometry(lowRoofFlankW, CENTER_ROOF_LOW, CENTER_D),
+    lowRoofMat
+  );
+  lowRoofRight.position.set(CLERESTORY_W / 2 + lowRoofFlankW / 2, FOUND_H + CENTER_H + CENTER_ROOF_LOW / 2, 0);
+  lowRoofRight.castShadow = true;
+  lowRoofRight.receiveShadow = true;
+  center.add(lowRoofRight);
+  addEdges(lowRoofRight, 0x1F1208, 0.5);
+
+  // ===== RAISED CLERESTORY (monitor section) =====
+  // Solid side walls (barn-red, short — the rising part of the monitor)
+  const clerestorySideMat = wingWallMat;
+  // North side of clerestory (facing back/yard)
+  const clereBack = new THREE.Mesh(
+    new THREE.PlaneGeometry(CLERESTORY_W, CLERESTORY_H),
+    clerestorySideMat
+  );
+  clereBack.position.set(0, FOUND_H + CENTER_H + CENTER_ROOF_LOW + CLERESTORY_H / 2, -CENTER_D / 2 + 0.01);
+  clereBack.rotation.y = Math.PI;
+  center.add(clereBack);
+
+  // South side of clerestory (facing front/approach) - this is where the big glass is
+  // (The clerestory front wall is glass for the warm glow)
+  // Clerestory glass — warm glowing panel, alpha-blended.
+  const clereGlassMat = new THREE.MeshStandardMaterial({
+    color: 0xF7E0A0,
+    emissive: 0xF3D88A,
+    emissiveIntensity: 0.55,
+    metalness: 0.0,
+    roughness: 0.28,
+    transparent: true,
+    opacity: 0.7,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  });
+  const clereFront = new THREE.Mesh(
+    new THREE.PlaneGeometry(CLERESTORY_W, CLERESTORY_H),
+    clereGlassMat
+  );
+  clereFront.position.set(0, FOUND_H + CENTER_H + CENTER_ROOF_LOW + CLERESTORY_H / 2, CENTER_D / 2 - 0.01);
+  center.add(clereFront);
+
+  // Clerestory mullions front
+  const clereNumMul = 4;
+  for (let i = 0; i <= clereNumMul; i++) {
+    const x = -CLERESTORY_W / 2 + (CLERESTORY_W / clereNumMul) * i;
+    const m = new THREE.Mesh(
+      new THREE.BoxGeometry(0.08, CLERESTORY_H, 0.08),
+      mullionMat
+    );
+    m.position.set(x, FOUND_H + CENTER_H + CENTER_ROOF_LOW + CLERESTORY_H / 2, CENTER_D / 2 + 0.02);
+    center.add(m);
+  }
+
+  // Clerestory east/west walls (solid barn-red, triangular? Here rectangular panels)
+  // These are at the edges of the clerestory, meeting the low roof below
+  const clereEndMat = wingWallMat;
+  const clereEndGeo = new THREE.PlaneGeometry(CENTER_D, CLERESTORY_H);
+  const clereEast = new THREE.Mesh(clereEndGeo, clereEndMat);
+  clereEast.rotation.y = Math.PI / 2;
+  clereEast.position.set(CLERESTORY_W / 2, FOUND_H + CENTER_H + CENTER_ROOF_LOW + CLERESTORY_H / 2, 0);
+  center.add(clereEast);
+  const clereWest = new THREE.Mesh(clereEndGeo, clereEndMat);
+  clereWest.rotation.y = -Math.PI / 2;
+  clereWest.position.set(-CLERESTORY_W / 2, FOUND_H + CENTER_H + CENTER_ROOF_LOW + CLERESTORY_H / 2, 0);
+  center.add(clereWest);
+
+  // Clerestory roof — gable on top
+  const clereRoof = makeGableRoof(CLERESTORY_W, CENTER_D, CLERESTORY_ROOF_H, COLORS.roof);
+  clereRoof.position.set(0, FOUND_H + CENTER_H + CENTER_ROOF_LOW + CLERESTORY_H, 0);
+  center.add(clereRoof);
+  addEdges(clereRoof, 0x1F1208, 0.6);
+
+  // ===== Interior lighting for "dollhouse see-through" =====
+  // Three warm point lights distributed across the living room so sofas,
+  // dogs, and the rug all read clearly through the glass from any angle.
+  // Quadratic falloff (decay=2) would fade too fast at these small scales;
+  // decay=1 gives a more painterly, readable interior.
+  const lrLight1 = new THREE.PointLight(0xFFE0A8, 1.6, 18, 1);
+  lrLight1.position.set(0, FOUND_H + CENTER_H * 0.75, 0);
+  center.add(lrLight1);
+
+  // Front-area wash (lights the sofas + dogs closest to the camera)
+  const lrLight2 = new THREE.PointLight(0xFFD89A, 1.1, 14, 1);
+  lrLight2.position.set(0, FOUND_H + 1.8, 1.8);
+  center.add(lrLight2);
+
+  // Back-area wash (lights the chair + TV wall so the scene has depth)
+  const lrLight3 = new THREE.PointLight(0xFFDFA4, 0.9, 12, 1);
+  lrLight3.position.set(0, FOUND_H + 1.8, -1.8);
+  center.add(lrLight3);
+
+  // Porch — wooden platform in front of living room
+  const porchMat = lambert(COLORS.woodLight);
+  const porch = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W - 1, 0.15, 2.5),
+    porchMat
+  );
+  porch.position.set(0, FOUND_H + 0.07, CENTER_D / 2 + 1.25);
+  porch.castShadow = true;
+  porch.receiveShadow = true;
+  center.add(porch);
+
+  // Porch steps
+  const step1 = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W - 2, 0.1, 0.6),
+    lambert(COLORS.wood)
+  );
+  step1.position.set(0, FOUND_H - 0.1, CENTER_D / 2 + 2.8);
+  step1.castShadow = true;
+  center.add(step1);
+
+  const step2 = new THREE.Mesh(
+    new THREE.BoxGeometry(CENTER_W - 2, 0.1, 0.6),
+    lambert(COLORS.woodDark)
+  );
+  step2.position.set(0, FOUND_H - 0.25, CENTER_D / 2 + 3.5);
+  step2.castShadow = true;
+  center.add(step2);
+
+  // Porch bench
+  const benchMat = lambert(COLORS.woodDark);
+  const bench = new THREE.Group();
+  const benchSeat = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.08, 0.45), benchMat);
+  benchSeat.position.y = 0.4;
+  bench.add(benchSeat);
+  const benchBack = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.5, 0.06), benchMat);
+  benchBack.position.set(0, 0.7, -0.2);
+  bench.add(benchBack);
+  for (const xLeg of [-0.7, 0.7]) {
+    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.4, 0.4), benchMat);
+    leg.position.set(xLeg, 0.2, 0);
+    bench.add(leg);
+  }
+  bench.position.set(-2.5, FOUND_H + 0.15, CENTER_D / 2 + 1.25);
+  bench.castShadow = true;
+  center.add(bench);
+
+  // Dog door at back of glass (toward yard)
+  const dogDoor = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.6, 0.8),
+    lambert(COLORS.woodDark)
+  );
+  dogDoor.position.set(2.5, FOUND_H + baseBandH + 0.4, -CENTER_D / 2 + 0.03);
+  dogDoor.rotation.y = Math.PI;
+  center.add(dogDoor);
+
+  // ===== Interior furnishings visible through glass =====
+  const interior = new THREE.Group();
+
+  // Rug
+  const rugMat = lambert(0xA25934);
+  const rug = new THREE.Mesh(new THREE.PlaneGeometry(5, 3), rugMat);
+  rug.rotation.x = -Math.PI / 2;
+  rug.position.y = FOUND_H + 0.01;
+  interior.add(rug);
+
+  // Sofa — simple low-poly
+  function makeSofa(color) {
+    const g = new THREE.Group();
+    const seatMat = lambert(color);
+    const base = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.5, 0.9), seatMat);
+    base.position.y = 0.25;
+    base.castShadow = true;
+    g.add(base);
+    const cushions = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.15, 0.85), lambert(0xB08560));
+    cushions.position.y = 0.58;
+    g.add(cushions);
+    const backRest = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.7, 0.25), seatMat);
+    backRest.position.set(0, 0.6, -0.35);
+    backRest.castShadow = true;
+    g.add(backRest);
+    // Arms
+    for (const x of [-1.0, 1.0]) {
+      const arm = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.55, 0.9), seatMat);
+      arm.position.set(x, 0.55, 0);
+      g.add(arm);
+    }
+    return g;
+  }
+  const sofa1 = makeSofa(0x8A6D4F);
+  sofa1.position.set(-1.8, FOUND_H, 1.3);
+  sofa1.rotation.y = 0.15;
+  interior.add(sofa1);
+
+  const sofa2 = makeSofa(0x6F5840);
+  sofa2.position.set(1.8, FOUND_H, 1.3);
+  sofa2.rotation.y = -0.15;
+  interior.add(sofa2);
+
+  // Reading chair
+  const chairMat = lambert(0x5C4E38);
+  const chair = new THREE.Group();
+  const cSeat = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.45, 0.8), chairMat);
+  cSeat.position.y = 0.22;
+  chair.add(cSeat);
+  const cBack = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.9, 0.15), chairMat);
+  cBack.position.set(0, 0.5, -0.32);
+  chair.add(cBack);
+  chair.position.set(0, FOUND_H, -1.5);
+  chair.rotation.y = Math.PI;
+  interior.add(chair);
+
+  // Coffee table
+  const tableMat = lambert(COLORS.wood);
+  const table = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.08, 0.7), tableMat);
+  table.position.set(0, FOUND_H + 0.4, 0);
+  interior.add(table);
+  // Table legs
+  for (const xL of [-0.5, 0.5]) {
+    for (const zL of [-0.3, 0.3]) {
+      const leg = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.4, 0.06), tableMat);
+      leg.position.set(xL, FOUND_H + 0.2, zL);
+      interior.add(leg);
+    }
+  }
+
+  // TV on back wall
+  const tvFrameMat = lambert(0x1A1510);
+  const tvScreenMat = new THREE.MeshStandardMaterial({
+    color: 0x2A3A4A, emissive: 0x3A5068, emissiveIntensity: 0.3, roughness: 0.2,
+  });
+  const tvFrame = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 1.05), tvFrameMat);
+  tvFrame.position.set(0, FOUND_H + 2.5, -CENTER_D / 2 + 0.05);
+  interior.add(tvFrame);
+  const tvScreen = new THREE.Mesh(new THREE.PlaneGeometry(1.65, 0.9), tvScreenMat);
+  tvScreen.position.set(0, FOUND_H + 2.5, -CENTER_D / 2 + 0.06);
+  interior.add(tvScreen);
+
+  // Dogs inside - simple low-poly
+  function makeDog(color) {
+    const dog = new THREE.Group();
+    const bodyMat = lambert(color);
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.32, 0.32), bodyMat);
+    body.position.y = 0.18;
+    body.castShadow = true;
+    dog.add(body);
+    const head = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.28, 0.28), bodyMat);
+    head.position.set(0.38, 0.28, 0);
+    head.castShadow = true;
+    dog.add(head);
+    const snout = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.14, 0.18), bodyMat);
+    snout.position.set(0.52, 0.22, 0);
+    dog.add(snout);
+    // Tail
+    const tail = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.08, 0.08), bodyMat);
+    tail.position.set(-0.4, 0.28, 0);
+    tail.rotation.z = 0.4;
+    dog.add(tail);
+    // Ears
+    for (const zE of [-0.12, 0.12]) {
+      const ear = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.14, 0.08), bodyMat);
+      ear.position.set(0.34, 0.45, zE);
+      dog.add(ear);
+    }
+    // Legs (4)
+    for (const [xL, zL] of [[-0.22, -0.1], [-0.22, 0.1], [0.22, -0.1], [0.22, 0.1]]) {
+      const leg = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.18, 0.09), bodyMat);
+      leg.position.set(xL, 0.09, zL);
+      dog.add(leg);
+    }
+    return dog;
+  }
+
+  // Dog on sofa 1 (lounging)
+  const dog1 = makeDog(0xC9A274);
+  dog1.position.set(-1.8, FOUND_H + 0.55, 1.3);
+  dog1.rotation.y = 0.3;
+  interior.add(dog1);
+
+  // Dog on sofa 2
+  const dog2 = makeDog(0x5F4430);
+  dog2.position.set(1.8, FOUND_H + 0.55, 1.3);
+  dog2.rotation.y = -0.3;
+  dog2.scale.set(0.9, 0.9, 0.9);
+  interior.add(dog2);
+
+  // Dog on rug
+  const dog3 = makeDog(0x3A2E1E);
+  dog3.position.set(-0.5, FOUND_H, 0);
+  dog3.rotation.y = -0.7;
+  dog3.scale.set(0.85, 0.85, 0.85);
+  interior.add(dog3);
+
+  // ======================================================================
+  // SANCTUARY LIFE — more dogs, beds, toys, plants, the lived-in stuff
+  // ======================================================================
+  const animatedDogs = []; // dogs we'll gently breathe in the animate loop
+
+  // --- More dogs, positioned above the knee wall so they read from outside
+  // Dog peeking over back of sofa 1 (playful)
+  const dog4 = makeDog(0xE8C088);
+  dog4.position.set(-1.8, FOUND_H + 0.9, 0.95);
+  dog4.rotation.y = 0.2;
+  dog4.scale.setScalar(0.8);
+  interior.add(dog4);
+  animatedDogs.push(dog4);
+
+  // Dog curled up on the reading chair
+  const dog5 = makeDog(0x7A5A3E);
+  dog5.position.set(0, FOUND_H + 0.55, -1.5);
+  dog5.rotation.y = Math.PI + 0.3;
+  dog5.scale.setScalar(0.78);
+  interior.add(dog5);
+  animatedDogs.push(dog5);
+
+  // Dog standing on the dog bed (visible above knee wall)
+  const dog6 = makeDog(0x4A3A28);
+  dog6.position.set(2.7, FOUND_H + 0.35, 0.2);
+  dog6.rotation.y = -1.4;
+  dog6.scale.setScalar(0.95);
+  interior.add(dog6);
+
+  // Small dog at the coffee table edge
+  const dog7 = makeDog(0xD9B582);
+  dog7.position.set(0.8, FOUND_H + 0.52, 0.6);
+  dog7.rotation.y = 2.4;
+  dog7.scale.setScalar(0.7);
+  interior.add(dog7);
+  animatedDogs.push(dog7);
+
+  // Breathing pets on the sofa dogs too
+  animatedDogs.push(dog1, dog2);
+
+  // --- Dog beds (raised cushion + side bolster so they read above knee wall)
+  function makeDogBed(color, bolsterColor) {
+    const bed = new THREE.Group();
+    // Cushion base
+    const cushion = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.75, 0.8, 0.22, 16),
+      lambert(color)
+    );
+    cushion.position.y = 0.11;
+    cushion.castShadow = true;
+    bed.add(cushion);
+    // Bolster ring (slightly flattened torus)
+    const bolster = new THREE.Mesh(
+      new THREE.TorusGeometry(0.72, 0.14, 8, 24),
+      lambert(bolsterColor)
+    );
+    bolster.rotation.x = Math.PI / 2;
+    bolster.position.y = 0.26;
+    bolster.scale.y = 0.75;
+    bed.add(bolster);
+    return bed;
+  }
+  const bed1 = makeDogBed(0xA86E4A, 0x6F4A32);
+  bed1.position.set(2.7, FOUND_H, 0.2);
+  interior.add(bed1);
+  const bed2 = makeDogBed(0x7E6340, 0x4A3A22);
+  bed2.position.set(-2.9, FOUND_H, -0.3);
+  interior.add(bed2);
+
+  // --- Throw pillows on sofas
+  function makePillow(color, w = 0.45, h = 0.18, d = 0.45) {
+    const p = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), lambert(color));
+    p.castShadow = true;
+    return p;
+  }
+  const p1 = makePillow(0xC05A3A); // terracotta
+  p1.position.set(-2.45, FOUND_H + 0.72, 1.3);
+  p1.rotation.y = 0.3;
+  interior.add(p1);
+  const p2 = makePillow(0xD4A868); // mustard
+  p2.position.set(-1.15, FOUND_H + 0.72, 1.3);
+  p2.rotation.y = -0.2;
+  interior.add(p2);
+  const p3 = makePillow(0x7A8A5E); // sage
+  p3.position.set(2.45, FOUND_H + 0.72, 1.3);
+  p3.rotation.y = -0.3;
+  interior.add(p3);
+  const p4 = makePillow(0xE8DCC0); // cream
+  p4.position.set(1.15, FOUND_H + 0.72, 1.3);
+  p4.rotation.y = 0.15;
+  interior.add(p4);
+
+  // --- Blanket draped over sofa 1 arm (skewed thin box)
+  const blanket = new THREE.Mesh(
+    new THREE.BoxGeometry(0.8, 0.06, 1.1),
+    lambert(0x9E6E4A)
+  );
+  blanket.position.set(-1.0, FOUND_H + 0.68, 1.3);
+  blanket.rotation.z = -0.12;
+  blanket.castShadow = true;
+  interior.add(blanket);
+
+  // --- Tennis balls (small spheres in warm yellow-green)
+  const ballMat = lambert(0xC9D36B);
+  function placeBall(x, y, z) {
+    const b = new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 10), ballMat);
+    b.position.set(x, y, z);
+    b.castShadow = true;
+    interior.add(b);
+  }
+  placeBall(0.3, FOUND_H + 0.48, 0.15);   // on coffee table
+  placeBall(-1.1, FOUND_H + 0.71, 1.55);  // on sofa 1 near pillow
+  placeBall(2.95, FOUND_H + 0.11, -0.6);  // tucked next to bed 1
+  placeBall(-0.4, FOUND_H + 0.48, -0.1);  // on coffee table
+  placeBall(1.4, FOUND_H + 0.11, 0.8);    // floor (mostly hidden, adds corner life)
+
+  // --- Chew bone on coffee table
+  const boneMat = lambert(0xEADEC2);
+  const bone = new THREE.Group();
+  const boneShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.35, 8), boneMat);
+  boneShaft.rotation.z = Math.PI / 2;
+  bone.add(boneShaft);
+  for (const bx of [-0.18, 0.18]) {
+    for (const bz of [-0.05, 0.05]) {
+      const knob = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 8), boneMat);
+      knob.position.set(bx, 0, bz);
+      bone.add(knob);
+    }
+  }
+  bone.position.set(-0.25, FOUND_H + 0.48, -0.1);
+  bone.rotation.y = 0.4;
+  interior.add(bone);
+
+  // --- Stack of books on coffee table (slightly askew)
+  function makeBook(color, w, h, d) {
+    return new THREE.Mesh(new THREE.BoxGeometry(w, h, d), lambert(color));
+  }
+  const book1 = makeBook(0x6B4A2C, 0.38, 0.06, 0.26);
+  book1.position.set(0.35, FOUND_H + 0.44, -0.15);
+  book1.rotation.y = 0.15;
+  interior.add(book1);
+  const book2 = makeBook(0x9E3722, 0.36, 0.05, 0.25);
+  book2.position.set(0.35, FOUND_H + 0.49, -0.15);
+  book2.rotation.y = -0.1;
+  interior.add(book2);
+
+  // --- Floor lamp in back corner (cylinder stand + cone shade with emissive)
+  const lampStandMat = lambert(0x1A1510);
+  const lampBase = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.22, 0.06, 16), lampStandMat);
+  lampBase.position.set(-3.0, FOUND_H + 0.03, -2.8);
+  interior.add(lampBase);
+  const lampPole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 2.0, 10), lampStandMat);
+  lampPole.position.set(-3.0, FOUND_H + 1.0, -2.8);
+  interior.add(lampPole);
+  const lampShadeMat = new THREE.MeshStandardMaterial({
+    color: 0xF7E4B2, emissive: 0xFFD88A, emissiveIntensity: 1.2, roughness: 0.5,
+  });
+  const lampShade = new THREE.Mesh(new THREE.ConeGeometry(0.32, 0.5, 16, 1, true), lampShadeMat);
+  lampShade.position.set(-3.0, FOUND_H + 2.15, -2.8);
+  interior.add(lampShade);
+  // Tiny point light from the lamp (warm, short range)
+  const lampLight = new THREE.PointLight(0xFFD88A, 0.6, 6, 1.5);
+  lampLight.position.set(-3.0, FOUND_H + 2.0, -2.8);
+  interior.add(lampLight);
+
+  // --- Houseplants (tall potted plant in far corner, small on end table)
+  const plantPotMat = lambert(0x8A5A3E);
+  // Tall corner plant
+  const tallPot = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.24, 0.5, 16), plantPotMat);
+  tallPot.position.set(3.0, FOUND_H + 0.25, -2.6);
+  interior.add(tallPot);
+  const tallLeaves = new THREE.Group();
+  for (let i = 0; i < 5; i++) {
+    const leaf = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.35, 0),
+      lambert(0x6F8858 + Math.floor(Math.random() * 0x222222))
+    );
+    leaf.position.set(
+      (Math.random() - 0.5) * 0.4,
+      0.4 + i * 0.25,
+      (Math.random() - 0.5) * 0.4
+    );
+    leaf.scale.setScalar(0.7 + Math.random() * 0.4);
+    leaf.castShadow = true;
+    tallLeaves.add(leaf);
+  }
+  tallLeaves.position.set(3.0, FOUND_H + 0.5, -2.6);
+  interior.add(tallLeaves);
+
+  // --- Side table + small plant near chair
+  const sideTable = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.5), lambert(COLORS.wood));
+  sideTable.position.set(1.6, FOUND_H + 0.35, -1.5);
+  interior.add(sideTable);
+  const smallPot = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.12, 0.2, 12), plantPotMat);
+  smallPot.position.set(1.6, FOUND_H + 0.8, -1.5);
+  interior.add(smallPot);
+  const smallLeaves = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(0.22, 0),
+    lambert(0x7A8A5E)
+  );
+  smallLeaves.position.set(1.6, FOUND_H + 1.05, -1.5);
+  smallLeaves.castShadow = true;
+  interior.add(smallLeaves);
+
+  // --- Water bowl inside (near the dog door)
+  const insideBowl = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.22, 0.18, 0.08, 16),
+    lambert(0x3A4A58)
+  );
+  insideBowl.position.set(2.2, FOUND_H + 0.04, -2.6);
+  interior.add(insideBowl);
+
+  // --- Framed photo on back wall (small, next to TV)
+  const frameMat = lambert(0x3A2E1E);
+  const frame = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.4), frameMat);
+  frame.position.set(-1.5, FOUND_H + 2.3, -CENTER_D / 2 + 0.055);
+  interior.add(frame);
+  const photoMat = new THREE.MeshStandardMaterial({
+    color: 0xB8A074, roughness: 0.6,
+  });
+  const photo = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.32), photoMat);
+  photo.position.set(-1.5, FOUND_H + 2.3, -CENTER_D / 2 + 0.06);
+  interior.add(photo);
+  // A second smaller frame
+  const frame2 = new THREE.Mesh(new THREE.PlaneGeometry(0.35, 0.45), frameMat);
+  frame2.position.set(1.5, FOUND_H + 2.3, -CENTER_D / 2 + 0.055);
+  interior.add(frame2);
+  const photo2 = new THREE.Mesh(new THREE.PlaneGeometry(0.28, 0.38), photoMat);
+  photo2.position.set(1.5, FOUND_H + 2.3, -CENTER_D / 2 + 0.06);
+  interior.add(photo2);
+
+  center.add(interior);
+
+  center.position.set(0, 0, 0);
+  barn.add(center);
+
+  // ======================================================================
+  // YARD DOGS & OBJECTS (visible through glass)
+  // ======================================================================
+  const dogYard = makeDog(0x8A6840);
+  dogYard.position.set(-3, 0, -11);
+  dogYard.rotation.y = 0.8;
+  siteGroup.add(dogYard);
+
+  const dogYard2 = makeDog(0xC8A57A);
+  dogYard2.position.set(4, 0, -14);
+  dogYard2.rotation.y = -0.5;
+  dogYard2.scale.set(0.9, 0.9, 0.9);
+  siteGroup.add(dogYard2);
+
+  const dogYard3 = makeDog(0x5A4430);
+  dogYard3.position.set(2, 0, -9);
+  dogYard3.rotation.y = 1.5;
+  dogYard3.scale.set(0.85, 0.85, 0.85);
+  siteGroup.add(dogYard3);
+
+  // --- Two walking dogs doing slow loops in the yard
+  // yard extents: x ∈ [-10, 10], z ∈ [-20, -6] (roughly)
+  const yardWalkers = [];
+
+  const walker1 = makeDog(0xB88A5C);
+  walker1.position.set(-4, 0, -13);
+  walker1.scale.setScalar(0.95);
+  siteGroup.add(walker1);
+  yardWalkers.push({
+    dog: walker1,
+    cx: -2, cz: -14, // loop center
+    rx: 5.5, rz: 3.8, // ellipse radii
+    speed: 0.35,
+    phase: 0,
+  });
+
+  const walker2 = makeDog(0x6C4A32);
+  walker2.position.set(5, 0, -15);
+  walker2.scale.setScalar(0.82);
+  siteGroup.add(walker2);
+  yardWalkers.push({
+    dog: walker2,
+    cx: 3, cz: -15,
+    rx: 3.5, rz: 2.5,
+    speed: 0.52, // faster, smaller dog
+    phase: Math.PI * 1.3, // offset so they don't collide
+  });
+
+  // Water bowl
+  const bowlMat = lambert(0x4A5A65);
+  const bowl = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.22, 0.1, 16), bowlMat);
+  bowl.position.set(3.5, 0.05, -8);
+  siteGroup.add(bowl);
+
+  // Ball
+  const ball = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 12, 10),
+    lambert(0xB85C3A)
+  );
+  ball.position.set(-2, 0.18, -8.5);
+  ball.castShadow = true;
+  siteGroup.add(ball);
+
+  // ======================================================================
+  // LANDSCAPING — trees, shrubs
+  // ======================================================================
+  function makeTree(scale = 1) {
+    const tree = new THREE.Group();
+    const trunkMat = lambert(COLORS.woodDark);
+    const leafMat1 = lambert(COLORS.sageDark);
+    const leafMat2 = lambert(COLORS.sage);
+    const leafMat3 = lambert(COLORS.leaves);
+
+    const trunk = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.15, 0.22, 1.6, 6),
+      trunkMat
+    );
+    trunk.position.y = 0.8;
+    trunk.castShadow = true;
+    tree.add(trunk);
+
+    const crown = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(1.3, 0),
+      leafMat1
+    );
+    crown.position.y = 2.2;
+    crown.castShadow = true;
+    tree.add(crown);
+
+    const crown2 = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.9, 0),
+      leafMat2
+    );
+    crown2.position.set(0.5, 2.5, 0.3);
+    crown2.castShadow = true;
+    tree.add(crown2);
+
+    const crown3 = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.7, 0),
+      leafMat3
+    );
+    crown3.position.set(-0.4, 2.3, -0.3);
+    crown3.castShadow = true;
+    tree.add(crown3);
+
+    tree.scale.setScalar(scale);
+    return tree;
+  }
+
+  // Tree in yard (shade tree)
+  const yardTree = makeTree(1.2);
+  yardTree.position.set(-5, 0, -16);
+  siteGroup.add(yardTree);
+
+  // Smaller tree in yard
+  const yardTree2 = makeTree(0.85);
+  yardTree2.position.set(6, 0, -18);
+  siteGroup.add(yardTree2);
+
+  // Trees flanking barn
+  const treeL = makeTree(1.3);
+  treeL.position.set(-20, 0, 6);
+  siteGroup.add(treeL);
+
+  const treeR = makeTree(1.4);
+  treeR.position.set(20, 0, 4);
+  siteGroup.add(treeR);
+
+  // Shrubs along base of barn
+  function makeShrub() {
+    const shrub = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.5, 0),
+      lambert(COLORS.sageDark)
+    );
+    shrub.castShadow = true;
+    return shrub;
+  }
+  for (let i = 0; i < 6; i++) {
+    const s = makeShrub();
+    s.position.set(-14 + i * 1.2, 0.3, WING_D / 2 + 0.6);
+    s.scale.setScalar(0.7 + Math.random() * 0.4);
+    siteGroup.add(s);
+  }
+  for (let i = 0; i < 6; i++) {
+    const s = makeShrub();
+    s.position.set(6 + i * 1.2, 0.3, WING_D / 2 + 0.6);
+    s.scale.setScalar(0.7 + Math.random() * 0.4);
+    siteGroup.add(s);
+  }
+
+  // Planter boxes on porch
+  const planterMat = lambert(0xB25B39);
+  for (const xP of [-3.2, 3.2]) {
+    const planter = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), planterMat);
+    planter.position.set(xP, FOUND_H + 0.25 + 0.15, CENTER_D / 2 + 1.25);
+    planter.castShadow = true;
+    siteGroup.add(planter);
+    const plant = new THREE.Mesh(new THREE.IcosahedronGeometry(0.35, 0), lambert(COLORS.sage));
+    plant.position.set(xP, FOUND_H + 0.7 + 0.15, CENTER_D / 2 + 1.25);
+    plant.castShadow = true;
+    siteGroup.add(plant);
+  }
+
+  // ======================================================================
+  // PHASE II/III GHOSTED BUILDINGS
+  // ======================================================================
+  const phaseExpansions = new THREE.Group();
+  phaseExpansions.visible = false;
+
+  const ghostMat = new THREE.MeshLambertMaterial({
+    color: COLORS.ghost,
+    transparent: true,
+    opacity: 0.35,
+    depthWrite: false,
+  });
+  const ghostEdgeMat = new THREE.LineBasicMaterial({
+    color: 0x5C4E38, transparent: true, opacity: 0.55,
+  });
+
+  function makeGhostBuilding(w, h, d) {
+    const g = new THREE.Group();
+    const box = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), ghostMat);
+    box.position.y = h / 2;
+    g.add(box);
+    const edges = new THREE.EdgesGeometry(box.geometry);
+    const line = new THREE.LineSegments(edges, ghostEdgeMat);
+    line.position.y = h / 2;
+    g.add(line);
+    // Simple gable roof (ghost)
+    const roof = makeGableRoof(w, d, h * 0.5, COLORS.ghost);
+    roof.material = ghostMat;
+    roof.position.y = h;
+    g.add(roof);
+    const rEdges = new THREE.EdgesGeometry(roof.geometry);
+    const rLine = new THREE.LineSegments(rEdges, ghostEdgeMat);
+    rLine.position.y = h;
+    g.add(rLine);
+    return g;
+  }
+
+  // Phase III clinic - far left, behind
+  const clinic = makeGhostBuilding(6, 4, 5);
+  clinic.position.set(-26, 0, -6);
+  phaseExpansions.add(clinic);
+
+  // Phase II boarding - attached to right wing rear
+  const boarding = makeGhostBuilding(6, 4.5, 5);
+  boarding.position.set(14, 0, -6);
+  phaseExpansions.add(boarding);
+
+  // Phase II founder's cottage - far right
+  const cottage = makeGhostBuilding(5, 3.5, 4);
+  cottage.position.set(24, 0, -8);
+  phaseExpansions.add(cottage);
+
+  scene.add(phaseExpansions);
+
+  // ======================================================================
+  // SIGN at entrance
+  // ======================================================================
+  const signGroup = new THREE.Group();
+  const postMat = lambert(COLORS.woodDark);
+  const signPost = new THREE.Mesh(new THREE.BoxGeometry(0.15, 1.6, 0.15), postMat);
+  signPost.position.y = 0.8;
+  signGroup.add(signPost);
+  const signBoard = new THREE.Mesh(
+    new THREE.BoxGeometry(1.6, 0.9, 0.08),
+    lambert(0xE8DCC0)
+  );
+  signBoard.position.y = 1.3;
+  signGroup.add(signBoard);
+  // Sign edge
+  const signEdges = new THREE.EdgesGeometry(signBoard.geometry);
+  const signLine = new THREE.LineSegments(signEdges, new THREE.LineBasicMaterial({ color: COLORS.woodDark }));
+  signLine.position.copy(signBoard.position);
+  signGroup.add(signLine);
+  signGroup.position.set(-3, 0, 14);
+  siteGroup.add(signGroup);
+
+  // ======================================================================
+  // CAMERA PRESETS
+  // ======================================================================
+  const PRESETS = {
+    iso:    { pos: [38, 28, 42], target: [0, 3, 0] },
+    front:  { pos: [0, 8, 38],   target: [0, 4, 0] },
+    side:   { pos: [46, 12, 0],  target: [0, 4, 0] },
+    top:    { pos: [0, 65, 0.1], target: [0, 0, -5] },
+    living: { pos: [0, 3.5, 16], target: [0, 3.5, 0] },
+  };
+
+  function animateToPreset(name) {
+    const preset = PRESETS[name];
+    if (!preset) return;
+    const startPos = camera.position.clone();
+    const startTarget = controls.target.clone();
+    const endPos = new THREE.Vector3(...preset.pos);
+    const endTarget = new THREE.Vector3(...preset.target);
+    const duration = 900;
+    const start = performance.now();
+    function step() {
+      const t = Math.min(1, (performance.now() - start) / duration);
+      const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      camera.position.lerpVectors(startPos, endPos, eased);
+      controls.target.lerpVectors(startTarget, endTarget, eased);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    step();
+  }
+
+  document.querySelectorAll('.ctrl-group .ctrl-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ctrl-group .ctrl-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      animateToPreset(btn.dataset.view);
+    });
+  });
+
+  // Phase toggle
+  const phaseBtn = document.getElementById('toggle-phases');
+  phaseBtn.addEventListener('click', () => {
+    phaseExpansions.visible = !phaseExpansions.visible;
+    phaseBtn.textContent = phaseExpansions.visible ? 'Hide Phase II/III' : 'Show Phase II/III';
+    phaseBtn.classList.toggle('active', phaseExpansions.visible);
+  });
+
+  // Auto-rotate toggle
+  const rotBtn = document.getElementById('toggle-rotate');
+  rotBtn.addEventListener('click', () => {
+    controls.autoRotate = !controls.autoRotate;
+    rotBtn.textContent = controls.autoRotate ? 'Auto-rotate: on' : 'Auto-rotate: off';
+    rotBtn.classList.toggle('active', controls.autoRotate);
+  });
+
+  // ======================================================================
+  // DAY / NIGHT TOGGLE
+  // ======================================================================
+  // Build a night environment map (cool, dim)
+  function buildNightEnv() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, 512);
+    grad.addColorStop(0.00, '#0E1424');
+    grad.addColorStop(0.45, '#14223A');
+    grad.addColorStop(0.55, '#1C2A44');
+    grad.addColorStop(1.00, '#0B1020');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 2, 512);
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+    const envMap = pmrem.fromEquirectangular(tex).texture;
+    tex.dispose();
+    pmrem.dispose();
+    return envMap;
+  }
+
+  // Rebuild day env map the same way (we threw the original away earlier)
+  function buildDayEnv() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, 512);
+    grad.addColorStop(0.00, '#FFF1CE');
+    grad.addColorStop(0.45, '#EADFCB');
+    grad.addColorStop(0.55, '#C8BE93');
+    grad.addColorStop(1.00, '#7A6A4E');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 2, 512);
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    pmrem.compileEquirectangularShader();
+    const envMap = pmrem.fromEquirectangular(tex).texture;
+    tex.dispose();
+    pmrem.dispose();
+    return envMap;
+  }
+
+  const dayEnvMap = buildDayEnv();
+  const nightEnvMap = buildNightEnv();
+  scene.environment = dayEnvMap; // replace the earlier one for consistency
+
+  // Day/night state snapshot — captures everything we animate between states
+  const DAY = {
+    sunIntensity: 1.25,
+    sunColor: new THREE.Color(0xFFF0D0),
+    fillIntensity: 0.4,
+    fillColor: new THREE.Color(0xAAC4D8),
+    hemiIntensity: 0.15,
+    exposure: 1.05,
+    sceneBg: new THREE.Color(0xF4EAD3),
+    fogNear: 80, fogFar: 220,
+    fogColor: new THREE.Color(0xF4EAD3),
+    lrInt: [1.6, 1.1, 0.9],     // lrLight1/2/3 intensities
+    lrColor: new THREE.Color(0xFFE0A8),
+    lampInt: 0.6,
+    clereEmissive: 0.55,
+    windowEmissive: 0.6,
+    lampShadeEmissive: 1.2,
+    envMap: dayEnvMap,
+  };
+
+  const NIGHT = {
+    sunIntensity: 0.08,
+    sunColor: new THREE.Color(0x8FA6C8),      // moonlight-cool
+    fillIntensity: 0.05,
+    fillColor: new THREE.Color(0x4A5E80),
+    hemiIntensity: 0.04,
+    exposure: 0.85,                           // slightly darker base
+    sceneBg: new THREE.Color(0x0B1020),
+    fogNear: 40, fogFar: 160,
+    fogColor: new THREE.Color(0x0B1020),
+    lrInt: [3.2, 2.4, 2.0],                   // cranked up
+    lrColor: new THREE.Color(0xFFCF8E),       // warmer at night
+    lampInt: 1.8,
+    clereEmissive: 1.6,                        // clerestory glows
+    windowEmissive: 1.8,                       // windows glow
+    lampShadeEmissive: 2.8,
+    envMap: nightEnvMap,
+  };
+
+  let isNight = false;
+
+  // Collect references to the lights/materials we need to retune
+  // (windowMat is scoped inside — the windows all share it)
+  const allWindowMats = [windowMat];
+  function applyState(S, instant = false) {
+    // Lights
+    sun.intensity = S.sunIntensity;
+    sun.color.copy(S.sunColor);
+    fill.intensity = S.fillIntensity;
+    fill.color.copy(S.fillColor);
+    // Find hemisphere light by walking children — it's the last HemisphereLight added
+    scene.traverse(obj => {
+      if (obj.isHemisphereLight) obj.intensity = S.hemiIntensity;
+    });
+    // Interior lights
+    lrLight1.intensity = S.lrInt[0];
+    lrLight2.intensity = S.lrInt[1];
+    lrLight3.intensity = S.lrInt[2];
+    lrLight1.color.copy(S.lrColor);
+    lrLight2.color.copy(S.lrColor);
+    lrLight3.color.copy(S.lrColor);
+    lampLight.intensity = S.lampInt;
+    // Materials — emissives
+    allWindowMats.forEach(m => { m.emissiveIntensity = S.windowEmissive; });
+    clereGlassMat.emissiveIntensity = S.clereEmissive;
+    lampShadeMat.emissiveIntensity = S.lampShadeEmissive;
+    // Scene
+    scene.background.copy(S.sceneBg);
+    scene.fog.color.copy(S.fogColor);
+    scene.fog.near = S.fogNear;
+    scene.fog.far = S.fogFar;
+    scene.environment = S.envMap;
+    // Renderer
+    renderer.toneMappingExposure = S.exposure;
+  }
+
+  // Initialize to day
+  applyState(DAY, true);
+
+  const dnBtn = document.getElementById('toggle-daynight');
+  dnBtn.addEventListener('click', () => {
+    isNight = !isNight;
+    applyState(isNight ? NIGHT : DAY);
+    dnBtn.textContent = isNight ? 'Day' : 'Night';
+    dnBtn.classList.toggle('active', isNight);
+  });
+
+  // ======================================================================
+  // RESIZE & ANIMATE
+  // ======================================================================
+  function onResize() {
+    const w = stage.clientWidth;
+    const h = stage.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', onResize);
+
+  // Cache base scales for breathing animation
+  animatedDogs.forEach(d => { d.userData.baseY = d.scale.y; });
+
+  // TV screen slow color shift so it feels "on"
+  const tvColors = [
+    new THREE.Color(0x2A3A4A),
+    new THREE.Color(0x3A4A5C),
+    new THREE.Color(0x4A3A58),
+    new THREE.Color(0x3A4A48),
+  ];
+
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+
+    const t = performance.now() * 0.001;
+
+    // Gentle breathing on sleeping/resting dogs — phase-offset per dog
+    animatedDogs.forEach((d, i) => {
+      const base = d.userData.baseY;
+      d.scale.y = base * (1 + Math.sin(t * 1.3 + i * 0.9) * 0.025);
+    });
+
+    // Yard walkers trace slow ellipses and face their direction of motion
+    yardWalkers.forEach(w => {
+      const angle = t * w.speed + w.phase;
+      const x = w.cx + Math.cos(angle) * w.rx;
+      const z = w.cz + Math.sin(angle) * w.rz;
+      // Position
+      w.dog.position.set(x, 0, z);
+      // Face direction of motion (derivative of ellipse)
+      const dx = -Math.sin(angle) * w.rx;
+      const dz =  Math.cos(angle) * w.rz;
+      w.dog.rotation.y = Math.atan2(dx, dz) - Math.PI / 2;
+      // Tiny head bob for "trotting" feel
+      w.dog.position.y = Math.abs(Math.sin(angle * 6)) * 0.04;
+    });
+
+    // TV crossfade between a small palette (very slow, ambient)
+    const cycle = (t * 0.1) % tvColors.length;
+    const idx = Math.floor(cycle);
+    const frac = cycle - idx;
+    const next = (idx + 1) % tvColors.length;
+    tvScreenMat.emissive.copy(tvColors[idx]).lerp(tvColors[next], frac);
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+})();
+</script>
+</body>
+</html>

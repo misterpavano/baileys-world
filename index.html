@@ -641,6 +641,89 @@
   .roadmap li em { font-family: var(--f-mono); font-style: normal; font-size: 0.82rem; color: var(--sepia); opacity: 0.7; letter-spacing: 0.05em; }
 
   /* ————————————————————————————————————————————————
+     BUILDING — Phase I 3D campus (iframe)
+     ———————————————————————————————————————————————— */
+  .building__intro {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: end;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 900px) { .building__intro { grid-template-columns: 1fr; gap: 1.5rem; } }
+  .building__frame {
+    position: relative;
+    width: 100%;
+    border: 1px solid rgba(62, 37, 24, 0.16);
+    background: var(--bone);
+    overflow: hidden;
+    box-shadow: 0 24px 60px -32px rgba(62, 37, 24, 0.35);
+    aspect-ratio: 16 / 10;
+    max-height: 78vh;
+    min-height: 420px;
+  }
+  .building__frame iframe {
+    width: 100%; height: 100%;
+    border: 0; display: block;
+  }
+  .building__frame-hint {
+    position: absolute; top: 1rem; left: 1rem; z-index: 2;
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.55rem 0.85rem;
+    background: rgba(250, 244, 235, 0.88); backdrop-filter: blur(6px);
+    border: 1px solid rgba(62, 37, 24, 0.18);
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--sepia);
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .building__frame-hint::before {
+    content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--oxblood);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.7); }
+  }
+  .building__frame.interacted .building__frame-hint { opacity: 0; }
+  .building__open {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.15rem;
+    background: transparent;
+    border: 1px solid var(--oxblood); color: var(--oxblood);
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .building__open:hover { background: var(--oxblood); color: var(--cream); }
+  .building__open::after { content: '↗'; font-size: 1.15em; }
+
+  .pillars {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  @media (max-width: 760px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar {
+    padding: 1.8rem 1.5rem;
+    background: var(--cream);
+    border: 1px solid rgba(62, 37, 24, 0.14);
+    position: relative;
+  }
+  .pillar__num {
+    font-family: var(--f-display); font-weight: 300;
+    font-size: 2.3rem; line-height: 1; color: var(--oxblood);
+    letter-spacing: -0.035em; margin-bottom: 0.9rem;
+    font-variation-settings: "opsz" 100;
+  }
+  .pillar h4 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 1.25rem; letter-spacing: -0.015em; line-height: 1.1;
+    color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .pillar p {
+    font-size: 0.95rem; color: var(--sepia); line-height: 1.55;
+  }
+
+  /* ————————————————————————————————————————————————
      ASK — form finale
      ———————————————————————————————————————————————— */
   .ask { position: relative; }
@@ -932,6 +1015,7 @@
     <a href="#model" class="nav__link">Model</a>
     <a href="#numbers" class="nav__link">Numbers</a>
     <a href="#gates" class="nav__link">Gates</a>
+    <a href="#building" class="nav__link">Building</a>
     <a href="#ask" class="nav__link">The Ask</a>
   </div>
   <a href="#ask" class="nav__cta">Join the Circle</a>
@@ -949,6 +1033,7 @@
   <a href="#stack" class="rail__dot" data-section="stack" title="Capital Stack"></a>
   <a href="#gates" class="rail__dot" data-section="gates" title="The Gates"></a>
   <a href="#team" class="rail__dot" data-section="team" title="The Team"></a>
+  <a href="#building" class="rail__dot" data-section="building" title="The Building"></a>
   <a href="#ask" class="rail__dot" data-section="ask" title="The Ask"></a>
 </nav>
 
@@ -1376,13 +1461,62 @@
 </section>
 
 <!-- ————————————————————————————————————————————————
+     BUILDING — Phase I 3D campus
+     ———————————————————————————————————————————————— -->
+<section class="section section--paper" id="building">
+  <div class="container">
+    <div class="section__label label reveal"><span>X &nbsp;·&nbsp; The Building</span></div>
+    <div class="building__intro">
+      <div class="reveal">
+        <h2 class="headline">Not a kennel.<br/><em>A living room.</em></h2>
+      </div>
+      <div class="reveal reveal--delay-1">
+        <p class="lede" style="margin-bottom: 0;">A three-panel barn. West wing holds private suites — the bedrooms — where dogs sleep, recover, and get medical monitoring. The glass center is the daytime living room. East wing is medical + community ops. Drag it to see it from every angle.</p>
+      </div>
+    </div>
+
+    <div class="building__frame reveal reveal--delay-2" id="building-frame">
+      <span class="building__frame-hint">Drag · Zoom · Pan</span>
+      <iframe
+        src="campus/?embed=1"
+        title="Bailey's World Phase I campus — interactive 3D"
+        loading="lazy"
+        allow="fullscreen"
+        referrerpolicy="no-referrer"></iframe>
+    </div>
+
+    <div class="reveal reveal--delay-3">
+      <a class="building__open" href="campus/" target="_blank" rel="noopener">Open the full campus walkthrough</a>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar reveal reveal--delay-1">
+        <div class="pillar__num">01</div>
+        <h4>Adaptive reuse</h4>
+        <p>A dead agricultural structure gets a second act — the same chapter as the dogs it houses.</p>
+      </div>
+      <div class="pillar reveal reveal--delay-2">
+        <div class="pillar__num">02</div>
+        <h4>Zoning logic</h4>
+        <p>Indoor-only suites waive the 150-ft kennel setback in Orange County and strengthen the position in Durham and Chatham.</p>
+      </div>
+      <div class="pillar reveal reveal--delay-3">
+        <div class="pillar__num">03</div>
+        <h4>Adoption engine</h4>
+        <p>Seniors shown in their best-case self — in a living room, not behind chain link — convert at rates kennels can't match.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————————————————————————————————————————————
      ASK — the finale
      ———————————————————————————————————————————————— -->
 <section class="section ask grain" id="ask">
   <div class="ask__bg"></div>
   <div class="ask__veil"></div>
   <div class="ask__inner">
-    <div class="section__label label reveal" style="color: var(--brass); --d:0;"><span>X &nbsp;·&nbsp; The Ask</span></div>
+    <div class="section__label label reveal" style="color: var(--brass); --d:0;"><span>XI &nbsp;·&nbsp; The Ask</span></div>
     <div class="ask__grid">
       <div class="ask__pitch reveal reveal--delay-1">
         <h2>Back the<br/><em>first flagship.</em></h2>
@@ -1553,6 +1687,29 @@
     });
   }, { threshold: 0.45 });
   Object.values(sectionMap).forEach(({ el }) => railObs.observe(el));
+
+  // ————————————————————————————————————————————————
+  // Building — hide the "Drag · Zoom · Pan" hint after first interaction
+  // ————————————————————————————————————————————————
+  const frame = document.getElementById('building-frame');
+  if (frame) {
+    const markInteracted = () => {
+      frame.classList.add('interacted');
+      frame.removeEventListener('pointerdown', markInteracted);
+      frame.removeEventListener('mouseenter', fadeAfter);
+    };
+    let timer = null;
+    const fadeAfter = () => {
+      if (timer) return;
+      timer = setTimeout(() => frame.classList.add('interacted'), 4500);
+    };
+    // Pointer events don't cross the iframe boundary, but hovering or tapping
+    // on the frame (including the mask hint) is a strong enough signal.
+    frame.addEventListener('pointerdown', markInteracted, { once: true });
+    frame.addEventListener('mouseenter', fadeAfter, { once: true });
+    // Also auto-fade after 8s regardless so the hint doesn't linger forever
+    setTimeout(() => frame.classList.add('interacted'), 8000);
+  }
 
   // ————————————————————————————————————————————————
   // Scenario toggle (financial pro forma)
