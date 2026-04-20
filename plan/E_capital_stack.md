@@ -1,7 +1,7 @@
 # Appendix E — Capital Stack & Funding Strategy
 ## Bailey's World / Triangle Senior Dog Barn Sanctuary
 
-*Phase-one capitalization: **$1.2M–$3.0M**. Target midpoint: $2.1M. Supporting research: `plan/research/03_capital_stack.md`.*
+*Phase-one capitalization: **$1.25M–$3.05M**. Target midpoint: $2.15M. Supporting research: `plan/research/03_capital_stack.md`.*
 
 ---
 
@@ -22,17 +22,19 @@ Two supporting streams:
 
 ---
 
-## 2. Recommended Stack (at $2.1M midpoint)
+## 2. Recommended Stack (at $2.15M midpoint)
 
-| Bucket | % of Raise | $ at $2.1M | $ at $1.2M low | $ at $3.0M high | What the Investor Wants |
+| Bucket | % of Raise | $ at $2.15M | $ at $1.25M low | $ at $3.05M high | What the Investor Wants |
 | --- | --- | --- | --- | --- | --- |
-| **Founding Gifts + Naming Rights** | **35%** | $735K | $420K | $1.05M | Campus/building naming, lasting legacy, founding-circle status, tax deduction |
-| **DAFs + Recoverable Grants** | **28%** | $590K | $336K | $840K | Impact, tax efficiency, optional anonymity, recyclable capital |
+| **Founding Gifts + Naming Rights** | **34%** | $735K | $425K | $1.05M | Campus/building naming, lasting legacy, founding-circle status, tax deduction |
+| **DAFs + Recoverable Grants** | **30%** | $640K | $340K | $890K | Impact, tax efficiency, optional anonymity, recyclable capital |
 | **PRI / Low-Cost Real-Estate Debt** | **18%** | $380K | $216K | $540K | Mission alignment, real estate collateral, 0–7% return, recycled capital |
-| **Sector Capital Grants** | **12%** | $250K | $144K | $360K | Senior-dog-specific data reporting, published outcomes, logo visibility |
+| **Sector Capital Grants** | **11%** | $250K | $144K | $360K | Senior-dog-specific data reporting, published outcomes, logo visibility |
 | **Small-Donor + Events** | **7%** | $150K | $84K | $210K | Community, experience, recognition plaque, emotional connection |
 
-**Lead-gift rule-of-thumb:** 18–25% of campaign goal from a single donor. On a $3M raise, target a **$600K–$750K lead gift**; on a $1.2M raise, target **$240K–$300K**. (SPCA Wake precedent: $5M Susan Ward gift = 18% of a $27.5M campaign.)
+**Reconciliation note:** The mid-case raise moved from $2.1M → $2.15M to absorb the ~$48K Year-1 OpEx delta from the Month-1 RVT and the Month-9 Overnight Care Associate (see Appendix F §2.2 and Appendix D §3.2). The DAF + Recoverable slice absorbs the $50K delta — lead-gift ladder and naming-rights tier are unchanged.
+
+**Lead-gift rule-of-thumb:** 18–25% of campaign goal from a single donor. On a $3.05M raise, target a **$610K–$765K lead gift**; on a $1.25M raise, target **$250K–$310K**. (SPCA Wake precedent: $5M Susan Ward gift = 18% of a $27.5M campaign.)
 
 **Silent-phase target:** 60–70% of goal committed before public launch. SPCA Wake achieved 88% pre-public-phase ($24.2M of $27.5M) — best-in-class benchmark.
 

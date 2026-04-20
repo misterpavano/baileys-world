@@ -90,6 +90,7 @@ Borrows the pitch deck's raise-design logic and builds out the gating criteria. 
 - NC nonprofit formation + IRS 1023 filing + charitable registration
 - Fiscal sponsor engagement (180-day bridge)
 - Founder compensation (Month 1–6, runway while 1023 pending)
+- **Vet Tech Manager (RVT) — first clinical hire, Month 1.** First hire after the founder; closes the medical-response gap before any dog is on-site.
 - Land-use attorney engagement (Orange + Chatham UDO review)
 - Parcel identification (3–5 candidates)
 - Top-2 candidate due diligence:
@@ -118,8 +119,9 @@ Borrows the pitch deck's raise-design logic and builds out the gating criteria. 
 - Neighborhood meeting + NIMBY outreach
 - NCDA&CS Animal Shelter Certificate application
 - NCVMB pre-application determination letter (Phase-I facility-permit trigger question)
-- Foster Coordinator hire (Month 3–4)
-- Vet Tech Manager recruitment begins
+- Foster Coordinator hire (Month 3)
+- Comms / Content Lead hire (Month 3)
+- Animal Care Lead hire (Month 6)
 - Early foster-network recruitment (goal: 10 committed fosters by end of Stage 2)
 
 **Gate-2 checks (must all be green to advance to Stage 3):**
@@ -129,7 +131,7 @@ Borrows the pitch deck's raise-design logic and builds out the gating criteria. 
 4. ✅ 60–70% of Stage-3 capital committed (silent phase milestone)
 5. ✅ First 10 fosters committed
 
-### 3.3 Stage 3 — Conversion + Launch ($1.2M–$3.0M total Phase-I)
+### 3.3 Stage 3 — Conversion + Launch ($1.25M–$3.05M total Phase-I)
 
 **Triggered only when all Gate-2 checks are green.**
 
@@ -150,7 +152,7 @@ Borrows the pitch deck's raise-design logic and builds out the gating criteria. 
 4. ✅ 12-month operating runway funded
 5. ✅ Annual Impact Report methodology + dashboard live
 
-### 3.4 Stage-Gate Use-of-Funds Distribution (at $2.1M midpoint)
+### 3.4 Stage-Gate Use-of-Funds Distribution (at $2.15M midpoint)
 
 | Category | % of Raise | $ |
 | --- | --- | --- |

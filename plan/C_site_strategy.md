@@ -193,7 +193,7 @@ Recommended diligence action: **pull deed records for Paws4Ever (Orange County R
 - NCDA&CS Animal Shelter Registration (no fee, annual renewal)
 - **Gate to advance:** SUP granted, conversion plans stamped, building permit in hand
 
-### Stage 3 — Conversion + Launch ($1.2M–$3.0M total Phase-I capitalization)
+### Stage 3 — Conversion + Launch ($1.25M–$3.05M total Phase-I capitalization)
 - Execute barn conversion (12–24 months)
 - Recruit founding staff (Foster Coordinator, Vet Tech Manager, Comms Lead)
 - Establish NC State CVM externship partnership

@@ -21,6 +21,8 @@ Wally adopted Bailey — a deaf senior dog — in 2020 when a three-times-failed
 
 **Commitment:** Full-time Founder + Executive Director role at Bailey's World from the Phase-I launch. Targeted Year-1 ED compensation: **$95K–$110K** (below Triangle nonprofit ED comp benchmarks for an org at this stage — Wally is accepting the below-market number as in-kind mission contribution for the first three years).
 
+**On-site residency (Phase I, Years 1–3):** The founder will reside on-site at the sanctuary during Phase I, providing emergency response, continuous presence for medically fragile and hospice dogs, and around-the-clock institutional knowledge during the operational shakeout period. A dedicated founder's cottage is deferred to Phase II as part of the expansion capital plan; during Phase I, founder accommodation is integrated into the barn conversion or a transitional structure on the property.
+
 ---
 
 ## 2. Year-1 Hiring Roadmap
@@ -41,22 +43,37 @@ The sanctuary is starting solo-founder. Below is the staffing plan that takes Ba
 
 ### 2.2 Hiring Sequence
 
+**Clinical staffing precedes all non-clinical hires.** The Vet Tech Manager is the first hire after the founder, enabling safe intake from Month 2 onward and closing the medical-response gap that would otherwise exist during the first half-year of operations. This is the correct sequencing for any senior-dog sanctuary model that accepts hospice and medically fragile intakes — which is the stated model here.
+
 | Order | Role | Timing | Year-1 Comp (NC nonprofit benchmarks) |
 | --- | --- | --- | --- |
 | 1 | **Founder + ED (Wally)** | Day 1 | $95K–$110K |
-| 2 | **Foster Coordinator** | Month 3–4 (before first intake) | $48K–$55K |
-| 3 | **Vet Tech Manager (RVT-licensed)** | Month 6 (around Cert. of Occupancy) | $55K–$65K (NC RVT avg $41K; premium for manager role) |
+| 2 | **Vet Tech Manager (RVT-licensed)** | **Month 1 — first clinical hire** | $55K–$65K (NC RVT avg $41K; premium for manager role) |
+| 3 | **Foster Coordinator** | Month 3 (before first intake) | $50K–$58K |
 | 4 | **Communications / Content Lead** | Month 3 (critical early for social flywheel) | $55K–$70K |
 | 5 | **Animal Care Lead (full-time)** | Month 6 | $40K–$48K |
 | 6 | **Operations / Volunteer Coordinator** | Month 9 | $48K–$55K |
-| 7 | **Development Director** | Month 12 (after Founders' Circle close) | $70K–$90K |
+| 7 | **Overnight Care Associate (1 FTE)** | **Month 9 — added when on-site population exceeds 15 dogs** | $42K–$48K |
+| 8 | **Development Director** | Month 12 (after Founders' Circle close) | $70K–$90K |
 
 **Additional part-time / contract:**
 - **Relief / contract DVM** — Phase I–II. ~20 hr/wk at $100–$120/hr via Roo or direct relationship. Annual cost: ~$110K–$125K. Converts to employed DVM at Phase III clinic launch.
 - **Bookkeeper / accountant** — contract, ~$8K–$15K/yr
 - **Legal counsel** — contract, ~$5K–$12K/yr retainer
 
-### 2.3 Volunteer Engine
+### 2.3 Around-the-Clock Care Model
+
+Bailey's World operates a hybrid 24/7 coverage model designed for the specific needs of a 20–25 dog senior sanctuary. The model has three layers.
+
+**Day coverage (6am–10pm).** Full staff presence. Dogs spend the majority of the day in the center Living Room — a glass-enclosed social space — or in the adjoining outdoor yard. Visiting hours and adopter meet-and-greets run during this window. The RVT, Animal Care Lead, and Foster Coordinator are on-site during core hours.
+
+**Night coverage (10pm–6am).** Dogs return to individual suites in the left wing of the barn, each with a dedicated sleeping area, climate control, and a window. A paid **Overnight Care Associate** is on-site from Month 9 onward, when the on-site population exceeds 15 dogs. Before Month 9 and during transitions, the resident founder provides overnight coverage supported by a monitored camera system and a 5-minute-response on-call protocol with the RVT.
+
+**Founder residency (Phase I).** The founder resides on-site during Phase I (Years 1–3), providing emergency response, continuous presence for medically fragile and hospice dogs, and around-the-clock institutional knowledge during the operational shakeout period. A dedicated founder's cottage is deferred to Phase II capital planning; during Phase I, founder accommodation is integrated into the barn conversion or a transitional structure on the property.
+
+The Living Room is explicitly a day-use space, not a 24/7 shared sleeping environment. This design choice is both clinical (senior dogs need private, quiet sleep spaces to manage stress, monitor intake, and support medical oversight) and regulatory (indoor-only housing with individual suites waives the 150-ft kennel setback in Orange County and strengthens the position in Durham and Chatham).
+
+### 2.4 Volunteer Engine
 
 Foster peer benchmarks show volunteer-FTE multipliers of 3–5× paid staff. Bailey's World Year-1 target: **100 active volunteers** (across fostering, socialization, transport, photography, events, grooming, administrative). Volunteer coordinator (role 6 above) manages the pipeline.
 
@@ -99,6 +116,7 @@ The Advisory Board has no fiduciary duty — it's a named credibility layer and 
 - **A Triangle-area estate-planning attorney** — anchors the Legacy Giving program
 - **A pet-palliative-care veterinary specialist** (Lap of Love, BluePearl, or independent) — credentializes the hospice program
 - **A senior-dog-adopter celebrity voice** — local or national; e.g., a Triangle author, musician, or athlete with adopted seniors
+- **Reserved board seat — senior-dog hospice clinical lead** (target: DVM with 10+ years hospice or geriatric veterinary practice). This seat anchors the sanctuary's clinical reputation and credentializes the hospice program to grant committees and regulators.
 
 ### 3.4 Founders' Circle (Separate from Board)
 

@@ -194,7 +194,7 @@ Per NC Department of Agriculture / WRAL Investigates (November 2025):
 | **Shep's Place (MO)** | **$900K** | Second building to triple capacity |
 | Woody's Place (PA) | $100K | Breed-specific; senior German Shepherds |
 
-**Bailey's World's $1.2M–$3.0M phase-one ask is directly precedented** — sits between Shep's Place ($900K) and Pepper's ($5M); aligns with Home for Good Almost Home ($3M).
+**Bailey's World's $1.25M–$3.05M phase-one ask is directly precedented** — sits between Shep's Place ($900K) and Pepper's ($5M); aligns with Home for Good Almost Home ($3M).
 
 ### 6.4 Triangle-Area Competitive / Cooperative Landscape
 

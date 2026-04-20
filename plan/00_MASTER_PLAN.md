@@ -2,7 +2,7 @@
 ## Triangle Senior Dog Barn Sanctuary
 ### Strategic Business Plan & Investor Brief · April 2026
 
-*Phase-One Capitalization Target: **$1.2M – $3.0M***
+*Phase-One Capitalization Target: **$1.25M – $3.05M***
 *Founder & Executive Director: **Wally Mostafa***
 
 ---
@@ -20,7 +20,7 @@
 
 **The model:** A small on-site campus (20–25 dogs) plus a distributed foster network (25–40 homes), aimed at serving 120–220 senior dogs/year at steady state — **6–10% of the ~1,700–2,200 senior-dog-at-risk SAM in the Triangle region**. The campus is for decompression, medical stabilization, and hospice residents who can't foster. The network handles volume and builds community.
 
-**The ask:** **$1.2M–$3.0M phase-one capitalization**, staged across three gated raises, structured as charitable impact capital (founding gifts, naming rights, DAFs, recoverable grants, PRI/real-estate debt). This is a materially smaller ask than the Triangle's other animal-welfare capital campaigns (SPCA Wake's $27.5M; Wake County Animal Center's $44.6M construction budget) — intentional, because **phase one must be small enough to be believable**.
+**The ask:** **$1.25M–$3.05M phase-one capitalization**, staged across three gated raises, structured as charitable impact capital (founding gifts, naming rights, DAFs, recoverable grants, PRI/real-estate debt). This is a materially smaller ask than the Triangle's other animal-welfare capital campaigns (SPCA Wake's $27.5M; Wake County Animal Center's $44.6M construction budget) — intentional, because **phase one must be small enough to be believable**.
 
 **The return:** The retirement phase. For every senior dog. At scale. Visibly, in the community.
 
@@ -255,7 +255,7 @@ Three stages. Five gate-checks between them. No capital closes before its gate.
 - **60–70% of Stage-3 capital committed** (silent phase milestone)
 - First 10 fosters committed
 
-### Stage 3 — Conversion + Launch ($1.2M–$3.0M total)
+### Stage 3 — Conversion + Launch ($1.25M–$3.05M total)
 
 **Use:** Barn conversion construction, medical fit-out, team completion, social-media engine launch, first cohort on-site, 12-month operating runway funded.
 
@@ -293,7 +293,7 @@ Bailey's World is betting on a convergence that's not theoretical — it's alrea
 - **The market gap is real and measurable.** No senior-dog-specific sanctuary operates a facility in the Triangle, despite 1,700–2,200 senior dogs/year at shelter-entry risk.
 - **The capital is available.** $11.83B in annual U.S. animal-welfare giving (+7.2% YoY). $240M+ AUM at Triangle Community Foundation. SPCA Wake's 8-figure revenue proves Triangle-scale animal-welfare fundraising is not hypothetical.
 - **The precedent exists.** SPCA Wake (22 ac), Paws4Ever (20 ac) validate the footprint and the zoning path in the Triangle. Old Friends SDS, Muttville, Frosted Faces validate the model at scale nationally.
-- **The ask is right-sized.** $1.2M–$3.0M sits inside the senior-dog-sanctuary capital campaign modal range (Shep's Place $900K, Home For Good $3M, Pepper's $5M) — materially smaller than Triangle peers' $27.5M–$44.6M asks.
+- **The ask is right-sized.** $1.25M–$3.05M sits inside the senior-dog-sanctuary capital campaign modal range (Shep's Place $900K, Home For Good $3M, Pepper's $5M) — materially smaller than Triangle peers' $27.5M–$44.6M asks.
 - **The founder is real.** Wally lived the product. Six years with Bailey, from adoption through her passing at 15 — every founding narrative anchor is personally verifiable and emotionally authentic.
 - **The model is gated.** Three raises, five checks. No capital commits before its risk is retired.
 
@@ -303,7 +303,7 @@ Bailey's World is betting on a convergence that's not theoretical — it's alrea
 
 **Back the first flagship.**
 
-Bailey's World's Phase-One capitalization target is **$1.2M – $3.0M**. We are seeking:
+Bailey's World's Phase-One capitalization target is **$1.25M – $3.05M**. We are seeking:
 
 - **Lead gift commitments** — $240K–$750K (18–25% of goal)
 - **Founders' Circle positions** — 12 at $100K+

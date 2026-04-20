@@ -4,7 +4,7 @@
 
 **Live site:** [https://misterpavano.github.io/baileys-world/](https://misterpavano.github.io/baileys-world/)
 
-**Phase-one capitalization target:** $1.2M – $3.0M
+**Phase-one capitalization target:** $1.25M – $3.05M
 **Location:** Raleigh Metro, NC (primary site search: Orange · Chatham · rural Durham)
 **Status:** 501(c)(3) filing pending. Pre-formation / fiscal-sponsor bridge phase.
 

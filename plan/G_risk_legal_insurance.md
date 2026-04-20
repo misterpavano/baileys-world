@@ -53,6 +53,8 @@ Each risk rated **Likelihood (L)** and **Impact (I)** on a 1–5 scale, with a r
 | O4 | Foster home turnover (>25%/yr) | 3 | 3 | 9 | Tiered foster support (basic, medical, hospice); medical-reimbursement guarantee; monthly foster-family calls; annual foster appreciation. |
 | O5 | Infectious disease outbreak (canine influenza, parvo in geriatric/immune-compromised population) | 2 | 5 | 10 | Isolation/intake protocol (14-day quarantine in separate HVAC zone); vaccination intake protocol; insurance bailee coverage; infectious-disease consult with NC State CVM. |
 | O6 | Critical medical event — euthanasia controversy | 3 | 4 | 12 | Written QOL assessment protocol (HHHHHMM or Lap of Love); DVM-led decision authority; board review for non-standard cases; transparent communication policy. |
+| O7 | **Founder burnout from Phase-I on-site residency (Years 1–3)** | 3 | 4 | 12 | Year 3 transition plan from founder on-site to paid live-in caretaker or expanded overnight staffing; Overnight Care Associate (Month 9+) shares the 24/7 load; founder's cottage in Phase II decouples residency from employment; board-mandated paid time off. |
+| O8 | **Dual residential + animal-care insurance exclusion** | 3 | 4 | 12 | Confirm with carrier pre-close that on-site founder residency qualifies as dual residential + animal-care occupancy. Some commercial animal-care policies exclude residential dwelling on the insured parcel; binder language must be verified before land close. |
 
 ### 1.5 Brand & Communications Risks
 

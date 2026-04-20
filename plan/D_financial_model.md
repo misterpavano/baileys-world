@@ -9,7 +9,7 @@
 
 Bailey's World is a **non-profit** — financial success means **durable mission delivery at scale**, not margin. The design principles:
 
-1. **Phase-I capitalization sized to reach operational viability** ($1.2M–$3.0M) — not to reach every aspirational phase
+1. **Phase-I capitalization sized to reach operational viability** ($1.25M–$3.05M) — not to reach every aspirational phase
 2. **Every CapEx dollar tied to a gated milestone** (see Appendix H §3)
 3. **6–12 months of operating reserve** baked into the Phase-I raise, not raised later
 4. **Social-enterprise revenue (boarding, clinic) phased in only after core sanctuary stabilizes** — do not chase earned revenue while still building infrastructure
@@ -17,11 +17,11 @@ Bailey's World is a **non-profit** — financial success means **durable mission
 
 ---
 
-## 2. CapEx Build — Phase I (at $2.1M midpoint)
+## 2. CapEx Build — Phase I (at $2.15M midpoint)
 
 ### 2.1 Use-of-Funds Breakdown
 
-| Category | % of Raise | $ @ $1.2M Low | $ @ $2.1M Mid | $ @ $3.0M High |
+| Category | % of Raise | $ @ $1.25M Low | $ @ $2.15M Mid | $ @ $3.05M High |
 | --- | --- | --- | --- | --- |
 | **Land acquisition** | 20–30% | $240K–$360K | $420K–$630K | $600K–$900K |
 | **Barn conversion + medical fit-out** | 45–55% | $540K–$660K | $945K–$1,155K | $1.35M–$1.65M |
@@ -114,22 +114,27 @@ Bailey's World is a **non-profit** — financial success means **durable mission
 | **Monthly total** | **~$61.5K** | **~$85K** |
 | **Annual total** | **~$740K** | **~$1.0M** |
 
-### 3.2 Annual Personnel Detail
+### 3.2 Annual Personnel Detail (reconciled with F §2.2)
 
 | Role | FTE | Low | High | Notes |
 | --- | --- | --- | --- | --- |
-| Executive Director (Wally) | 1.0 | $95K | $110K | Below NC nonprofit ED benchmark |
-| Operations / Foster Coordinator | 1.0 | $50K | $58K | |
-| Volunteer Coordinator | 0.75 | $31K | $36K | Avg of 0.5–1.0 |
-| Animal Care Lead | 1.0 | $38K | $45K | |
+| Executive Director (Wally) | 1.0 | $95K | $110K | Below NC nonprofit ED benchmark; on-site residency Phase I |
+| **Vet Tech Manager (RVT) — first clinical hire, Month 1** | **1.0** | **$55K** | **$65K** | **Full year in Y1 (moved from Month 6 start)** |
+| Foster Coordinator | 1.0 | $50K | $58K | Month 3 start |
+| Communications / Content Lead | 0.75 | $41K | $52K | Month 3 start; avg of 0.5–1.0 |
+| Animal Care Lead | 1.0 | $38K | $45K | Month 6 start |
+| Operations / Volunteer Coordinator | 0.75 | $31K | $36K | Month 9 start; avg of 0.5–1.0 |
+| **Overnight Care Associate** | **1.0** | **$42K** | **$48K** | **Month 9 start; triggered at 15+ on-site dogs** |
 | Animal Care Staff (PT) | 1.5 | $31K | $38K | $17–$20/hr × 1.5 FTE × 2080 hr |
-| RVT (per diem / 0.5) | 0.5 | $25K | $34K | $24–$32/hr × 0.5 FTE × 2080 |
-| Development / Comms | 0.75 | $41K | $52K | Avg of 0.5–1.0 |
-| **Subtotal salaries** | **6.5** | **$311K** | **$373K** | |
-| Benefits + payroll tax (20%) | | $62K | $75K | |
-| **Total personnel** | | **~$373K** | **~$448K** | |
+| Development / Comms (Dev Director) | 0.5 | $35K | $45K | Month 12 start |
+| **Subtotal salaries (steady-state)** | **8.5** | **~$418K** | **~$497K** | |
+| Benefits + payroll tax (20%) | | $84K | $99K | |
+| Shift differential / overnight premium | | $3K | $5K | Non-standard shift comp |
+| **Total personnel (steady-state)** | | **~$505K** | **~$601K** | |
 
-Plus contract DVM (~$110K–$125K) → Total labor cost ~$483K–$573K.
+**Year-1 reconciliation** (partial-year starts produce a lower Y1 number): personnel delta from the prior F-spec roadmap is **+$48K in Y1** (RVT full year vs half year = +$30K; new overnight associate partial-year = +$16K; premium = +$2K) and **+$55K in Y2** (overnight associate full-year vs partial-year). Years 3–5: no material change vs prior pro forma — overnight associate fully absorbed after Y2.
+
+Plus contract DVM (~$110K–$125K) → Total labor cost at steady state ~$615K–$726K.
 
 ### 3.3 Annual Tech Stack
 
@@ -150,7 +155,7 @@ See Appendix G. Phase I total: **$12K–$25K/year**.
 
 ### 3.5 Operating Reserve
 
-**Board-policy floor: 12 months of operating reserve.** At Year-1 midpoint ~$850K/yr operating budget, target reserve = **~$850K**. Built into Phase-I raise (10–15% = $210K–$315K at $2.1M midpoint) PLUS first-year annual fundraising before Stage-3 close.
+**Board-policy floor: 12 months of operating reserve.** At Year-1 midpoint ~$850K/yr operating budget, target reserve = **~$850K**. Built into Phase-I raise (10–15% = $210K–$315K at $2.15M midpoint) PLUS first-year annual fundraising before Stage-3 close.
 
 ---
 
@@ -164,7 +169,7 @@ See Appendix G. Phase I total: **$12K–$25K/year**.
 - Phase III (clinic) launches Year 3 / Year 4
 - Dog throughput scales 50 → 120 → 170 → 200 → 220
 
-### 4.2 Low Scenario — $1.2M Phase-I Raise, Conservative Growth
+### 4.2 Low Scenario — $1.25M Phase-I Raise, Conservative Growth
 
 | Revenue Stream | Y1 | Y2 | Y3 | Y4 | Y5 |
 | --- | --- | --- | --- | --- | --- |
@@ -180,10 +185,10 @@ See Appendix G. Phase I total: **$12K–$25K/year**.
 | Corporate sponsorship | $25K | $45K | $70K | $95K | $115K |
 | Retail | $5K | $10K | $15K | $20K | $25K |
 | **Total revenue** | **$680K** | **$840K** | **$1.15M** | **$1.51M** | **$1.82M** |
-| Total operating cost | $740K | $850K | $1.05M | $1.4M | $1.65M |
-| **Net surplus/(deficit)** | **($60K)** | **($10K)** | **$100K** | **$110K** | **$170K** |
+| Total operating cost (reconciled) | $786K | $905K | $1.1M | $1.45M | $1.7M |
+| **Net surplus/(deficit)** | **($106K)** | **($65K)** | **$50K** | **$60K** | **$120K** |
 
-### 4.3 Mid Scenario — $2.1M Phase-I Raise, Base Case
+### 4.3 Mid Scenario — $2.15M Phase-I Raise, Base Case
 
 | Revenue Stream | Y1 | Y2 | Y3 | Y4 | Y5 |
 | --- | --- | --- | --- | --- | --- |
@@ -199,12 +204,12 @@ See Appendix G. Phase I total: **$12K–$25K/year**.
 | Corporate sponsorship | $40K | $75K | $110K | $150K | $185K |
 | Retail | $10K | $20K | $30K | $40K | $50K |
 | **Total revenue** | **$960K** | **$1.31M** | **$1.75M** | **$2.31M** | **$2.82M** |
-| Total operating cost | $875K | $1.1M | $1.4M | $1.85M | $2.2M |
-| **Net surplus/(deficit)** | **$85K** | **$205K** | **$350K** | **$460K** | **$620K** |
+| Total operating cost (reconciled) | $921K | $1.15M | $1.45M | $1.9M | $2.25M |
+| **Net surplus/(deficit)** | **$39K** | **$155K** | **$300K** | **$410K** | **$570K** |
 
 Annual surplus contributes to endowment goal of $3M by Year 7.
 
-### 4.4 High Scenario — $3.0M Phase-I Raise, Aggressive Growth
+### 4.4 High Scenario — $3.05M Phase-I Raise, Aggressive Growth
 
 | Revenue Stream | Y1 | Y2 | Y3 | Y4 | Y5 |
 | --- | --- | --- | --- | --- | --- |
@@ -220,8 +225,8 @@ Annual surplus contributes to endowment goal of $3M by Year 7.
 | Corporate sponsorship | $75K | $125K | $175K | $225K | $275K |
 | Retail | $15K | $30K | $50K | $70K | $85K |
 | **Total revenue** | **$1.28M** | **$1.83M** | **$2.52M** | **$3.35M** | **$4.10M** |
-| Total operating cost | $1.05M | $1.4M | $1.85M | $2.55M | $3.2M |
-| **Net surplus/(deficit)** | **$230K** | **$430K** | **$670K** | **$800K** | **$900K** |
+| Total operating cost (reconciled) | $1.1M | $1.45M | $1.9M | $2.6M | $3.25M |
+| **Net surplus/(deficit)** | **$180K** | **$380K** | **$620K** | **$750K** | **$850K** |
 
 ### 4.5 Scenario Commentary
 
@@ -305,7 +310,7 @@ Raising avg adoption fee from $250 → $400 adds ~$30K/yr at 200 dogs/yr. Materi
 | Y3 | $1.4M | $252K | $2.97M |
 | Y5 | $2.2M | $396K | $4.67M |
 
-Phase-I debt target (Self-Help / PRI stack): $380K at $2.1M midpoint = 18% of raise; **modest debt service ~$38K/yr** — well within policy.
+Phase-I debt target (Self-Help / PRI stack): $380K at $2.15M midpoint = 18% of raise; **modest debt service ~$38K/yr** — well within policy.
 
 ### 7.2 Fundraising Ratio
 
